@@ -1,7 +1,7 @@
-﻿<Application x:Class="LeagueOfTeamsModel.App"
+﻿<Application x:Class="LeagueOfTeamsBusinessLogic.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:LeagueOfTeamsModel"
+             xmlns:local="clr-namespace:LeagueOfTeamsBusinessLogic"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

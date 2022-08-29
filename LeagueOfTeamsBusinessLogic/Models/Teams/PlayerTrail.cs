@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeagueOfTeamsModel.Models.Team
+namespace LeagueOfTeamsBusinessLogic.Models.Teams
 {
     internal class PlayerTrail
     {

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LeagueOfTeamsModel
+namespace LeagueOfTeamsBusinessLogic
 {
     public partial class MainWindow : Window
     {

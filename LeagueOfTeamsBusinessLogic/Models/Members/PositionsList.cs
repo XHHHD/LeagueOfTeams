@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace LeagueOfTeamsBusinessLogic.Models.Members
+﻿namespace LeagueOfTeamsBusinessLogic.Models.Members
 {
     internal class PositionsList
     {

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using LeagueOfTeamsBusinessLogic.Models.Teams;
+﻿using LeagueOfTeamsBusinessLogic.Models.Teams;
 
 namespace LeagueOfTeamsBusinessLogic.Models.Top
 {

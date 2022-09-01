@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using LeagueOfTeamsBusinessLogic.Interfaces;
+﻿using LeagueOfTeamsBusinessLogic.Interfaces;
 
 namespace LeagueOfTeamsBusinessLogic.Models.Members
 {
@@ -10,9 +8,7 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
         /// This date will be used for enhancing afk non-played members.
         /// Members, who was generated once, will compete whith player.
         /// </summary>
-        public readonly DateTime memberCreationDate;
-        readonly Random random = new();
-        private readonly uint _memberID;
+        private readonly int id;
         private readonly string _memberNick;
         private byte _memberAge;
         private int _memberEnergy = 100;
@@ -22,10 +18,13 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
         private List<MemberPosition> _memberPositions;
         private MemberPosition _currentlyMemberMainPosition;
         private List<MemberTrail> _memberTrailsList;
+        public readonly DateTime memberCreationDate;
+        readonly Random random = new();
 
-        public uint MemberID { get => _memberID; }
+        public int Id { get => id; }
         public string MemberNick { get => _memberNick; }
         public byte MemberAge { get => _memberAge; }
+        public int MemberPower { get => _currentlyMemberMainPosition.PositionPower; }
         public int MemberEnergy
         {
             get => _memberEnergy;
@@ -46,7 +45,6 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
         public Member(uint playerLevel)
         {
             memberCreationDate = DateTime.UtcNow;
-            _memberID;
             _memberNick = MemberNickGenerator.MakeNewMemberNick();
 
             //Age must be between 14 and 30 yers. Because members, who more then 30 years old whil luse they characteristics.
@@ -56,6 +54,7 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
             
             //Making main position for the member. First main position always must be.
             MemberPosition firstMemberPosition = new(playerLevel);
+            _currentlyMemberMainPosition = firstMemberPosition;
             _memberPositions.Add(firstMemberPosition);
 
             //There must be 50% chanse to get member with two positions.
@@ -95,7 +94,7 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
                     return "Error! This member is already can play this position!";
                 }
             }
-            MemberPositions.Add(new MemberPosition(addPositionName, playerLevel));
+            MemberPositions.Add( _currentlyMemberMainPosition = new MemberPosition(addPositionName, playerLevel));
             return "Done!";
         }
     }

@@ -3,25 +3,24 @@ using LeagueOfTeamsBusinessLogic.Interfaces;
 using LeagueOfTeamsBusinessLogic.Models.Top;
 using LeagueOfTeamsBusinessLogic.Models.DTO;
 using LeagueOfTeamsBusinessLogic.Exceptions;
-using System;
-using System.Collections.Generic;
 
 namespace LeagueOfTeamsBusinessLogic.Models.Teams
 {
     internal class Team
     {
-        private readonly int _teamID;
+        private readonly int id;
         private string _teamName = "";
         private string _teamShortName = "";
         private string _teamDescription = "There are no description here.";
         private uint _playerExpiriance = 0;
+        private int _teamEnergy = 0;
         private int _teamPower = 0;
         private int _teamHealth = 0;
         private int _teamCooperation = 0;
         private List<IMember> _members;
         private List<PlayerTrail> _playerTrails;
 
-        public int TeamID { get => _teamID; }
+        public int TeamID { get => id; }
         public string TeamName { get => _teamName; set => _teamName = value; }
         public string TeamDisplayName
         {
@@ -44,6 +43,7 @@ namespace LeagueOfTeamsBusinessLogic.Models.Teams
         public List<PlayerTrail> PlayerTrails { get => _playerTrails; }
         public uint PlayerExpiriance { get => _playerExpiriance%1000; }
         public uint PlayerLevel { get => _playerExpiriance/1000 + 1; }
+        public int TeamEnergy { get => _teamEnergy; }
         public int TeamPower { get => _teamPower; }
         public int TeamHealth { get => _teamHealth; }
         public int TeamCooperation { get => _teamCooperation; }
@@ -54,6 +54,7 @@ namespace LeagueOfTeamsBusinessLogic.Models.Teams
             _members = new List<IMember>();
             _playerTrails = new List<PlayerTrail>();
             if (newTeam.Name != null && TeamsTopManager.IsThisNamespaceFree(newTeam.Name)) _teamName = newTeam.Name;
+            else throw new TeamRegistrationException("Set new team name.");
             string teamShortName;
             if (newTeam.ShortName == null)
             {

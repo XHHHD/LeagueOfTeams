@@ -1,6 +1,4 @@
 ﻿using LeagueOfTeamsBusinessLogic.Models.Members;
-using System;
-using System.Collections.Generic;
 
 namespace LeagueOfTeamsBusinessLogic.Models.Top
 {

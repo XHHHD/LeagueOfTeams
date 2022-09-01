@@ -1,34 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics.Metrics;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Net.Sockets;
-using System.Numerics;
-using System.Reflection.Metadata;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.Intrinsics.Arm;
-using System.Runtime.Intrinsics.X86;
-using System.Security.Claims;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using static System.Formats.Asn1.AsnWriter;
-using static System.Net.Mime.MediaTypeNames;
-using System.Xml.Linq;
-using static System.Net.WebRequestMethods;
-using LeagueOfTeamsBusinessLogic.Interfaces;
-using System.Security.Cryptography;
-using Microsoft.VisualBasic;
-using static System.Reflection.Metadata.BlobBuilder;
+﻿using System.Data;
 using LeagueOfTeamsBusinessLogic.Models.Top;
 
 namespace LeagueOfTeamsBusinessLogic.Models.Members
@@ -64,7 +34,7 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
             "Wardon", "Wraith", "Wrath", "Wildcat", "Wolf", "Wolverine", "Wonwifter",
             "XMasGift", "XSkull", "XavieL",
             "YellowMaster","YellowKaRaTeBelt", "YodaWasAShearedRat",
-            "Zomboid", "Zorrotron", "Zero", "Zoltan"
+            "Zomboid", "Zorrotron", "Zero", "Zoltan", "Zak"
         };
         internal static string MakeNewMemberNick()
         {

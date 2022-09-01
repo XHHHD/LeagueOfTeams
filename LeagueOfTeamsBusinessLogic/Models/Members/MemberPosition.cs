@@ -1,18 +1,18 @@
-﻿using System;
-
-namespace LeagueOfTeamsBusinessLogic.Models.Members
+﻿namespace LeagueOfTeamsBusinessLogic.Models.Members
 {
     internal class MemberPosition
     {
-        readonly Random random = new();
+        private readonly int _id;
         private readonly string _positionName;
         private uint _positionExpiriance;
         private double _positionFavorite;
         private int _positionPower;
         private int _positionDefence;
         private int _positionHealth;
+        readonly Random random = new();
 
 
+        internal int Id { get => _id; }
         /// <summary>
         /// Name of position: top/mid/bot/damagedealer/defender or else.
         /// For more information look PositionList.

@@ -8,7 +8,7 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
         /// This date will be used for enhancing afk non-played members.
         /// Members, who was generated once, will compete whith player.
         /// </summary>
-        private readonly int id;
+        private readonly int _id;
         private readonly string _memberNick;
         private byte _memberAge;
         private int _memberEnergy = 100;
@@ -21,7 +21,7 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
         public readonly DateTime memberCreationDate;
         readonly Random random = new();
 
-        public int Id { get => id; }
+        public int Id { get => _id; }
         public string MemberNick { get => _memberNick; }
         public byte MemberAge { get => _memberAge; }
         public int MemberPower { get => _currentlyMemberMainPosition.PositionPower; }

@@ -2,7 +2,7 @@
 
 namespace LeagueOfTeamsDataAccess.Repositories
 {
-    internal class PositionRepository
+    public class PositionRepository
     {
         AppContext _db;
         public PositionRepository()
@@ -14,6 +14,10 @@ namespace LeagueOfTeamsDataAccess.Repositories
         public List<Position> GetAllPositions()
         {
             return _db.Positions.ToList();
+        }
+        public Position GetCurrentlyPosition(int posotionIndex)
+        {
+            return _db.Positions.ToArray()[posotionIndex];
         }
     }
 }

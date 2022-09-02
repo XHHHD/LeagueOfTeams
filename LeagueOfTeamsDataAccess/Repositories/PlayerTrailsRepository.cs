@@ -2,7 +2,7 @@
 
 namespace LeagueOfTeamsDataAccess.Repositories
 {
-    internal class PlayerTrailsRepository
+    public class PlayerTrailsRepository
     {
         AppContext _db;
         public PlayerTrailsRepository()

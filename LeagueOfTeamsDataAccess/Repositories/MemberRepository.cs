@@ -3,7 +3,7 @@ using LeagueOfTeamsDataAccess.Interfaces;
 
 namespace LeagueOfTeamsDataAccess.Repositories
 {
-    internal class MemberRepository : IMember
+    public class MemberRepository : IMember
     {
         AppContext _db;
         public MemberRepository()

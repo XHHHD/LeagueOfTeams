@@ -2,7 +2,7 @@
 
 namespace LeagueOfTeamsDataAccess.Repositories
 {
-    internal class UserRepository
+    public class UserRepository
     {
         AppContext _db;
         public UserRepository()

@@ -1,6 +1,6 @@
 ﻿namespace LeagueOfTeamsDataAccess.Entities
 {
-    internal class PlayerTrail
+    public class PlayerTrail
     {
         public int Id { get; set; }
         public string Name { get; set; }

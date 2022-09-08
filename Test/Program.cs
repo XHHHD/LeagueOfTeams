@@ -9,7 +9,7 @@ internal class Program
         var userRepo = new UserRepository();
         var memberRepo = new MemberRepository();
         var teamRepo = new TeamRepository();
-        var positionRepo = new PositionRepository();
+        var positionRepo = new PositionsNamesRepository();
         var playerTrailRepo = new PlayerTrailsRepository();
         var memberTrailRepo = new MembersTrailsRepository();
 
@@ -19,19 +19,19 @@ internal class Program
 
         memberRepo.AddMember(new Member()
         {
-            _memberNick = "Neo",
-            _memberAge = 14,
-            _memberEnergy = 100,
-            _memberMaxEnergy = 100,
-            _memberMainExpiriance = 0,
-            _memberFreeMainSkillPoints = 0,
-            _currentlyMemberMainPosition = positionRepo.GetCurrentlyPosition(1),
-            _memberPositions = new List<Position> { positionRepo.GetCurrentlyPosition(1) }
+            MemberNick = "Neo",
+            MemberAge = 14,
+            MemberEnergy = 100,
+            MemberMaxEnergy = 100,
+            MemberMainExpiriance = 0,
+            MemberFreeMainSkillPoints = 0,
+            CurrentlyMemberMainPositionId = positionRepo.GetCurrentlyPosition(1),
+            MemberPositionsId = new List<PositionsNames> { positionRepo.GetCurrentlyPosition(1) }
 
         });
         var member = memberRepo.GetAllMembers().FirstOrDefault();
         Console.WriteLine(member.Id);
-        Console.WriteLine(member._memberNick);
-        Console.WriteLine(member._memberAge);
+        Console.WriteLine(member.MemberNick);
+        Console.WriteLine(member.MemberAge);
     }
 }

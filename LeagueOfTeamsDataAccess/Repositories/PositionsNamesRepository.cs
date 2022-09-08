@@ -2,22 +2,22 @@
 
 namespace LeagueOfTeamsDataAccess.Repositories
 {
-    public class PositionRepository
+    public class PositionsNamesRepository
     {
         AppContext _db;
-        public PositionRepository()
+        public PositionsNamesRepository()
         {
             string dbConnectionString =
                 "Server=(localdb)\\mssqllocaldb;Initial Catalog=MyDB;Integrated Security=True;";
             _db = new AppContext(dbConnectionString);
         }
-        public List<Position> GetAllPositions()
+        public List<PositionsNames> GetAllPositions()
         {
-            return _db.Positions.ToList();
+            return _db.PositionsNames.ToList();
         }
-        public Position GetCurrentlyPosition(int posotionIndex)
+        public PositionsNames GetCurrentlyPosition(int posotionIndex)
         {
-            return _db.Positions.ToArray()[posotionIndex];
+            return _db.PositionsNames.ToArray()[posotionIndex];
         }
     }
 }

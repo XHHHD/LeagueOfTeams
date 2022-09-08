@@ -8,7 +8,7 @@ namespace LeagueOfTeamsDataAccess
         public DbSet<User> Users => Set<User>();
         public DbSet<Team> Teams => Set<Team>();
         public DbSet<Member> Members => Set<Member>();
-        public DbSet<Position> Positions => Set<Position>();
+        public DbSet<PositionsNames> PositionsNames => Set<PositionsNames>();
         public DbSet<PlayerTrail> PlayerTrails => Set<PlayerTrail>();
         public DbSet<MemberTrail> MembersTrails => Set<MemberTrail>();
         public AppContext() => Database.EnsureCreated();

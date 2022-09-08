@@ -1,0 +1,47 @@
+﻿<Window x:Name="AuthorizationView" x:Class="LeagueOfTeamsUI.Views.AuthorizationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LeagueOfTeamsUI.Views"
+        mc:Ignorable="d"
+        
+        Title="AutorisationWindow" Height="340" Width="400"
+        SizeToContent="WidthAndHeight" AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None" Background="{x:Null}">
+    <Border CornerRadius="40" BorderBrush="Black" BorderThickness="1" Background="#FFABABAB">
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Name="Logo" Grid.Row="0" TextAlignment="Center" HorizontalAlignment="Center"
+                       VerticalAlignment="Center" Text="AUTHORIZATION" FontFamily="Castellar"
+                       FontSize="36" FontWeight="Bold"/>
+            <TextBox Name="loggingBox" Grid.Row="1" MinWidth="250" MaxWidth="250" MinHeight="40"
+                     HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"
+                     FontFamily="Castellar" FontSize="30" Text="Login"/>
+            <TextBox Name="passwordBox" Grid.Row="3" MinWidth="250" MaxWidth="250" MinHeight="40"
+                     HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"
+                     FontFamily="Castellar" FontSize="30" Text="Password"/>
+
+            <WrapPanel Grid.Row="4" HorizontalAlignment="Center" Margin="0,5,0,5" VerticalAlignment="Top">
+                <Button IsDefault="True" Click="Accept_Click" MinWidth="135" MinHeight="40"
+                        Margin="0,0,10,0" Content="OK" FontFamily="Castellar" FontSize="30"
+                        FontWeight="Bold"/>
+                <Button IsCancel="True" MinWidth="60" FontFamily="Castellar" FontSize="30"
+                        Content="Cansel" FontWeight="Bold"/>
+            </WrapPanel>
+            <Button IsDefault="True" Grid.Row="5" MinWidth="200" MinHeight="45"
+                    HorizontalAlignment="Center" FontFamily="Castellar" FontSize="20" Margin="0,5,0,0"
+                    Content="REGISTRATION" FontWeight="Bold" Grid.RowSpan="2" Click="Registration_Click"/>
+        </Grid>
+    </Border>
+
+</Window>

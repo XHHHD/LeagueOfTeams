@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LeagueOfTeamsUI.Views;
+using LeagueOfTeamsUI.Pages;
 
 namespace LeagueOfTeamsBusinessLogic
 {
@@ -52,9 +53,11 @@ namespace LeagueOfTeamsBusinessLogic
             if (autorisationWindow.ShowDialog() == true)
             {
                 if (autorisationWindow.Password == "12345678")
+                {
+                    LoginFrame.Content = new LoginPage();
                     MessageBox.Show("Authorization successful!");
-                else
-                    MessageBox.Show("Wrong login or password!");
+                }
+                else MessageBox.Show("Wrong login or password!");
             }
             else
             {

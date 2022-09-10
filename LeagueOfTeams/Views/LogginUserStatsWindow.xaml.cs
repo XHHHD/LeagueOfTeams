@@ -21,6 +21,10 @@ namespace LeagueOfTeamsUI.Views
             InitializeComponent();
         }
 
+        private void UserStatsWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
         private void CloseUserStatsButton_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = true;

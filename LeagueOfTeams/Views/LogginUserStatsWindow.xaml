@@ -1,0 +1,35 @@
+﻿<Window x:Class="LeagueOfTeamsUI.Views.LogginUserStatsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LeagueOfTeamsUI.Views"
+        mc:Ignorable="d"
+        
+        x:Name="UserStatsWindow" Title="UserStats" Height="450" Width="800" AllowDrop="True" WindowStyle="None"
+        ScrollViewer.CanContentScroll="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.3*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <TextBlock x:Name="UserName" Margin="20" FontFamily="Castellar" FontSize="48" FontWeight="Bold" Text="Adm" />
+                <ListBox x:Name="UserStatsList" Margin="10" FontFamily="Castellar" FontSize="18" FontWeight="Bold" MinHeight="50"/>
+            </StackPanel>
+            <Image Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Height="120" Width="120" Margin="20"
+                   OpacityMask="Black"/>
+        </Grid>
+        <StackPanel x:Name="MatchHistoryStack" Grid.Row="1">
+            <ListBox x:Name="MatchHistoryList"/>
+        </StackPanel>
+        <Button x:Name="CloseUserStatsButton" Grid.Row="2" Margin="5" FontFamily="Castellar" FontSize="28" FontWeight="Bold"
+                Content="Close" Click="CloseUserStatsButton_Click" />
+    </Grid>
+</Window>

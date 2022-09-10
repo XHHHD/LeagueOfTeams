@@ -13,7 +13,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="0.4*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="LoginStatsButton" Margin="10" MinHeight="260" MinWidth="280" Foreground="{x:Null}" BorderBrush="{x:Null}">
+        <Button x:Name="LoginStatsButton" Margin="10" MinHeight="260" MinWidth="280" Foreground="{x:Null}" BorderBrush="{x:Null}"
+                Click="LoginStatsButton_Click">
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Color="#FFFFEA00" Offset="0"/>

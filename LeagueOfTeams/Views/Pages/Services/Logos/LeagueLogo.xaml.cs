@@ -1,5 +1,4 @@
-﻿using LeagueOfTeamsUI.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,19 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LeagueOfTeamsUI.Pages
+namespace LeagueOfTeamsUI.Views.Pages.Services.Logos
 {
-    public partial class LoginPage : Page
+    /// <summary>
+    /// Логика взаимодействия для LeagueLogo.xaml
+    /// </summary>
+    public partial class LeagueLogo : Page
     {
-        public LoginPage()
+        public LeagueLogo()
         {
             InitializeComponent();
-        }
-
-        private void LoginStatsButton_Click(object sender, RoutedEventArgs e)
-        {
-            LogginUserStatsWindow logginedUserStats = new LogginUserStatsWindow();
-            if (logginedUserStats.ShowDialog() == true);
         }
     }
 }

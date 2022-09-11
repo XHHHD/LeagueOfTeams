@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         
         Title="Teams league" Height="900" Width="1600" AllowDrop="True"
-        MinWidth="1440" MinHeight="810" MaxWidth="1600" MaxHeight="900" WindowStyle="None"
+        MinWidth="1440" MinHeight="810" WindowStyle="None"
         
         x:Name="WindowMain"
         MouseLeftButtonDown="MainWindow_MouseLeftButtonDown" Background="{x:Null}"
@@ -60,7 +60,7 @@
                        Text="TEAMS LEAGUE" FontFamily="Castellar" FontSize="90"
                        FontWeight="Bold" VerticalAlignment="Top"/>
             <Button x:Name="StartButton" Grid.Column="1" Content="START" Grid.Row="2"
-                    FontFamily="Castellar" FontSize="72" FontWeight="Bold">
+                    FontFamily="Castellar" FontSize="72" FontWeight="Bold" Click="StartButton_Click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <LinearGradientBrush.RelativeTransform>
@@ -76,7 +76,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <StackPanel Grid.Column="2" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="20">
+            <StackPanel Grid.Column="2" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="20,0,20,20">
                 <Button x:Name="CloseButton" Grid.Column="2" Content="O" Margin="0,10,10,0"
                         FontSize="24" FontWeight="Bold" FontFamily="DamageLog"
                         MaxWidth="80" MaxHeight="80" Grid.RowSpan="2" HorizontalAlignment="Right"

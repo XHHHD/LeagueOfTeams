@@ -52,7 +52,7 @@ namespace LeagueOfTeamsBusinessLogic
 
             if (autorisationWindow.ShowDialog() == true)
             {
-                if (autorisationWindow.Password == "12345678")
+                if (autorisationWindow.Password == "123")
                 {
                     LoginFrame.Content = new LoginPage();
                     MessageBox.Show("Authorization successful!");
@@ -65,5 +65,11 @@ namespace LeagueOfTeamsBusinessLogic
             }
         }
 
+        private void StartButton_Click(object sender, RoutedEventArgs e)
+        {
+            GameWindow game = new GameWindow();
+            game.Show();
+            WindowMain.Close();
+        }
     }
 }

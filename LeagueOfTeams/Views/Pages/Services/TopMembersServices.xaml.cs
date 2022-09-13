@@ -13,14 +13,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LeagueOfTeamsUI.Views.Pages.Services.Logos
+namespace LeagueOfTeamsUI.Views.Pages.Services
 {
-    /// <summary>
-    /// Логика взаимодействия для PlayerStatsLogo.xaml
-    /// </summary>
-    public partial class PlayerStatsLogo : Page
+    public partial class TopMembersServices : Page
     {
-        public PlayerStatsLogo()
+        public TopMembersServices()
         {
             InitializeComponent();
         }

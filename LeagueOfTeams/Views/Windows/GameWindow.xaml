@@ -36,15 +36,21 @@
                 <ColumnDefinition Width="6*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="15,0,0,15">
-                <Frame x:Name="PlayerStatsButton" NavigationUIVisibility="Hidden" Height="150" Width="240"/>
-                <Frame x:Name="TeamStatsButton" NavigationUIVisibility="Hidden" Height="150" Width="240"/>
-                <Frame x:Name="LeagueButton" NavigationUIVisibility="Hidden" Height="150" Width="240"/>
-                <Frame x:Name="TopTeamsButton" NavigationUIVisibility="Hidden" Height="150" Width="240"/>
-                <Frame x:Name="TopMembersButton" NavigationUIVisibility="Hidden" Height="150" Width="240"/>
+                <Frame x:Name="TeamStatsButton" NavigationUIVisibility="Hidden" Height="125" Width="240"/>
+                <Frame x:Name="TrainingsButton" NavigationUIVisibility="Hidden" Height="125" Width="240"/>
+                <Frame x:Name="LeagueButton" NavigationUIVisibility="Hidden" Height="125" Width="240"/>
+                <Frame x:Name="TopTeamsButton" NavigationUIVisibility="Hidden" Height="125" Width="240"/>
+                <Frame x:Name="TopMembersButton" NavigationUIVisibility="Hidden" Height="125" Width="240"/>
+                <Frame x:Name="UserStatsButton" NavigationUIVisibility="Hidden" Height="125" Width="240"/>
             </StackPanel>
-            <TextBlock x:Name="CurrentlyGamePage" Grid.Column="1" VerticalAlignment="Center" FontFamily="Castellar"
-                       FontSize="50" FontWeight="Bold" Text="Default Page" />
-            <StackPanel Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="20,0,20,20"
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="CurrentlyGamePage" Grid.Column="0" VerticalAlignment="Center" FontFamily="Castellar"
+                           FontSize="50" FontWeight="Bold" Text="Default Page" />
+                <StackPanel Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="20,0,20,20"
                         HorizontalAlignment="Right">
                 <Button x:Name="CloseButton" Grid.Column="2" Content="O" Margin="0,10,10,0"
                         FontSize="24" FontWeight="Bold" FontFamily="DamageLog"
@@ -63,9 +69,10 @@
                         Grid.RowSpan="2" VerticalAlignment="Top"
                         Click="MinimizedButton_Click"
                         MinWidth="40" MinHeight="40" Background="{x:Null}" BorderBrush="{x:Null}"/>
-            </StackPanel>
+                </StackPanel>
+            </Grid>
             <Frame x:Name="GameMainFrame" Grid.Column="1" Grid.Row="1" Margin="5,5,20,20" NavigationUIVisibility="Hidden"
-                   Foreground="{x:Null}"/>
+                   Foreground="{x:Null}" BorderBrush="Black"/>
         </Grid>
     </Border>
 </Window>

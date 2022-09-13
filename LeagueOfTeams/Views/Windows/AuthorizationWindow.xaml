@@ -38,7 +38,7 @@
                 <Button IsCancel="True" MinWidth="60" FontFamily="Castellar" FontSize="30"
                         Content="Cansel" FontWeight="Bold"/>
             </WrapPanel>
-            <Button IsDefault="True" Grid.Row="5" MinWidth="200" MinHeight="45"
+            <Button Grid.Row="5" MinWidth="200" MinHeight="45"
                     HorizontalAlignment="Center" FontFamily="Castellar" FontSize="20" Margin="0,5,0,0"
                     Content="REGISTRATION" FontWeight="Bold" Grid.RowSpan="2" Click="Registration_Click"/>
         </Grid>

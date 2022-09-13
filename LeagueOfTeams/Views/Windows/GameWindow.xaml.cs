@@ -18,15 +18,22 @@ namespace LeagueOfTeamsUI.Views
 {
     public partial class GameWindow : Window
     {
+        UserStatsLogo userStatsLogo;
+        TrainingsLogo trainingsLogo;
+        TeamStatsLogo teamStatsLogo;
+        LeagueLogo leagueLogo;
+        TopTeamsLogo topTeamsLogo;
+        TopMembersLogo topMembersLogo;
         public GameWindow()
         {
             InitializeComponent();
-            GameMainFrame.Content = new UserStatsPage();
-            PlayerStatsButton.Content = new PlayerStatsLogo();
-            TeamStatsButton.Content = new TeamStatsLogo();
-            LeagueButton.Content = new LeagueLogo();
-            TopTeamsButton.Content = new TopTeamsLogo();
-            TopMembersButton.Content = new TopMembersLogo();
+            userStatsLogo = new UserStatsLogo(this);
+            trainingsLogo = new TrainingsLogo(this);
+            teamStatsLogo = new TeamStatsLogo(this);
+            leagueLogo = new LeagueLogo(this);
+            topTeamsLogo = new TopTeamsLogo(this);
+            topMembersLogo = new TopMembersLogo(this);
+            GameMainFrame.Content = userStatsLogo;
         }
         private void GameMainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -47,6 +54,41 @@ namespace LeagueOfTeamsUI.Views
         private void MinimizedButton_Click(object sender, RoutedEventArgs e)
         {
             GameMainWindow.WindowState = WindowState.Minimized;
+        }
+
+        //I know this method isn`t correct. I know that this is worst method you have ever seen
+        //in your life and you would never show this method to your children even as a bad example.
+        //I know I'm repeating myself in this method, but it works. Perhaps later I will add
+        //some abstract class and make it work by foreach and enumerable collection, but not now.
+
+        //Its not working now. XD
+        public void GameMainFramePageEnumerable(Page nextPageContent)
+        {
+            if(userStatsLogo.Name != nextPageContent.Name)
+                userStatsLogo.TButton.IsChecked = false;
+            else
+                userStatsLogo.TButton.IsChecked = true;
+            if(trainingsLogo.Name != nextPageContent.Name)
+                trainingsLogo.TButton.IsChecked = false;
+            else
+                trainingsLogo.TButton.IsChecked = true;
+            if (teamStatsLogo.Name != nextPageContent.Name)
+                teamStatsLogo.TButton.IsChecked = false;
+            else
+                teamStatsLogo.TButton.IsChecked = true;
+            if (leagueLogo.Name != nextPageContent.Name)
+                leagueLogo.TButton.IsChecked = false;
+            else
+                leagueLogo.TButton.IsChecked = true;
+            if (topTeamsLogo.Name != nextPageContent.Name)
+                topTeamsLogo.TButton.IsChecked = false;
+            else
+                topTeamsLogo.TButton.IsChecked = true;
+            if (topMembersLogo.Name != nextPageContent.Name)
+                topMembersLogo.TButton.IsChecked = false;
+            else
+                topMembersLogo.TButton.IsChecked = true;
+            GameMainFrame.Content = nextPageContent;
         }
     }
 }

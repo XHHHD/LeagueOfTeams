@@ -1,0 +1,63 @@
+﻿<Page x:Class="LeagueOfTeamsUI.Views.Pages.Services.MemberServices.TeamMemberLogo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LeagueOfTeamsUI.Views.Pages.Services.MemberServices"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="160"
+      Title="TeamMemberLogo">
+
+    <StackPanel>
+        <StackPanel.Background>
+            <SolidColorBrush Color="Black" Opacity="0.1"/>
+        </StackPanel.Background>
+        <TextBlock x:Name="MemberName" FontFamily="Arial Black" FontSize="20" Text="Member Name"/>
+        <Image x:Name="MemberLeague" MinHeight="100"/>
+        <TextBlock x:Name="MemberStats1" FontFamily="Arial Black" FontSize="16" Text="Member stats1">
+            <TextBlock.Background>
+                <SolidColorBrush Color="Black" Opacity="0.2"/>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBlock x:Name="MemberStats2" FontFamily="Arial Black" FontSize="16" Text="Member stats2">
+            <TextBlock.Background>
+                <SolidColorBrush Color="Black" Opacity="0.2"/>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBlock x:Name="MemberStats3" FontFamily="Arial Black" FontSize="16" Text="Member stats3">
+            <TextBlock.Background>
+                <SolidColorBrush Color="Black" Opacity="0.2"/>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBlock x:Name="MemberStats4" FontFamily="Arial Black" FontSize="16" Text="Member stats4">
+            <TextBlock.Background>
+                <SolidColorBrush Color="Black" Opacity="0.2"/>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBlock x:Name="MemberStats5" FontFamily="Arial Black" FontSize="16" Text="Member stats5">
+            <TextBlock.Background>
+                <SolidColorBrush Color="Black" Opacity="0.2"/>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBlock x:Name="MemberStats6" FontFamily="Arial Black" FontSize="16" Text="Member stats6">
+            <TextBlock.Background>
+                <SolidColorBrush Color="Black" Opacity="0.2"/>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBlock x:Name="MemberStats7" FontFamily="Arial Black" FontSize="16" Text="Member stats7">
+            <TextBlock.Background>
+                <SolidColorBrush Color="Black" Opacity="0.2"/>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBlock x:Name="MemberStats8" FontFamily="Arial Black" FontSize="16" Text="Member stats8">
+            <TextBlock.Background>
+                <SolidColorBrush Color="Black" Opacity="0.2"/>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBlock x:Name="MemberStats9" FontFamily="Arial Black" FontSize="16" Text="Member stats9">
+            <TextBlock.Background>
+                <SolidColorBrush Color="Black" Opacity="0.2"/>
+            </TextBlock.Background>
+        </TextBlock>
+    </StackPanel>
+</Page>

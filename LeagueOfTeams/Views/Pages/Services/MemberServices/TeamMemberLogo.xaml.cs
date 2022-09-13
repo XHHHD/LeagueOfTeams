@@ -13,11 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LeagueOfTeamsUI.Views.Pages.Services
+namespace LeagueOfTeamsUI.Views.Pages.Services.MemberServices
 {
-    public partial class UserStatsPage : Page
+    /// <summary>
+    /// Логика взаимодействия для TeamMemberLogo.xaml
+    /// </summary>
+    public partial class TeamMemberLogo : Page
     {
-        public UserStatsPage()
+        public TeamMemberLogo()
         {
             InitializeComponent();
         }

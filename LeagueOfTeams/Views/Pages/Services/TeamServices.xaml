@@ -1,4 +1,4 @@
-﻿<Page x:Class="LeagueOfTeamsUI.Views.Pages.Services.TeamPage"
+﻿<Page x:Class="LeagueOfTeamsUI.Views.Pages.Services.TeamServices"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -27,11 +27,11 @@
                    Source="/Img/Default/icons8-ос-free-bsd-100-white.png"/>
         </Grid>
         <StackPanel x:Name="Members" Grid.Row="1" Orientation="Horizontal">
-            <Frame MinWidth="160"/>
-            <Frame MinWidth="160"/>
-            <Frame MinWidth="160"/>
-            <Frame MinWidth="160"/>
-            <Frame MinWidth="160"/>
+            <Frame x:Name="Member1" NavigationUIVisibility="Hidden" MinWidth="160"/>
+            <Frame x:Name="Member2" NavigationUIVisibility="Hidden" MinWidth="160"/>
+            <Frame x:Name="Member3" NavigationUIVisibility="Hidden" MinWidth="160"/>
+            <Frame x:Name="Member4" NavigationUIVisibility="Hidden" MinWidth="160"/>
+            <Frame x:Name="Member5" NavigationUIVisibility="Hidden" MinWidth="160"/>
         </StackPanel>
     </Grid>
 </Page>

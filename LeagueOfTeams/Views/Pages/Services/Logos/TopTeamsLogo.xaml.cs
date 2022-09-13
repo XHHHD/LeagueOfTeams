@@ -15,14 +15,19 @@ using System.Windows.Shapes;
 
 namespace LeagueOfTeamsUI.Views.Pages.Services.Logos
 {
-    /// <summary>
-    /// Логика взаимодействия для TopTeamsLogo.xaml
-    /// </summary>
     public partial class TopTeamsLogo : Page
     {
-        public TopTeamsLogo()
+        TopTeamsServices topTeamsServices = new TopTeamsServices();
+        GameWindow gameWindow;
+        public TopTeamsLogo(GameWindow gameWindow)
         {
             InitializeComponent();
+            gameWindow.TopTeamsButton.Content = this;
+            this.gameWindow = gameWindow;
+        }
+        private void ToggleButton_Click(object sender, RoutedEventArgs e)
+        {
+            gameWindow.GameMainFramePageEnumerable(topTeamsServices);
         }
     }
 }

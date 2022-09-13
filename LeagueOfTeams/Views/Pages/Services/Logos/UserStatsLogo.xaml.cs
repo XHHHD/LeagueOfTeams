@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeagueOfTeamsBusinessLogic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,19 +16,20 @@ using System.Windows.Shapes;
 
 namespace LeagueOfTeamsUI.Views.Pages.Services.Logos
 {
-    public partial class TeamStatsLogo : Page
+    public partial class UserStatsLogo : Page
     {
-        TeamServices teamServices = new TeamServices();
+        UserStatsServices userStatsServices = new UserStatsServices();
         GameWindow gameWindow;
-        public TeamStatsLogo(GameWindow gameWindow)
+        public UserStatsLogo(GameWindow gameWindow)
         {
             InitializeComponent();
-            gameWindow.TeamStatsButton.Content = this;
+            gameWindow.UserStatsButton.Content = this;
             this.gameWindow = gameWindow;
         }
-        private void ToggleButton_Click(object sender, RoutedEventArgs e)
+
+        public void ToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            gameWindow.GameMainFramePageEnumerable(teamServices);
+            gameWindow.GameMainFramePageEnumerable(userStatsServices);
         }
     }
 }

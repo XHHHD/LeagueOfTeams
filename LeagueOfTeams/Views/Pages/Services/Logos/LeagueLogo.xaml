@@ -5,16 +5,18 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LeagueOfTeamsUI.Views.Pages.Services.Logos"
       mc:Ignorable="d"
-      d:DesignHeight="150" d:DesignWidth="240"
+      d:DesignHeight="125" d:DesignWidth="240"
       Title="LeagueLogo">
 
-    <Grid>
-        <Grid.RowDefinitions>
+    <ToggleButton x:Name="TButton" Background="{x:Null}" BorderBrush="{x:Null}" Click="ToggleButton_Click">
+        <Grid>
+            <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Image x:Name="LeagueLogoImg" Grid.Row="0" Source="/Img/Default/icons8-ос-free-bsd-100-white.png" />
-        <TextBlock Text="League" Grid.Row="1" FontSize="30" FontFamily="Arial Black"
+            <Image x:Name="LeagueLogoImg" Grid.Row="0" Source="/Img/Default/icons8-ос-free-bsd-100-white.png" />
+            <TextBlock Text="League" Grid.Row="1" FontSize="30" FontFamily="Arial Black"
                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
-    </Grid>
+        </Grid>
+    </ToggleButton>
 </Page>

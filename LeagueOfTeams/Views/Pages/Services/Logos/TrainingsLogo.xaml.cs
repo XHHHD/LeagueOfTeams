@@ -15,19 +15,19 @@ using System.Windows.Shapes;
 
 namespace LeagueOfTeamsUI.Views.Pages.Services.Logos
 {
-    public partial class TeamStatsLogo : Page
+    public partial class TrainingsLogo : Page
     {
-        TeamServices teamServices = new TeamServices();
+        TrainingsServices trainingsSrvices = new TrainingsServices();
         GameWindow gameWindow;
-        public TeamStatsLogo(GameWindow gameWindow)
+        public TrainingsLogo(GameWindow gameWindow)
         {
             InitializeComponent();
-            gameWindow.TeamStatsButton.Content = this;
+            gameWindow.TrainingsButton.Content = this;
             this.gameWindow = gameWindow;
         }
         private void ToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            gameWindow.GameMainFramePageEnumerable(teamServices);
+            gameWindow.GameMainFramePageEnumerable(trainingsSrvices);
         }
     }
 }

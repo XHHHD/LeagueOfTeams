@@ -15,12 +15,9 @@ using System.Windows.Shapes;
 
 namespace LeagueOfTeamsUI.Views.Pages.Services
 {
-    /// <summary>
-    /// Логика взаимодействия для TeamPage.xaml
-    /// </summary>
-    public partial class TeamPage : Page
+    public partial class TopTeamsServices : Page
     {
-        public TeamPage()
+        public TopTeamsServices()
         {
             InitializeComponent();
         }

@@ -13,13 +13,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LeagueOfTeamsUI.Views.Pages.Services.Logos
+namespace LeagueOfTeamsUI.Views.Pages.Services.MemberServices
 {
-    public partial class TrainingsServices : Page
+    public partial class MemberTrainings : Page
     {
-        public TrainingsServices()
+        public MemberTrainings()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }

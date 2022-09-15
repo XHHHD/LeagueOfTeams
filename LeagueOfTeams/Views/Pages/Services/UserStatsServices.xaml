@@ -6,8 +6,8 @@
       xmlns:local="clr-namespace:LeagueOfTeamsUI.Views.Pages.Services"
       mc:Ignorable="d"
       
-      d:DesignHeight="450" d:DesignWidth="800"
-      x:Name="UserStats" Title="UserStatsPage">
+      d:DesignHeight="736" d:DesignWidth="1240"
+      x:Name="UserStats" Title="Your Statistic">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -22,14 +22,19 @@
             </Grid.ColumnDefinitions>
             <StackPanel>
                 <TextBlock x:Name="UserName" Margin="10" FontFamily="Castellar" FontSize="48" FontWeight="Bold" Text="Adm" />
-                <ListBox x:Name="UserStatsList" Margin="10" FontFamily="Castellar" FontSize="18" FontWeight="Bold" MinHeight="50"/>
+                <ListBox x:Name="UserStatsList" Margin="10" FontFamily="Castellar" FontSize="18" FontWeight="Bold" MinHeight="140"/>
             </StackPanel>
-            <Image x:Name="UserRankImg" Grid.Column="1" Margin="10" OpacityMask="Black"
-                   Source="/Img/Default/icons8-ос-free-bsd-100-black.png" />
+            <Border Grid.Column="1" Margin="10">
+                <Border.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.1"/>
+                </Border.Background>
+                <Image x:Name="UserRankImg" Margin="3" OpacityMask="Black"
+                       Source="/Img/Default/icons8-ос-free-bsd-100-black.png" />
+            </Border>
         </Grid>
         <StackPanel x:Name="MatchHistoryStack" Grid.Row="1">
-            <TextBlock FontFamily="Castellar" FontSize="24" FontWeight="Bold" Text="MatchesHistory"/>
-            <ListBox x:Name="MatchHistoryList" Margin="3" MinHeight="25"/>
+            <TextBlock FontFamily="Castellar" Margin="5" FontSize="24" FontWeight="Bold" Text="Matches History"/>
+            <ListBox x:Name="MatchHistoryList" Margin="3" MinHeight="50"/>
         </StackPanel>
     </Grid>
 </Page>

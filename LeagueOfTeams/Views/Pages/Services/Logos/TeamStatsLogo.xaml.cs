@@ -17,7 +17,7 @@ namespace LeagueOfTeamsUI.Views.Pages.Services.Logos
 {
     public partial class TeamStatsLogo : Page
     {
-        TeamServices teamServices = new TeamServices();
+        TeamsServices teamServices = new TeamsServices();
         GameWindow gameWindow;
         public TeamStatsLogo(GameWindow gameWindow)
         {

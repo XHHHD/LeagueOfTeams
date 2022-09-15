@@ -28,8 +28,8 @@ namespace LeagueOfTeamsUI.Views
         {
             InitializeComponent();
             userStatsLogo = new UserStatsLogo(this);
-            trainingsLogo = new TrainingsLogo(this);
             teamStatsLogo = new TeamStatsLogo(this);
+            trainingsLogo = new TrainingsLogo(this);
             leagueLogo = new LeagueLogo(this);
             topTeamsLogo = new TopTeamsLogo(this);
             topMembersLogo = new TopMembersLogo(this);
@@ -64,30 +64,19 @@ namespace LeagueOfTeamsUI.Views
         //Its not working now. XD
         public void GameMainFramePageEnumerable(Page nextPageContent)
         {
-            if(userStatsLogo.Name != nextPageContent.Name)
-                userStatsLogo.TButton.IsChecked = false;
-            else
-                userStatsLogo.TButton.IsChecked = true;
-            if(trainingsLogo.Name != nextPageContent.Name)
-                trainingsLogo.TButton.IsChecked = false;
-            else
-                trainingsLogo.TButton.IsChecked = true;
-            if (teamStatsLogo.Name != nextPageContent.Name)
-                teamStatsLogo.TButton.IsChecked = false;
-            else
-                teamStatsLogo.TButton.IsChecked = true;
-            if (leagueLogo.Name != nextPageContent.Name)
-                leagueLogo.TButton.IsChecked = false;
-            else
-                leagueLogo.TButton.IsChecked = true;
-            if (topTeamsLogo.Name != nextPageContent.Name)
-                topTeamsLogo.TButton.IsChecked = false;
-            else
-                topTeamsLogo.TButton.IsChecked = true;
-            if (topMembersLogo.Name != nextPageContent.Name)
-                topMembersLogo.TButton.IsChecked = false;
-            else
-                topMembersLogo.TButton.IsChecked = true;
+            CurrentlyGamePage.Text = nextPageContent.Title;
+            if(userStatsLogo.Title != nextPageContent.Title) userStatsLogo.TButton.IsChecked = false;
+            else userStatsLogo.TButton.IsChecked = true;
+            if(trainingsLogo.Title != nextPageContent.Title) trainingsLogo.TButton.IsChecked = false;
+            else trainingsLogo.TButton.IsChecked = true;
+            if (teamStatsLogo.Title != nextPageContent.Title) teamStatsLogo.TButton.IsChecked = false;
+            else teamStatsLogo.TButton.IsChecked = true;
+            if (leagueLogo.Title != nextPageContent.Title) leagueLogo.TButton.IsChecked = false;
+            else leagueLogo.TButton.IsChecked = true;
+            if (topTeamsLogo.Title != nextPageContent.Title) topTeamsLogo.TButton.IsChecked = false;
+            else topTeamsLogo.TButton.IsChecked = true;
+            if (topMembersLogo.Title != nextPageContent.Title) topMembersLogo.TButton.IsChecked = false;
+            else topMembersLogo.TButton.IsChecked = true;
             GameMainFrame.Content = nextPageContent;
         }
     }

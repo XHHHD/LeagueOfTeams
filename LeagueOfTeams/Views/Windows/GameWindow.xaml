@@ -28,8 +28,8 @@
         </Border.Background>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.1*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="10*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1.2*"/>
@@ -37,8 +37,8 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="15,0,0,15">
                 <Frame x:Name="TeamStatsButton" NavigationUIVisibility="Hidden" Height="125" Width="240"/>
-                <Frame x:Name="TrainingsButton" NavigationUIVisibility="Hidden" Height="125" Width="240"/>
                 <Frame x:Name="LeagueButton" NavigationUIVisibility="Hidden" Height="125" Width="240"/>
+                <Frame x:Name="TrainingsButton" NavigationUIVisibility="Hidden" Height="125" Width="240"/>
                 <Frame x:Name="TopTeamsButton" NavigationUIVisibility="Hidden" Height="125" Width="240"/>
                 <Frame x:Name="TopMembersButton" NavigationUIVisibility="Hidden" Height="125" Width="240"/>
                 <Frame x:Name="UserStatsButton" NavigationUIVisibility="Hidden" Height="125" Width="240"/>

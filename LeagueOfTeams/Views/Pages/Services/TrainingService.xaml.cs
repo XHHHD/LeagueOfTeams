@@ -12,20 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using LeagueOfTeamsUI.Views.Pages.Services.MemberServices;
 
 namespace LeagueOfTeamsUI.Views.Pages.Services
 {
-    public partial class TeamServices : Page
+    public partial class TrainingService : Page
     {
-        public TeamServices()
+        public TrainingService()
         {
             InitializeComponent();
-            Member1.Content = new TeamMemberLogo();
-            Member2.Content = new TeamMemberLogo();
-            Member3.Content = new TeamMemberLogo();
-            Member4.Content = new TeamMemberLogo();
-            Member5.Content = new TeamMemberLogo();
         }
     }
 }

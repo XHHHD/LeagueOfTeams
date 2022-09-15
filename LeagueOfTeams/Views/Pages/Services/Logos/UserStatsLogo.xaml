@@ -14,7 +14,9 @@
                 <RowDefinition/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Image x:Name="PlayerLogo" Grid.Row="0" Source="/Img/Default/icons8-ос-free-bsd-100-black.png" />
+            <Border Grid.Row="0" Height="100" Width="100" Background="Black">
+                <Image x:Name="PlayerLogo" Margin="3" Source="/Img/Default/icons8-ос-free-bsd-100-black.png" />
+            </Border>
             <TextBlock Text="Statistics" Grid.Row="1" FontSize="30" FontFamily="Arial Black"
                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>

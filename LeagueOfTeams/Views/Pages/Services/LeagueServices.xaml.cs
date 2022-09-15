@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeagueOfTeamsUI.Views.Pages.Services.SmollServicesLinks;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,16 @@ namespace LeagueOfTeamsUI.Views.Pages.Services.Logos
         public LeagueServices()
         {
             InitializeComponent();
+            Team1.Content = new TeamSmollLogo930x60();
+            Team2.Content = new TeamSmollLogo930x60();
+            Team3.Content = new TeamSmollLogo930x60();
+            Team4.Content = new TeamSmollLogo930x60();
+            Team5.Content = new TeamSmollLogo930x60();
+            Team6.Content = new TeamSmollLogo930x60();
+            Team7.Content = new TeamSmollLogo930x60();
+            Team8.Content = new TeamSmollLogo930x60();
+            Team9.Content = new TeamSmollLogo930x60();
+            Team10.Content = new TeamSmollLogo930x60();
         }
     }
 }

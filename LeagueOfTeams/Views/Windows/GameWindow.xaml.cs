@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using LeagueOfTeamsUI.Views.Pages.Services;
 using LeagueOfTeamsUI.Views.Pages.Services.Logos;
+using LeagueOfTeamsUI.Views.Pages.Services.MemberServices;
 
 namespace LeagueOfTeamsUI.Views
 {

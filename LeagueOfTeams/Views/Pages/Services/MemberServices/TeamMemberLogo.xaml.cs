@@ -15,14 +15,20 @@ using System.Windows.Shapes;
 
 namespace LeagueOfTeamsUI.Views.Pages.Services.MemberServices
 {
-    /// <summary>
-    /// Логика взаимодействия для TeamMemberLogo.xaml
-    /// </summary>
     public partial class TeamMemberLogo : Page
     {
-        public TeamMemberLogo()
+        GameWindow gameWindow;
+        MemberTrainings memberTrainings;
+        public TeamMemberLogo(GameWindow gameWindow, TeamsServices teamsServices)
         {
             InitializeComponent();
+            this.gameWindow = gameWindow;
+            memberTrainings = new MemberTrainings(gameWindow, teamsServices);
+        }
+
+        private void MemberButton_Click(object sender, RoutedEventArgs e)
+        {
+            gameWindow.GameMainFramePageEnumerable(memberTrainings);
         }
     }
 }

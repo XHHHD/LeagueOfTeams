@@ -17,13 +17,14 @@ namespace LeagueOfTeamsUI.Views.Pages.Services.Logos
 {
     public partial class TeamStatsLogo : Page
     {
-        TeamsServices teamServices = new TeamsServices();
+        TeamsServices teamServices;
         GameWindow gameWindow;
         public TeamStatsLogo(GameWindow gameWindow)
         {
             InitializeComponent();
             gameWindow.TeamStatsButton.Content = this;
             this.gameWindow = gameWindow;
+            teamServices = new TeamsServices(gameWindow);
         }
         private void ToggleButton_Click(object sender, RoutedEventArgs e)
         {

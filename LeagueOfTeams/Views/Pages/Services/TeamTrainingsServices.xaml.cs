@@ -15,9 +15,9 @@ using System.Windows.Shapes;
 
 namespace LeagueOfTeamsUI.Views.Pages.Services
 {
-    public partial class TrainingService : Page
+    public partial class TeamTrainingsServices : Page
     {
-        public TrainingService()
+        public TeamTrainingsServices()
         {
             InitializeComponent();
         }

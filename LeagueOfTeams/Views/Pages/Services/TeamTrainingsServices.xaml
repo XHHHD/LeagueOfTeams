@@ -1,0 +1,127 @@
+﻿<Page x:Class="LeagueOfTeamsUI.Views.Pages.Services.TeamTrainingsServices"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LeagueOfTeamsUI.Views.Pages.Services"
+      mc:Ignorable="d" 
+      d:DesignHeight="736" d:DesignWidth="1240"
+      Title="Team Trainings">
+
+    <Grid x:Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="TaskGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="Grid00" Grid.Row="0" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Width="200" Height="200" Background="Black">
+                    <Image x:Name="MemberLogo" Width="200" Height="200" Margin="3"/>
+                </Border>
+                <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Vertical">
+                    <TextBlock x:Name="TeamName" HorizontalAlignment="Right" TextWrapping="Wrap" FontFamily="Arial Black"
+                               FontSize="48" Text="Team Name"/>
+                    <TextBlock x:Name="MemberAge" HorizontalAlignment="Right" FontFamily="Arial Black"
+                               FontSize="36" Text="Team Energy"/>
+                    <TextBlock x:Name="TeamInfo" HorizontalAlignment="Right" TextWrapping="Wrap" TextAlignment="Right"
+                               FontFamily="Arial" FontSize="30" Text="Other short information about team."/>
+                </StackPanel>
+            </Grid>
+            <GroupBox Grid.Row="1">
+                <StackPanel>
+                    <Button x:Name="Action1" MinHeight="100" Margin="3" Background="{x:Null}" ToolTip="Use this to expend remaining energy points.">
+                        <TextBlock FontFamily="Arial Black" FontSize="28" Text="Solo Ranked Games"/>
+                    </Button>
+                    <Button x:Name="Action2" MinHeight="100" Margin="3" Background="{x:Null}" ToolTip="Some group trainings for boosting team play.">
+                        <TextBlock FontFamily="Arial Black" FontSize="28" Text="Group Trainings"/>
+                    </Button>
+                    <Button x:Name="Action3" MinHeight="100" Margin="3" Background="{x:Null}" ToolTip="Hard trainings, that can wreck morale.">
+                        <TextBlock FontFamily="Arial Black" FontSize="28" TextWrapping="Wrap" TextAlignment="Center" Text="Scrimmages with other teams in legue"/>
+                    </Button>
+                    <Button x:Name="Action4" MinHeight="100" Margin="3" Background="{x:Null}" ToolTip="Try to gain or luse rank points.">
+                        <TextBlock FontFamily="Arial Black" FontSize="28" Text="Ranked match"/>
+                    </Button>
+                    <Button x:Name="Action5" MinHeight="100" Margin="3" Background="{x:Null}" ToolTip="Take part in the current tournament.">
+                        <TextBlock  FontFamily="Arial Black" FontSize="28" Text="Current tournament"/>
+                    </Button>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+        <GroupBox Grid.Column="1">
+            <GroupBox.Header>
+                <TextBlock x:Name="Characteristics" HorizontalAlignment="Center" VerticalAlignment="Center"
+                           TextAlignment="Center" FontFamily="Arial Black" FontSize="48" Text="Characteristics" OpacityMask="Black"/>
+            </GroupBox.Header>
+            <StackPanel Grid.Row="1">
+                <Grid>
+                    <TextBlock x:Name="Stat1Name" HorizontalAlignment="Left" VerticalAlignment="Center"
+                       TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 1:"/>
+                    <TextBlock x:Name="Stat1Value" HorizontalAlignment="Right" VerticalAlignment="Center"
+                       TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 1"/>
+                </Grid>
+                <Grid>
+                    <TextBlock x:Name="Stat2Name" HorizontalAlignment="Left" VerticalAlignment="Center"
+                       TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 2:"/>
+                    <TextBlock x:Name="Stat2Value" HorizontalAlignment="Right" VerticalAlignment="Center"
+                       TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 2"/>
+                </Grid>
+                <Grid>
+                    <TextBlock x:Name="Stat3Name" HorizontalAlignment="Left" VerticalAlignment="Center"
+                       TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 3:"/>
+                    <TextBlock x:Name="Stat3Value" HorizontalAlignment="Right" VerticalAlignment="Center"
+                       TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 3"/>
+                </Grid>
+                <Grid>
+                    <TextBlock x:Name="Stat4Name" HorizontalAlignment="Left" VerticalAlignment="Center"
+                       TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 4:"/>
+                    <TextBlock x:Name="Stat4Value" HorizontalAlignment="Right" VerticalAlignment="Center"
+                       TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 4"/>
+                </Grid>
+                <Grid>
+                    <TextBlock x:Name="Stat5Name" HorizontalAlignment="Left" VerticalAlignment="Center"
+                       TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 5:"/>
+                    <TextBlock x:Name="Stat5Value" HorizontalAlignment="Right" VerticalAlignment="Center"
+                       TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 5"/>
+                </Grid>
+                <Grid>
+                    <TextBlock x:Name="Stat6Name" HorizontalAlignment="Left" VerticalAlignment="Center"
+                       TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 6:"/>
+                    <TextBlock x:Name="Stat6Value" HorizontalAlignment="Right" VerticalAlignment="Center"
+                       TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 6"/>
+                </Grid>
+                <Grid>
+                    <TextBlock x:Name="Stat7Name" HorizontalAlignment="Left" VerticalAlignment="Center"
+                       TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 7:"/>
+                    <TextBlock x:Name="Stat7Value" HorizontalAlignment="Right" VerticalAlignment="Center"
+                       TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 7"/>
+                </Grid>
+                <Grid>
+                    <TextBlock x:Name="Stat8Name" HorizontalAlignment="Left" VerticalAlignment="Center"
+                       TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 8:"/>
+                    <TextBlock x:Name="Stat8Value" HorizontalAlignment="Right" VerticalAlignment="Center"
+                       TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 8"/>
+                </Grid>
+                <Grid>
+                    <TextBlock x:Name="Stat9Name" HorizontalAlignment="Left" VerticalAlignment="Center"
+                       TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 9:"/>
+                    <TextBlock x:Name="Stat9Value" HorizontalAlignment="Right" VerticalAlignment="Center"
+                       TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 9"/>
+                </Grid>
+                <Grid>
+                    <TextBlock x:Name="Stat10Name" HorizontalAlignment="Left" VerticalAlignment="Center"
+                       TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 10:"/>
+                    <TextBlock x:Name="Stat10Value" HorizontalAlignment="Right" VerticalAlignment="Center"
+                       TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 10"/>
+                </Grid>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Page>

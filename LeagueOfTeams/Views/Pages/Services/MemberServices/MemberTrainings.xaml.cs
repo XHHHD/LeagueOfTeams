@@ -17,9 +17,18 @@ namespace LeagueOfTeamsUI.Views.Pages.Services.MemberServices
 {
     public partial class MemberTrainings : Page
     {
-        public MemberTrainings()
+        GameWindow gameWindow;
+        TeamsServices teamsService;
+        public MemberTrainings(GameWindow gameWindow, TeamsServices teamsServices)
         {
-            //InitializeComponent();
+            InitializeComponent();
+            this.gameWindow = gameWindow;
+            this.teamsService = teamsServices;
+        }
+
+        private void BackToTheTeamButton_Click(object sender, RoutedEventArgs e)
+        {
+            gameWindow.GameMainFramePageEnumerable(teamsService);
         }
     }
 }

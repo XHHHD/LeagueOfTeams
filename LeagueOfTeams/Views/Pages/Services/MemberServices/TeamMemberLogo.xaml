@@ -8,7 +8,7 @@
       d:DesignHeight="490" d:DesignWidth="160"
       Title="TeamMemberLogo">
 
-    <Button x:Name="MemberButton">
+    <Button x:Name="MemberButton" Click="MemberButton_Click">
         <StackPanel VerticalAlignment="Top" Height="490">
             <StackPanel.Background>
                 <SolidColorBrush Color="Black" Opacity="0.1"/>

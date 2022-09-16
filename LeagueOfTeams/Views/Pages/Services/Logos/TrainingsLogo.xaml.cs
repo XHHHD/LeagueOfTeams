@@ -17,7 +17,7 @@ namespace LeagueOfTeamsUI.Views.Pages.Services.Logos
 {
     public partial class TrainingsLogo : Page
     {
-        TrainingsServices trainingsSrvices = new TrainingsServices();
+        TeamTrainingsServices trainingsSrvices = new TeamTrainingsServices();
         GameWindow gameWindow;
         public TrainingsLogo(GameWindow gameWindow)
         {

@@ -18,14 +18,16 @@ namespace LeagueOfTeamsUI.Views.Pages.Services
 {
     public partial class TeamsServices : Page
     {
-        public TeamsServices()
+        GameWindow gameWindow;
+        public TeamsServices(GameWindow gameWindow)
         {
             InitializeComponent();
-            Member1.Content = new TeamMemberLogo();
-            Member2.Content = new TeamMemberLogo();
-            Member3.Content = new TeamMemberLogo();
-            Member4.Content = new TeamMemberLogo();
-            Member5.Content = new TeamMemberLogo();
+            this.gameWindow = gameWindow;
+            Member1.Content = new TeamMemberLogo(gameWindow, this);
+            Member2.Content = new TeamMemberLogo(gameWindow, this);
+            Member3.Content = new TeamMemberLogo(gameWindow, this);
+            Member4.Content = new TeamMemberLogo(gameWindow, this);
+            Member5.Content = new TeamMemberLogo(gameWindow, this);
         }
     }
 }

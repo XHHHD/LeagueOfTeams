@@ -1,0 +1,22 @@
+﻿<Page x:Class="LeagueOfTeamsUI.Views.Pages.Menu.SmollServicesLinks.FirstTopTeamLogo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LeagueOfTeamsUI.Views.Pages.Menu.SmollServicesLinks"
+      mc:Ignorable="d" 
+      d:DesignHeight="230" d:DesignWidth="378"
+      Title="FirstTopTeamLogo">
+
+    <Button Height="230" Width="378">
+        <Button.Background>
+            <SolidColorBrush Color="#FFFFDB33" Opacity="0.8"/>
+        </Button.Background>
+        <StackPanel Orientation="Vertical">
+            <Border Background="Black" Height="160" Width="160">
+                <Image x:Name="TeamRank" Margin="3"/>
+            </Border>
+            <TextBlock x:Name="TeamName" FontFamily="Castellar" FontSize="48" Text="Team Name"/>
+        </StackPanel>
+    </Button>
+</Page>

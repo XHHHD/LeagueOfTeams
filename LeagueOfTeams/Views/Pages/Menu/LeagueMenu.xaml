@@ -1,0 +1,49 @@
+﻿<Page x:Class="LeagueOfTeamsUI.Views.Pages.Menu.Logos.LeagueMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LeagueOfTeamsUI.Views.Pages.Menu.Logos"
+      mc:Ignorable="d" 
+      d:DesignHeight="736" d:DesignWidth="1240"
+      Title="Your Rank">
+
+    <Grid x:Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="TeamsGrid" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="6*"/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="LeagueName" Grid.Row="0" HorizontalAlignment="Left" FontFamily="Arial Black"
+                       FontSize="48" Text="League Name"/>
+            <Border Grid.Row="0" HorizontalAlignment="Right" Background="Black" Margin="3">
+                <Image x:Name="TeamLogoImg" Width="60" MinHeight="60"
+                       Margin="3"/>
+            </Border>
+            <StackPanel Grid.Row="1" Orientation="Vertical">
+                <Frame x:Name="Team1" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
+                <Frame x:Name="Team2" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
+                <Frame x:Name="Team3" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
+                <Frame x:Name="Team4" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
+                <Frame x:Name="Team5" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
+                <Frame x:Name="Team6" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
+                <Frame x:Name="Team7" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
+                <Frame x:Name="Team8" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
+                <Frame x:Name="Team9" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
+                <Frame x:Name="Team10" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Column="1" Margin="3">
+            <Border Background="Black">
+                <Image x:Name="LeagueLogo" Margin="3" Height="200"/>
+            </Border>
+            <Frame x:Name="NextRank" Height="100"/>
+            <Frame x:Name="CurrentRank" Height="100"/>
+            <Frame x:Name="PreviusRank" Height="100"/>
+        </StackPanel>
+    </Grid>
+</Page>

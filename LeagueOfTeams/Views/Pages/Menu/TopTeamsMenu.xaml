@@ -1,0 +1,68 @@
+﻿<Page x:Class="LeagueOfTeamsUI.Views.Pages.Menu.TopTeamsMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LeagueOfTeamsUI.Views.Pages.Menu"
+      mc:Ignorable="d" 
+      d:DesignHeight="736" d:DesignWidth="1240"
+      Title="Best teams">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <TextBlock HorizontalAlignment="Center" Margin="0,40,0,0" FontFamily="Arial Black" FontSize="58" Text="2nd"/>
+                <Frame x:Name="SecondPlace" NavigationUIVisibility="Hidden" Margin="30" Height="180" Width="328"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" FontFamily="Arial Black" FontSize="72" Text="1st"/>
+                <Frame x:Name="FirstPlace" NavigationUIVisibility="Hidden" Margin="10" Height="230" Width="378"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <TextBlock HorizontalAlignment="Center" Margin="0,60,0,10" FontFamily="Arial Black" FontSize="52" Text="3rd"/>
+                <Frame x:Name="ThirdPlace" NavigationUIVisibility="Hidden" Margin="30" Height="160" Width="308"/>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="1" Orientation="Vertical">
+            <Button Background="{x:Null}">
+                <StackPanel Orientation="Horizontal" Height="70">
+                    <TextBlock FontFamily="Arial Black" FontSize="72" Margin="20,0,0,0" Text="4"/>
+                    <Frame x:Name="fourthPlace" Margin="20,0,0,0" NavigationUIVisibility="Hidden"/>
+                </StackPanel>
+            </Button>
+            <Button Background="{x:Null}">
+                <StackPanel Orientation="Horizontal" Height="70">
+                    <TextBlock FontFamily="Arial Black" FontSize="72" Margin="20,0,0,0" Text="5"/>
+                    <Frame x:Name="fifthPlace" Margin="20,0,0,0" NavigationUIVisibility="Hidden"/>
+                </StackPanel>
+            </Button>
+            <Button Background="{x:Null}">
+                <StackPanel Orientation="Horizontal" Height="70">
+                    <TextBlock FontFamily="Arial Black" FontSize="72" Margin="20,0,0,0" Text="6"/>
+                    <Frame x:Name="sixthPlace" Margin="20,0,0,0" NavigationUIVisibility="Hidden"/>
+                </StackPanel>
+            </Button>
+            <Button Background="{x:Null}">
+                <StackPanel Orientation="Horizontal" Height="70">
+                    <TextBlock FontFamily="Arial Black" FontSize="72" Margin="20,0,0,0" Text="7"/>
+                    <Frame x:Name="seventhPlace" Margin="20,0,0,0" NavigationUIVisibility="Hidden"/>
+                </StackPanel>
+            </Button>
+            <Button Background="{x:Null}">
+                <StackPanel Orientation="Horizontal" Height="70">
+                    <TextBlock FontFamily="Arial Black" FontSize="72" Margin="20,0,0,0" Text="8"/>
+                    <Frame x:Name="eighthPlace" Margin="20,0,0,0" NavigationUIVisibility="Hidden"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

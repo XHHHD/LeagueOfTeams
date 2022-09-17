@@ -11,20 +11,23 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using LeagueOfTeamsUI.Views.Pages.Services;
-using LeagueOfTeamsUI.Views.Pages.Services.Logos;
-using LeagueOfTeamsUI.Views.Pages.Services.MemberServices;
+using LeagueOfTeamsUI.Views.Pages.Menu;
+using LeagueOfTeamsUI.Views.Pages.Menu.Logos;
+using LeagueOfTeamsUI.Views.Pages.Menu.MemberServices;
 
 namespace LeagueOfTeamsUI.Views
 {
     public partial class GameWindow : Window
     {
-        UserStatsLogo userStatsLogo;
-        TrainingsLogo trainingsLogo;
-        TeamStatsLogo teamStatsLogo;
-        LeagueLogo leagueLogo;
-        TopTeamsLogo topTeamsLogo;
-        TopMembersLogo topMembersLogo;
+        public UserStatsLogo userStatsLogo;
+        public TrainingsLogo trainingsLogo;
+        public TeamStatsLogo teamStatsLogo;
+        public LeagueLogo leagueLogo;
+        public TopTeamsLogo topTeamsLogo;
+        public TopMembersLogo topMembersLogo;
+        public TeamsMenu teamsServices;
+
+        public Page previousServices;
         public GameWindow()
         {
             InitializeComponent();
@@ -34,6 +37,7 @@ namespace LeagueOfTeamsUI.Views
             leagueLogo = new LeagueLogo(this);
             topTeamsLogo = new TopTeamsLogo(this);
             topMembersLogo = new TopMembersLogo(this);
+            teamsServices = new TeamsMenu(this);
             GameMainFrame.Content = userStatsLogo;
         }
         private void GameMainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -65,19 +69,19 @@ namespace LeagueOfTeamsUI.Views
         //Its not working now. XD
         public void GameMainFramePageEnumerable(Page nextPageContent)
         {
-            CurrentlyGamePage.Text = nextPageContent.Title;
-            if(userStatsLogo.Title != nextPageContent.Title) userStatsLogo.TButton.IsChecked = false;
-            else userStatsLogo.TButton.IsChecked = true;
-            if(trainingsLogo.Title != nextPageContent.Title) trainingsLogo.TButton.IsChecked = false;
-            else trainingsLogo.TButton.IsChecked = true;
-            if (teamStatsLogo.Title != nextPageContent.Title) teamStatsLogo.TButton.IsChecked = false;
-            else teamStatsLogo.TButton.IsChecked = true;
-            if (leagueLogo.Title != nextPageContent.Title) leagueLogo.TButton.IsChecked = false;
-            else leagueLogo.TButton.IsChecked = true;
-            if (topTeamsLogo.Title != nextPageContent.Title) topTeamsLogo.TButton.IsChecked = false;
-            else topTeamsLogo.TButton.IsChecked = true;
-            if (topMembersLogo.Title != nextPageContent.Title) topMembersLogo.TButton.IsChecked = false;
-            else topMembersLogo.TButton.IsChecked = true;
+            //CurrentlyGamePage.Text = nextPageContent.Title;
+            //if(userStatsLogo.Title != nextPageContent.Title) userStatsLogo.TButton.IsChecked = false;
+            //else userStatsLogo.TButton.IsChecked = true;
+            //if(trainingsLogo.Title != nextPageContent.Title) trainingsLogo.TButton.IsChecked = false;
+            //else trainingsLogo.TButton.IsChecked = true;
+            //if (teamStatsLogo.Title != nextPageContent.Title) teamStatsLogo.TButton.IsChecked = false;
+            //else teamStatsLogo.TButton.IsChecked = true;
+            //if (leagueLogo.Title != nextPageContent.Title) leagueLogo.TButton.IsChecked = false;
+            //else leagueLogo.TButton.IsChecked = true;
+            //if (topTeamsLogo.Title != nextPageContent.Title) topTeamsLogo.TButton.IsChecked = false;
+            //else topTeamsLogo.TButton.IsChecked = true;
+            //if (topMembersLogo.Title != nextPageContent.Title) topMembersLogo.TButton.IsChecked = false;
+            //else topMembersLogo.TButton.IsChecked = true;
             GameMainFrame.Content = nextPageContent;
         }
     }

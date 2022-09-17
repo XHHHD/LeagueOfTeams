@@ -1,0 +1,24 @@
+﻿<Page x:Class="LeagueOfTeamsUI.Views.Pages.Menu.Logos.TeamStatsLogo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LeagueOfTeamsUI.Views.Pages.Menu.Logos"
+      mc:Ignorable="d" 
+      d:DesignHeight="125" d:DesignWidth="240"
+      Title="TeamStatsLogo">
+
+    <ToggleButton x:Name="TButton" Background="{x:Null}" BorderBrush="{x:Null}" Click="ToggleButton_Click">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Height="100" Width="100" Background="Black">
+                <Image x:Name="TeamLogo" Margin="3" Source="/Img/Default/icons8-ос-free-bsd-100-white.png" />
+            </Border>
+            <TextBlock x:Name="TeamName" Text="Team Name" Grid.Row="1" FontSize="30" FontFamily="Arial Black"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+    </ToggleButton>
+</Page>

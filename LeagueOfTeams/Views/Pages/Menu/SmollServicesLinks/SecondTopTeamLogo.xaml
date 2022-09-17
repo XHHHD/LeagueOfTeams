@@ -8,7 +8,7 @@
       d:DesignHeight="180" d:DesignWidth="328"
       Title="SecondTopTeamLogo">
 
-    <Button Height="180" Width="328">
+    <Button Height="180" Width="328" Click="TeamButton_Click">
         <Button.Background>
             <SolidColorBrush Color="#FFC6FBFF" Opacity="0.8"/>
         </Button.Background>

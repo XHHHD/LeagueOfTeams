@@ -18,8 +18,8 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.Logos
 {
     public partial class UserStatsLogo : Page
     {
-        UserStatsMenu userStatsServices = new UserStatsMenu();
         GameWindow gameWindow;
+        public UserStatsMenu userStatsMenu = new();
         public UserStatsLogo(GameWindow gameWindow)
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.Logos
 
         public void ToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            gameWindow.GameMainFramePageEnumerable(userStatsServices);
+            gameWindow.GameMainFramePageEnumerable(userStatsMenu);
         }
     }
 }

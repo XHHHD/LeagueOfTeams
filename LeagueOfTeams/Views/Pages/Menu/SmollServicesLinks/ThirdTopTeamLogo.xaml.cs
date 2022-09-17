@@ -18,10 +18,16 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.SmollServicesLinks
     public partial class ThirdTopTeamLogo : Page
     {
         GameWindow gameWindow;
-        public ThirdTopTeamLogo(GameWindow gameWindow)
+        Page previousMenu;
+        public ThirdTopTeamLogo(GameWindow gameWindow, Page previousMenu)
         {
             InitializeComponent();
             this.gameWindow = gameWindow;
+            this.previousMenu = previousMenu;
+        }
+        private void TeamButton_Click(object sender, RoutedEventArgs e)
+        {
+            gameWindow.GameMainFramePageEnumerable(gameWindow.teamMenu, previousMenu);
         }
     }
 }

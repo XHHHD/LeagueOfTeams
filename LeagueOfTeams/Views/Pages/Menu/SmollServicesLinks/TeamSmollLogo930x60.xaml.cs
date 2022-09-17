@@ -19,15 +19,17 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.SmollServicesLinks
     public partial class TeamSmollLogo930x60 : Page
     {
         GameWindow gameWindow;
-        public TeamSmollLogo930x60(GameWindow gameWindow)
+        Page previousMenu;
+        public TeamSmollLogo930x60(GameWindow gameWindow, Page previousMenu)
         {
             InitializeComponent();
             this.gameWindow = gameWindow;
+            this.previousMenu = previousMenu;
         }
 
         private void TeamButton_Click(object sender, RoutedEventArgs e)
         {
-            gameWindow.GameMainFramePageEnumerable(gameWindow.teamsServices);
+            gameWindow.GameMainFramePageEnumerable(gameWindow.teamMenu, previousMenu);
         }
     }
 }

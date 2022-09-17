@@ -8,7 +8,7 @@
       d:DesignHeight="230" d:DesignWidth="378"
       Title="FirstTopTeamLogo">
 
-    <Button Height="230" Width="378">
+    <Button Height="230" Width="378" Click="TeamButton_Click">
         <Button.Background>
             <SolidColorBrush Color="#FFFFDB33" Opacity="0.8"/>
         </Button.Background>

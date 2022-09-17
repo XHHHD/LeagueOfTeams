@@ -16,11 +16,10 @@ using LeagueOfTeamsUI.Views.Pages.Menu.MemberServices;
 
 namespace LeagueOfTeamsUI.Views.Pages.Menu
 {
-    public partial class TeamsMenu : Page
+    public partial class TeamMenu : Page
     {
         GameWindow gameWindow;
-        Page previousServices;
-        public TeamsMenu(GameWindow gameWindow)
+        public TeamMenu(GameWindow gameWindow)
         {
             InitializeComponent();
             this.gameWindow = gameWindow;
@@ -30,14 +29,10 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu
             Member4.Content = new TeamMemberLogo(gameWindow, this);
             Member5.Content = new TeamMemberLogo(gameWindow, this);
         }
-        public TeamsMenu(GameWindow gameWindow, Page previousServices) : this(gameWindow)
-        {
-            this.previousServices = previousServices;
-        }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            gameWindow.GameMainFramePageEnumerable(previousServices);
+            gameWindow.GameMainFramePageEnumerable(gameWindow.previousMenu);
         }
     }
 }

@@ -17,8 +17,8 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.Logos
 {
     public partial class TrainingsLogo : Page
     {
-        TeamTrainingsMenu trainingsSrvices = new TeamTrainingsMenu();
         GameWindow gameWindow;
+        TeamTrainingsMenu trainingsMenu = new();
         public TrainingsLogo(GameWindow gameWindow)
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.Logos
         }
         private void ToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            gameWindow.GameMainFramePageEnumerable(trainingsSrvices);
+            gameWindow.GameMainFramePageEnumerable(trainingsMenu);
         }
     }
 }

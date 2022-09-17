@@ -23,14 +23,14 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu
         {
             InitializeComponent();
             this.gameWindow = gameWindow;
-            FirstPlace.Content = new FirstTopTeamLogo(gameWindow);
-            SecondPlace.Content = new SecondTopTeamLogo(gameWindow);
-            ThirdPlace.Content = new ThirdTopTeamLogo(gameWindow);
-            fourthPlace.Content = new TeamSmollLogo930x60(gameWindow);
-            fifthPlace.Content = new TeamSmollLogo930x60(gameWindow);
-            sixthPlace.Content = new TeamSmollLogo930x60(gameWindow);
-            seventhPlace.Content = new TeamSmollLogo930x60(gameWindow);
-            eighthPlace.Content = new TeamSmollLogo930x60(gameWindow);
+            FirstPlace.Content = new FirstTopTeamLogo(gameWindow, this);
+            SecondPlace.Content = new SecondTopTeamLogo(gameWindow, this);
+            ThirdPlace.Content = new ThirdTopTeamLogo(gameWindow, this);
+            fourthPlace.Content = new TeamSmollLogo930x60(gameWindow, this);
+            fifthPlace.Content = new TeamSmollLogo930x60(gameWindow, this);
+            sixthPlace.Content = new TeamSmollLogo930x60(gameWindow, this);
+            seventhPlace.Content = new TeamSmollLogo930x60(gameWindow, this);
+            eighthPlace.Content = new TeamSmollLogo930x60(gameWindow, this);
         }
     }
 }

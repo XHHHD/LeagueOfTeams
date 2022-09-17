@@ -17,7 +17,7 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.Logos
 {
     public partial class TopMembersLogo : Page
     {
-        TopMembersMenu topMembersServices = new TopMembersMenu();
+        TopMembersMenu topMembersMenu = new TopMembersMenu();
         GameWindow gameWindow;
         public TopMembersLogo(GameWindow gameWindow)
         {
@@ -27,7 +27,7 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.Logos
         }
         private void ToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            gameWindow.GameMainFramePageEnumerable(topMembersServices);
+            gameWindow.GameMainFramePageEnumerable(topMembersMenu);
         }
     }
 }

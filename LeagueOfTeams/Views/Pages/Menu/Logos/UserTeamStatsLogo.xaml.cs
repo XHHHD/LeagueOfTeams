@@ -17,18 +17,18 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.Logos
 {
     public partial class TeamStatsLogo : Page
     {
-        public UserTeamMenu userTeamService;
         GameWindow gameWindow;
+        public UserTeamMenu userTeamMenu;
         public TeamStatsLogo(GameWindow gameWindow)
         {
             InitializeComponent();
             gameWindow.TeamStatsButton.Content = this;
             this.gameWindow = gameWindow;
-            userTeamService = new UserTeamMenu(gameWindow);
+            userTeamMenu = new UserTeamMenu(gameWindow);
         }
         private void ToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            gameWindow.GameMainFramePageEnumerable(userTeamService);
+            gameWindow.GameMainFramePageEnumerable(userTeamMenu);
         }
     }
 }

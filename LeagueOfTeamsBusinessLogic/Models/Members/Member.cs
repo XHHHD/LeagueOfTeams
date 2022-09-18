@@ -8,6 +8,7 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
         /// This date will be used for enhancing afk non-played members.
         /// Members, who was generated once, will compete whith player.
         /// </summary>
+        public readonly DateTime memberCreationDate;
         private readonly int _id;
         private readonly string _memberNick;
         private byte _memberAge;
@@ -18,7 +19,7 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
         private List<MemberPosition> _memberPositions;
         private MemberPosition _currentlyMemberMainPosition;
         private List<MemberTrail> _memberTrailsList;
-        public readonly DateTime memberCreationDate;
+        private DateTime _lastUpdateTime;
         readonly Random random = new();
 
         public int Id { get => _id; }
@@ -45,6 +46,7 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
         public Member(uint playerLevel)
         {
             memberCreationDate = DateTime.UtcNow;
+            _lastUpdateTime = DateTime.UtcNow;
             _memberNick = MemberNickGenerator.MakeNewMemberNick();
 
             //Age must be between 14 and 30 yers. Because members, who more then 30 years old whil luse they characteristics.

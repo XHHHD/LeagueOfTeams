@@ -29,5 +29,9 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu
             Member4.Content = new TeamMemberLogo(gameWindow, this);
             Member5.Content = new TeamMemberLogo(gameWindow, this);
         }
+        private void AddMemberButton_Click(object sender, RoutedEventArgs e)
+        {
+            gameWindow.GameMainFramePageEnumerable(gameWindow.newMemberMenu, this);
+        }
     }
 }

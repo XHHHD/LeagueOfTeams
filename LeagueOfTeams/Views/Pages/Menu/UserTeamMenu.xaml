@@ -33,6 +33,9 @@
             <Frame x:Name="Member3" NavigationUIVisibility="Hidden" MinWidth="160"/>
             <Frame x:Name="Member4" NavigationUIVisibility="Hidden" MinWidth="160"/>
             <Frame x:Name="Member5" NavigationUIVisibility="Hidden" MinWidth="160"/>
+            <Button x:Name="AddMemberButton" MinWidth="160" Margin="0" Background="{x:Null}"
+                    Foreground="#FFBDBDBD" FontFamily="Arial Black" FontSize="120" Content="+"
+                    Click="AddMemberButton_Click"/>
         </StackPanel>
     </Grid>
 </Page>

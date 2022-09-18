@@ -67,70 +67,24 @@
                         <TextBlock x:Name="FreeSkillPoints" HorizontalAlignment="Right" VerticalAlignment="Center"
                            TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="0"/>
                     </Grid>
-                    <GroupBox>
-                        <GroupBox.BorderBrush>
-                            <SolidColorBrush Color="#FFD5DFE5" Opacity="0.3"/>
-                        </GroupBox.BorderBrush>
-                        <GroupBox.Header>
-                            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"
-                               TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Position 1:"/>
-                        </GroupBox.Header>
-                        <ListBox Background="{x:Null}" HorizontalAlignment="Right">
-                            <Grid MinWidth="600">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"
-                                           VerticalAlignment="Center" TextAlignment="Center" FontFamily="Arial Black"
-                                           FontSize="28" Text="Value 1:"/>
-                                <TextBlock x:Name="PositionValue1" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right"
-                                           VerticalAlignment="Center" TextAlignment="Center" FontFamily="Arial Black"
-                                           FontSize="28" Text="0"/>
-                                <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left"
-                                           VerticalAlignment="Center" TextAlignment="Center" FontFamily="Arial Black"
-                                           FontSize="28" Text="Value 2:"/>
-                                <TextBlock x:Name="PositionValue2" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right"
-                                           VerticalAlignment="Center" TextAlignment="Center" FontFamily="Arial Black"
-                                           FontSize="28" Text="0"/>
-                                <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left"
-                                           VerticalAlignment="Center" TextAlignment="Center" FontFamily="Arial Black"
-                                           FontSize="28" Text="Value 3:"/>
-                                <TextBlock x:Name="PositionValue3" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right"
-                                           VerticalAlignment="Center" TextAlignment="Center" FontFamily="Arial Black"
-                                           FontSize="28" Text="0"/>
-                                <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left"
-                                           VerticalAlignment="Center" TextAlignment="Center" FontFamily="Arial Black"
-                                           FontSize="28" Text="Value 4:"/>
-                                <TextBlock x:Name="PositionValue4" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right"
-                                           VerticalAlignment="Center" TextAlignment="Center" FontFamily="Arial Black"
-                                           FontSize="28" Text="0"/>
-                            </Grid>
-                        </ListBox>
-                    </GroupBox>
+                    <Frame x:Name="Position1" NavigationUIVisibility="Hidden"/>
                     <Grid>
-                        <TextBlock x:Name="Stat5Name" HorizontalAlignment="Left" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 5:"/>
-                        <TextBlock x:Name="Stat5Value" HorizontalAlignment="Right" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 5"/>
+                        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
+                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Skill power:"/>
+                        <TextBlock x:Name="SkillPower" HorizontalAlignment="Right" VerticalAlignment="Center"
+                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="0"/>
                     </Grid>
                     <Grid>
-                        <TextBlock x:Name="Stat6Name" HorizontalAlignment="Left" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 6:"/>
-                        <TextBlock x:Name="Stat6Value" HorizontalAlignment="Right" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 6"/>
+                        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
+                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Mental power:"/>
+                        <TextBlock x:Name="MentalPower" HorizontalAlignment="Right" VerticalAlignment="Center"
+                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="0"/>
                     </Grid>
                     <Grid>
-                        <TextBlock x:Name="Stat7Name" HorizontalAlignment="Left" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 7:"/>
-                        <TextBlock x:Name="Stat7Value" HorizontalAlignment="Right" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 7"/>
+                        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
+                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Teamplay:"/>
+                        <TextBlock x:Name="Teamplay" HorizontalAlignment="Right" VerticalAlignment="Center"
+                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="0"/>
                     </Grid>
                     <Grid>
                         <TextBlock x:Name="Stat8Name" HorizontalAlignment="Left" VerticalAlignment="Center"

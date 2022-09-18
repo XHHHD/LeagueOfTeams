@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LeagueOfTeamsBusinessLogic.Models.Members;
 
 namespace LeagueOfTeamsUI.Views.Pages.Menu.MemberServices
 {
@@ -25,7 +26,12 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.MemberServices
             this.gameWindow = gameWindow;
             this.previousServices = previousServices;
         }
-
+        public MemberTrainings(GameWindow gameWindow, Page previousServices, Member member)
+        {
+            InitializeComponent();
+            this.gameWindow = gameWindow;
+            this.previousServices = previousServices;
+        }
         private void BackToTheTeamButton_Click(object sender, RoutedEventArgs e)
         {
             gameWindow.GameMainFramePageEnumerable(previousServices);

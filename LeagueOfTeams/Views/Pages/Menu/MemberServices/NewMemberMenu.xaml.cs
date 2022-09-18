@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeagueOfTeamsUI.Views.Pages.Menu.SmollServicesLinks;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,10 +19,12 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.MemberServices
     public partial class NewMemberMenu : Page
     {
         GameWindow gameWindow;
+        PositionLogo position1Logo = new PositionLogo();
         public NewMemberMenu(GameWindow gameWindow)
         {
             InitializeComponent();
             this.gameWindow = gameWindow;
+            Position1.Content = position1Logo;
         }
 
         private void BackToThePreviousButton_Click(object sender, RoutedEventArgs e)

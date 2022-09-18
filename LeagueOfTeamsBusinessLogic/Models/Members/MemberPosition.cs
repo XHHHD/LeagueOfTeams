@@ -30,7 +30,7 @@
         internal uint PositionLevel { get => _positionExpiriance/1000; }
 
         /// <summary>
-        /// Secondary argumet for the mental motivation humans.
+        /// Secondary argumet for the mental motivation users.
         /// </summary>
         internal byte PositionRank { get => (byte)_positionExpiriance; }
 
@@ -42,7 +42,7 @@
         /// <summary>
         /// This will multiply position power member in fight.
         /// </summary>
-        internal double PositionFavorite { get => _positionFavorite; }
+        internal double PositionHappines { get => _positionFavorite; }
 
         /// <summary>
         /// Member chanse get resistance on corrent position.
@@ -50,7 +50,7 @@
         internal int PositionDefence { get => _positionDefence; }
 
         /// <summary>
-        /// Current position health
+        /// Current position health.
         /// </summary>
         internal int PositionHealth { get => _positionHealth; set => _positionHealth = value; }
 

@@ -2,7 +2,7 @@
 
 namespace LeagueOfTeamsBusinessLogic.Models.Members
 {
-    internal class Member : IMember
+    public class Member : IMember
     {
         /// <summary>
         /// This date will be used for enhancing afk non-played members.
@@ -16,16 +16,16 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
         private int _memberMaxEnergy = 100;
         private uint _memberMainExpiriance = 0;
         private byte _memberFreeMainSkillPoints = 0;
-        private List<MemberPosition> _memberPositions;
-        private MemberPosition _currentlyMemberMainPosition;
-        private List<MemberTrail> _memberTrailsList;
+        private List<int> _memberPositionsId;
+        private int _currentlyMemberMainPositionId;
+        private List<int> _memberTrailsId;
         private DateTime _lastUpdateTime;
         readonly Random random = new();
 
         public int Id { get => _id; }
         public string MemberNick { get => _memberNick; }
         public byte MemberAge { get => _memberAge; }
-        public int MemberPower { get => _currentlyMemberMainPosition.PositionPower; }
+        //public int MemberPower { get => _currentlyMemberMainPositionId.PositionPower; }
         public int MemberEnergy
         {
             get => _memberEnergy;
@@ -38,9 +38,9 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
         public int MemberMaxEnergy { get => _memberMaxEnergy; set => _memberMaxEnergy = value; }
         public uint MemberMainExpiriance { get => _memberMainExpiriance; }
         public byte MemberFreeMainSkillPoints { get => _memberFreeMainSkillPoints; set => _memberFreeMainSkillPoints = value; }
-        public List<MemberPosition> MemberPositions { get => _memberPositions; }
-        public MemberPosition CurrentMemberMainPosition { get => _currentlyMemberMainPosition; }
-        public List<MemberTrail> MemberTrails { get => _memberTrailsList; }
+        public List<int> MemberPositionsId { get => _memberPositionsId; }
+        public int CurrentlyMemberMainPositionId { get => _currentlyMemberMainPositionId; }
+        public List<int> MemberTrailsId { get => _memberTrailsId; }
 
 
         public Member(uint playerLevel)
@@ -56,14 +56,14 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
             
             //Making main position for the member. First main position always must be.
             MemberPosition firstMemberPosition = new(playerLevel);
-            _currentlyMemberMainPosition = firstMemberPosition;
-            _memberPositions.Add(firstMemberPosition);
+            _currentlyMemberMainPositionId = firstMemberPosition.Id;
+            _memberPositionsId.Add(firstMemberPosition.Id);
 
             //There must be 50% chanse to get member with two positions.
             if (random.Next(0, 1) == 1)
             {
                 MemberPosition secondaryMemberPosition = new(firstMemberPosition.PositionName, playerLevel, true);
-                _memberPositions.Add(secondaryMemberPosition);
+                _memberPositionsId.Add(secondaryMemberPosition.Id);
             }
 
             MemberTrail memberTrails = new();
@@ -73,31 +73,31 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
         /// Method, that will swich player main position between positions he already learned.
         /// </summary>
         /// <param name="positionName"></param>
-        internal void SetMemberMainPosition(string positionName)
-        {
-            if (_currentlyMemberMainPosition.PositionName != positionName)
-            {
-                foreach (MemberPosition position in MemberPositions)
-                {
-                    if (position.PositionName == positionName)
-                    {
-                        _currentlyMemberMainPosition = position;
-                        break;
-                    }
-                }
-            }
-        }
-        internal string AddMemberPosition(string addPositionName, uint playerLevel)
-        {
-            foreach (MemberPosition position in MemberPositions)
-            {
-                if (position.PositionName == addPositionName)
-                {
-                    return "Error! This member is already can play this position!";
-                }
-            }
-            MemberPositions.Add( _currentlyMemberMainPosition = new MemberPosition(addPositionName, playerLevel));
-            return "Done!";
-        }
+        //internal void SetMemberMainPosition(string positionName)
+        //{
+        //    if (_currentlyMemberMainPositionId.PositionName != positionName)
+        //    {
+        //        foreach (MemberPosition position in MemberPositionsId)
+        //        {
+        //            if (position.PositionName == positionName)
+        //            {
+        //                _currentlyMemberMainPositionId = position;
+        //                break;
+        //            }
+        //        }
+        //    }
+        //}
+        //internal string AddMemberPosition(string addPositionName, uint playerLevel)
+        //{
+        //    foreach (MemberPosition position in MemberPositionsId)
+        //    {
+        //        if (position.PositionName == addPositionName)
+        //        {
+        //            return "Error! This member is already can play this position!";
+        //        }
+        //    }
+        //    MemberPositionsId.Add( _currentlyMemberMainPositionId = new MemberPosition(addPositionName, playerLevel));
+        //    return "Done!";
+        //}
     }
 }

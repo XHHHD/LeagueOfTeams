@@ -5,13 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LeagueOfTeamsUI.Views.Pages.Menu.Logos"
       mc:Ignorable="d"
-      d:DesignHeight="125" d:DesignWidth="240"
+      d:DesignHeight="120" d:DesignWidth="240"
       Title="TopMembersLogo">
 
     <ToggleButton x:Name="TButton" Background="{x:Null}" BorderBrush="{x:Null}" Click="ToggleButton_Click">
         <Grid>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Text="TOP" FontSize="70" FontFamily="Arial Black"
+                <TextBlock Text="TOP" FontSize="60" FontFamily="Arial Black"
                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <TextBlock Text="MEMBERS" FontSize="40" FontFamily="Arial Black"
                            HorizontalAlignment="Center" VerticalAlignment="Center"/>

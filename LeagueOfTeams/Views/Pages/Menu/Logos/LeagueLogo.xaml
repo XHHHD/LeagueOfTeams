@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LeagueOfTeamsUI.Views.Pages.Menu.Logos"
       mc:Ignorable="d"
-      d:DesignHeight="125" d:DesignWidth="240"
+      d:DesignHeight="120" d:DesignWidth="240"
       Title="LeagueLogo">
 
     <ToggleButton x:Name="TButton" Background="{x:Null}" BorderBrush="{x:Null}" Click="ToggleButton_Click">
@@ -14,7 +14,7 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-            <Border Grid.Row="0" Height="100" Width="100" Background="Black">
+            <Border Grid.Row="0" Height="70" Width="70" Background="Black">
                 <Image x:Name="LeagueLogoImg" Margin="3" Source="/Img/Default/icons8-ос-free-bsd-100-white.png" />
             </Border>
             <TextBlock Text="League" Grid.Row="1" FontSize="30" FontFamily="Arial Black"

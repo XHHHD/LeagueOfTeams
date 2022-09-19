@@ -21,48 +21,74 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
                 <TextBlock HorizontalAlignment="Center" Margin="0,40,0,0" FontFamily="Arial Black" FontSize="58" Text="2nd"/>
-                <Frame x:Name="SecondPlace" NavigationUIVisibility="Hidden" Margin="30" Height="180" Width="328"/>
+                <Border CornerRadius="160">
+                    <Border.Background>
+                        <RadialGradientBrush>
+                            <GradientStop Color="#02FFFFFF" Offset="1"/>
+                            <GradientStop Color="#FF007AA4" Offset="0"/>
+                        </RadialGradientBrush>
+                    </Border.Background>
+                    <Frame x:Name="SecondPlace" NavigationUIVisibility="Hidden" Margin="30" Height="180" Width="328"/>
+                </Border>
             </StackPanel>
             <StackPanel Grid.Column="1">
                 <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" FontFamily="Arial Black" FontSize="72" Text="1st"/>
-                <Frame x:Name="FirstPlace" NavigationUIVisibility="Hidden" Margin="10" Height="230" Width="378"/>
+                <Border CornerRadius="180">
+                    <Border.Background>
+                        <RadialGradientBrush>
+                            <GradientStop Color="#FFFFF500" Offset="0"/>
+                            <GradientStop Color="#02FFFFFF" Offset="1"/>
+                        </RadialGradientBrush>
+                    </Border.Background>
+                    <Frame x:Name="FirstPlace" NavigationUIVisibility="Hidden" Margin="10" Height="230" Width="378"/>
+                </Border>
             </StackPanel>
             <StackPanel Grid.Column="2">
                 <TextBlock HorizontalAlignment="Center" Margin="0,60,0,10" FontFamily="Arial Black" FontSize="52" Text="3rd"/>
-                <Frame x:Name="ThirdPlace" NavigationUIVisibility="Hidden" Margin="30" Height="160" Width="308"/>
+                <Border CornerRadius="140">
+                    <Border.Background>
+                        <RadialGradientBrush>
+                            <GradientStop Color="#FFB78E00"/>
+                            <GradientStop Color="#02FFFFFF" Offset="1"/>
+                        </RadialGradientBrush>
+                    </Border.Background>
+                    <Frame x:Name="ThirdPlace" NavigationUIVisibility="Hidden" Margin="30" Height="160" Width="308"/>
+                </Border>
             </StackPanel>
         </Grid>
-        <StackPanel Grid.Row="1" Orientation="Vertical">
-            <Button Background="{x:Null}">
-                <StackPanel Orientation="Horizontal" Height="70">
-                    <TextBlock FontFamily="Arial Black" FontSize="72" Margin="20,0,0,0" Text="4"/>
-                    <Frame x:Name="fourthPlace" Margin="20,0,0,0" NavigationUIVisibility="Hidden"/>
-                </StackPanel>
-            </Button>
-            <Button Background="{x:Null}">
-                <StackPanel Orientation="Horizontal" Height="70">
-                    <TextBlock FontFamily="Arial Black" FontSize="72" Margin="20,0,0,0" Text="5"/>
-                    <Frame x:Name="fifthPlace" Margin="20,0,0,0" NavigationUIVisibility="Hidden"/>
-                </StackPanel>
-            </Button>
-            <Button Background="{x:Null}">
-                <StackPanel Orientation="Horizontal" Height="70">
-                    <TextBlock FontFamily="Arial Black" FontSize="72" Margin="20,0,0,0" Text="6"/>
-                    <Frame x:Name="sixthPlace" Margin="20,0,0,0" NavigationUIVisibility="Hidden"/>
-                </StackPanel>
-            </Button>
-            <Button Background="{x:Null}">
-                <StackPanel Orientation="Horizontal" Height="70">
-                    <TextBlock FontFamily="Arial Black" FontSize="72" Margin="20,0,0,0" Text="7"/>
-                    <Frame x:Name="seventhPlace" Margin="20,0,0,0" NavigationUIVisibility="Hidden"/>
-                </StackPanel>
-            </Button>
-            <Button Background="{x:Null}">
-                <StackPanel Orientation="Horizontal" Height="70">
-                    <TextBlock FontFamily="Arial Black" FontSize="72" Margin="20,0,0,0" Text="8"/>
-                    <Frame x:Name="eighthPlace" Margin="20,0,0,0" NavigationUIVisibility="Hidden"/>
-                </StackPanel>
-            </Button>
-        </StackPanel>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel Orientation="Vertical">
+                <Button Background="{x:Null}">
+                    <StackPanel Orientation="Horizontal" Height="70">
+                        <TextBlock FontFamily="Arial Black" FontSize="72" Margin="20,0,0,0" Text="4"/>
+                        <Frame x:Name="fourthPlace" Margin="20,0,0,0" NavigationUIVisibility="Hidden"/>
+                    </StackPanel>
+                </Button>
+                <Button Background="{x:Null}">
+                    <StackPanel Orientation="Horizontal" Height="70">
+                        <TextBlock FontFamily="Arial Black" FontSize="72" Margin="20,0,0,0" Text="5"/>
+                        <Frame x:Name="fifthPlace" Margin="20,0,0,0" NavigationUIVisibility="Hidden"/>
+                    </StackPanel>
+                </Button>
+                <Button Background="{x:Null}">
+                    <StackPanel Orientation="Horizontal" Height="70">
+                        <TextBlock FontFamily="Arial Black" FontSize="72" Margin="20,0,0,0" Text="6"/>
+                        <Frame x:Name="sixthPlace" Margin="20,0,0,0" NavigationUIVisibility="Hidden"/>
+                    </StackPanel>
+                </Button>
+                <Button Background="{x:Null}">
+                    <StackPanel Orientation="Horizontal" Height="70">
+                        <TextBlock FontFamily="Arial Black" FontSize="72" Margin="20,0,0,0" Text="7"/>
+                        <Frame x:Name="seventhPlace" Margin="20,0,0,0" NavigationUIVisibility="Hidden"/>
+                    </StackPanel>
+                </Button>
+                <Button Background="{x:Null}">
+                    <StackPanel Orientation="Horizontal" Height="70">
+                        <TextBlock FontFamily="Arial Black" FontSize="72" Margin="20,0,0,0" Text="8"/>
+                        <Frame x:Name="eighthPlace" Margin="20,0,0,0" NavigationUIVisibility="Hidden"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

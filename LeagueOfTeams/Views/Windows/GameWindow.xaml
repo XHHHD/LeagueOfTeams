@@ -10,7 +10,7 @@
         MinWidth="1440" MinHeight="810" WindowStyle="None"
         
         MouseLeftButtonDown="GameMainWindow_MouseLeftButtonDown"  Background="{x:Null}"
-        SizeToContent="WidthAndHeight" AllowsTransparency="True">
+        AllowsTransparency="True">
     <Border CornerRadius="40">
         <Border.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -32,17 +32,19 @@
                 <RowDefinition Height="10*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="6*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="15,0,0,15">
-                <Frame x:Name="TeamStatsButton" NavigationUIVisibility="Hidden" Height="125" Width="240"/>
-                <Frame x:Name="LeagueButton" NavigationUIVisibility="Hidden" Height="125" Width="240"/>
-                <Frame x:Name="TrainingsButton" NavigationUIVisibility="Hidden" Height="125" Width="240"/>
-                <Frame x:Name="TopTeamsButton" NavigationUIVisibility="Hidden" Height="125" Width="240"/>
-                <Frame x:Name="TopMembersButton" NavigationUIVisibility="Hidden" Height="125" Width="240"/>
-                <Frame x:Name="UserStatsButton" NavigationUIVisibility="Hidden" Height="125" Width="240"/>
-            </StackPanel>
+            <ScrollViewer Grid.Row="1" Grid.Column="0" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                <StackPanel Orientation="Vertical" Margin="15,0,0,15" CanVerticallyScroll="True">
+                    <Frame x:Name="TeamStatsButton" NavigationUIVisibility="Hidden" Height="120" Width="240"/>
+                    <Frame x:Name="LeagueButton" NavigationUIVisibility="Hidden" Height="120" Width="240"/>
+                    <Frame x:Name="TrainingsButton" NavigationUIVisibility="Hidden" Height="120" Width="240"/>
+                    <Frame x:Name="TopTeamsButton" NavigationUIVisibility="Hidden" Height="120" Width="240"/>
+                    <Frame x:Name="TopMembersButton" NavigationUIVisibility="Hidden" Height="120" Width="240"/>
+                    <Frame x:Name="UserStatsButton" NavigationUIVisibility="Hidden" Height="120" Width="240"/>
+                </StackPanel>
+            </ScrollViewer>
             <Grid Grid.Row="0" Grid.Column="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="3*"/>

@@ -67,7 +67,6 @@
                         <TextBlock x:Name="FreeSkillPoints" HorizontalAlignment="Right" VerticalAlignment="Center"
                            TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="0"/>
                     </Grid>
-                    <Frame x:Name="Position1" NavigationUIVisibility="Hidden"/>
                     <Grid>
                         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
                            TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Skill power:"/>
@@ -86,24 +85,7 @@
                         <TextBlock x:Name="Teamplay" HorizontalAlignment="Right" VerticalAlignment="Center"
                            TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="0"/>
                     </Grid>
-                    <Grid>
-                        <TextBlock x:Name="Stat8Name" HorizontalAlignment="Left" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 8:"/>
-                        <TextBlock x:Name="Stat8Value" HorizontalAlignment="Right" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 8"/>
-                    </Grid>
-                    <Grid>
-                        <TextBlock x:Name="Stat9Name" HorizontalAlignment="Left" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 9:"/>
-                        <TextBlock x:Name="Stat9Value" HorizontalAlignment="Right" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 9"/>
-                    </Grid>
-                    <Grid>
-                        <TextBlock x:Name="Stat10Name" HorizontalAlignment="Left" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 10:"/>
-                        <TextBlock x:Name="Stat10Value" HorizontalAlignment="Right" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 10"/>
-                    </Grid>
+                    <Frame x:Name="Position1" NavigationUIVisibility="Hidden"/>
                 </StackPanel>
             </GroupBox>
         </Grid>

@@ -5,18 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LeagueOfTeamsUI.Views.Pages.Menu.SmollServicesLinks"
       mc:Ignorable="d" 
-      d:DesignHeight="180" d:DesignWidth="328"
+      d:DesignHeight="180" d:DesignWidth="288"
       Title="SecondTopTeamLogo">
 
-    <Button Height="180" Width="328" Click="TeamButton_Click">
-        <Button.Background>
-            <SolidColorBrush Color="#FFC6FBFF" Opacity="0.8"/>
-        </Button.Background>
+    <Button Height="160" Width="268" Click="TeamButton_Click" Background="{x:Null}" BorderBrush="{x:Null}">
         <StackPanel Orientation="Vertical">
-            <Border Background="Black" Height="120" Width="120" Margin="0,10,0,0">
+            <Border Background="Black" Height="100" Width="100" Margin="0,10,0,0">
                 <Image x:Name="TeamRank" Margin="3"/>
             </Border>
-            <TextBlock x:Name="TeamName" FontFamily="Castellar" FontSize="40" Text="Team Name"/>
+            <TextBlock x:Name="TeamName" FontFamily="Castellar" FontSize="36" Text="Team Name"/>
         </StackPanel>
     </Button>
 </Page>

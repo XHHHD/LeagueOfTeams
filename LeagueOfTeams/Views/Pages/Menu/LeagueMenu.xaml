@@ -24,18 +24,20 @@
                 <Image x:Name="TeamLogoImg" Width="60" MinHeight="60"
                        Margin="3"/>
             </Border>
-            <StackPanel Grid.Row="1" Orientation="Vertical">
-                <Frame x:Name="Team1" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
-                <Frame x:Name="Team2" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
-                <Frame x:Name="Team3" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
-                <Frame x:Name="Team4" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
-                <Frame x:Name="Team5" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
-                <Frame x:Name="Team6" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
-                <Frame x:Name="Team7" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
-                <Frame x:Name="Team8" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
-                <Frame x:Name="Team9" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
-                <Frame x:Name="Team10" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
-            </StackPanel>
+            <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                <StackPanel Orientation="Vertical">
+                    <Frame x:Name="Team1" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
+                    <Frame x:Name="Team2" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
+                    <Frame x:Name="Team3" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
+                    <Frame x:Name="Team4" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
+                    <Frame x:Name="Team5" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
+                    <Frame x:Name="Team6" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
+                    <Frame x:Name="Team7" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
+                    <Frame x:Name="Team8" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
+                    <Frame x:Name="Team9" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
+                    <Frame x:Name="Team10" NavigationUIVisibility="Hidden" Height="60" Margin="3"/>
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
         <StackPanel Grid.Column="1" Margin="3">
             <Border Background="Black">

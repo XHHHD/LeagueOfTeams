@@ -19,11 +19,11 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.MemberServices
     {
         GameWindow gameWindow;
         MemberTrainings memberTrainings;
-        public TeamMemberLogo(GameWindow gameWindow, Page previousServices)
+        public TeamMemberLogo(GameWindow gameWindow)
         {
             InitializeComponent();
             this.gameWindow = gameWindow;
-            memberTrainings = new MemberTrainings(gameWindow, previousServices);
+            memberTrainings = new MemberTrainings(gameWindow);
         }
 
         private void MemberButton_Click(object sender, RoutedEventArgs e)

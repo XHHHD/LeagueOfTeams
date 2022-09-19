@@ -10,8 +10,8 @@
 
     <Grid x:Name="MainGrid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid x:Name="TaskGrid">
             <Grid.RowDefinitions>
@@ -29,107 +29,89 @@
                 <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Vertical">
                     <TextBlock x:Name="MemberName" HorizontalAlignment="Right" FontFamily="Arial Black"
                                FontSize="48" Text="Member Name"/>
-                    <TextBlock x:Name="MemberAge" HorizontalAlignment="Right" FontFamily="Arial Black"
-                               FontSize="36" Text="Member energy"/>
-                    <TextBlock x:Name="MemberInfo" HorizontalAlignment="Right" TextWrapping="Wrap" TextAlignment="Right"
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock FontFamily="Arial Black" FontSize="36" Text="Level: "/>
+                        <TextBlock x:Name="Level" FontFamily="Arial Black" FontSize="36" Text="0"/>
+                    </StackPanel>
+                    <TextBlock x:Name="MemberInfo" MaxWidth="600" HorizontalAlignment="Right" TextWrapping="Wrap" TextAlignment="Right"
                                FontFamily="Arial" FontSize="36" Text="Other short information about member."/>
                 </StackPanel>
             </Grid>
             <GroupBox Grid.Row="1">
-                <StackPanel>
-                    <Button x:Name="Training1" MinHeight="100" Margin="3" Background="{x:Null}">
-                        <TextBlock FontFamily="Arial Black" FontSize="36" Text="Training1 +"/>
-                    </Button>
-                    <Button x:Name="Training2" MinHeight="100" Margin="3" Background="{x:Null}">
-                        <TextBlock FontFamily="Arial Black" FontSize="36" Text="Training2 +"/>
-                    </Button>
-                    <Button x:Name="Training3" MinHeight="100" Margin="3" Background="{x:Null}">
-                        <TextBlock FontFamily="Arial Black" FontSize="36" Text="Training3 +"/>
-                    </Button>
-                    <Button x:Name="Training4" MinHeight="100" Margin="3" Background="{x:Null}">
-                        <TextBlock FontFamily="Arial Black" FontSize="36" Text="Training4 +"/>
-                    </Button>
-                    <Button x:Name="Training5" MinHeight="100" Margin="3" Background="{x:Null}">
-                        <TextBlock FontFamily="Arial Black" FontSize="36" Text="Training5 +"/>
-                    </Button>
-                </StackPanel>
-            </GroupBox>
-        </Grid>
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <GroupBox Grid.Row="0">
                 <GroupBox.Header>
                     <TextBlock x:Name="Characteristics" HorizontalAlignment="Center" VerticalAlignment="Center"
                                TextAlignment="Center" FontFamily="Arial Black" FontSize="48" Text="Characteristics" OpacityMask="Black"/>
                 </GroupBox.Header>
                 <StackPanel Grid.Row="1">
                     <Grid>
-                        <TextBlock x:Name="Stat1Name" HorizontalAlignment="Left" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 1:"/>
-                        <TextBlock x:Name="Stat1Value" HorizontalAlignment="Right" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 1"/>
+                        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
+                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Age:"/>
+                        <TextBlock x:Name="Age" HorizontalAlignment="Right" VerticalAlignment="Center"
+                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="14"/>
                     </Grid>
                     <Grid>
-                        <TextBlock x:Name="Stat2Name" HorizontalAlignment="Left" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 2:"/>
-                        <TextBlock x:Name="Stat2Value" HorizontalAlignment="Right" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 2"/>
+                        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
+                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Energy:"/>
+                        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                            <TextBlock x:Name="EnergyValue" VerticalAlignment="Center"
+                                   TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="0"/>
+                            <TextBlock VerticalAlignment="Center" TextAlignment="Center" FontFamily="Arial Black"
+                                           FontSize="28" Text="/"/>
+                            <TextBlock x:Name="MaxEnergyValue" VerticalAlignment="Center"
+                                   TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="100"/>
+                        </StackPanel>
                     </Grid>
                     <Grid>
-                        <TextBlock x:Name="Stat3Name" HorizontalAlignment="Left" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 3:"/>
-                        <TextBlock x:Name="Stat3Value" HorizontalAlignment="Right" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 3"/>
+                        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
+                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Free skill points:"/>
+                        <TextBlock x:Name="FreeSkillPoints" HorizontalAlignment="Right" VerticalAlignment="Center"
+                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="0"/>
                     </Grid>
                     <Grid>
-                        <TextBlock x:Name="Stat4Name" HorizontalAlignment="Left" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 4:"/>
-                        <TextBlock x:Name="Stat4Value" HorizontalAlignment="Right" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 4"/>
+                        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
+                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Skill power:"/>
+                        <TextBlock x:Name="SkillPower" HorizontalAlignment="Right" VerticalAlignment="Center"
+                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="0"/>
                     </Grid>
                     <Grid>
-                        <TextBlock x:Name="Stat5Name" HorizontalAlignment="Left" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 5:"/>
-                        <TextBlock x:Name="Stat5Value" HorizontalAlignment="Right" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 5"/>
+                        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
+                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Mental power:"/>
+                        <TextBlock x:Name="MentalPower" HorizontalAlignment="Right" VerticalAlignment="Center"
+                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="0"/>
                     </Grid>
                     <Grid>
-                        <TextBlock x:Name="Stat6Name" HorizontalAlignment="Left" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 6:"/>
-                        <TextBlock x:Name="Stat6Value" HorizontalAlignment="Right" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 6"/>
+                        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
+                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Teamplay:"/>
+                        <TextBlock x:Name="Teamplay" HorizontalAlignment="Right" VerticalAlignment="Center"
+                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="0"/>
                     </Grid>
-                    <Grid>
-                        <TextBlock x:Name="Stat7Name" HorizontalAlignment="Left" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 7:"/>
-                        <TextBlock x:Name="Stat7Value" HorizontalAlignment="Right" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 7"/>
-                    </Grid>
-                    <Grid>
-                        <TextBlock x:Name="Stat8Name" HorizontalAlignment="Left" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 8:"/>
-                        <TextBlock x:Name="Stat8Value" HorizontalAlignment="Right" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 8"/>
-                    </Grid>
-                    <Grid>
-                        <TextBlock x:Name="Stat9Name" HorizontalAlignment="Left" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 9:"/>
-                        <TextBlock x:Name="Stat9Value" HorizontalAlignment="Right" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 9"/>
-                    </Grid>
-                    <Grid>
-                        <TextBlock x:Name="Stat10Name" HorizontalAlignment="Left" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Characteristics 10:"/>
-                        <TextBlock x:Name="Stat10Value" HorizontalAlignment="Right" VerticalAlignment="Center"
-                           TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Value 10"/>
-                    </Grid>
+                    <Frame x:Name="Position1" NavigationUIVisibility="Hidden"/>
                 </StackPanel>
             </GroupBox>
-            <Button Name="BackToTheTeamButton" Grid.Row="1" Background="{x:Null}" Click="BackToTheTeamButton_Click">
-                <TextBlock FontFamily="Arial Black" FontSize="48" Text="BACK"/>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="PlaySoloRankedGameButton" Grid.Row="0" MinHeight="100" Margin="3" Background="{x:Null}">
+                    <TextBlock FontFamily="Arial Black" FontSize="28" TextWrapping="Wrap" TextAlignment="Center" Text="Play solo ranked game"/>
+                </Button>
+                <Button x:Name="PlayDouRankedGameButton" Grid.Row="1" MinHeight="100" Margin="3" Background="{x:Null}">
+                    <TextBlock FontFamily="Arial Black" FontSize="28" TextWrapping="Wrap" TextAlignment="Center" Text="Play duo ranked game"/>
+                </Button>
+                <Button x:Name="RestButton" Grid.Row="2" MinHeight="100" Margin="3" Background="{x:Null}">
+                    <TextBlock FontFamily="Arial Black" FontSize="28" TextWrapping="Wrap" TextAlignment="Center" Text="Rest and watch top highlights"/>
+                </Button>
+            </Grid>
+            <Button Name="BackToTheTeamButton" Grid.Row="1" Background="{x:Null}" Margin="3" Click="BackToTheTeamButton_Click">
+                <TextBlock FontFamily="Arial Black" FontSize="48" TextAlignment="Center" Text="BACK"/>
             </Button>
         </Grid>
     </Grid>

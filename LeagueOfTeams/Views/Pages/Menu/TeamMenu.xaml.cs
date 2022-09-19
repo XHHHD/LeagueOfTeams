@@ -23,11 +23,11 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu
         {
             InitializeComponent();
             this.gameWindow = gameWindow;
-            Member1.Content = new TeamMemberLogo(gameWindow, this);
-            Member2.Content = new TeamMemberLogo(gameWindow, this);
-            Member3.Content = new TeamMemberLogo(gameWindow, this);
-            Member4.Content = new TeamMemberLogo(gameWindow, this);
-            Member5.Content = new TeamMemberLogo(gameWindow, this);
+            Member1.Content = new TeamMemberLogo(gameWindow);
+            Member2.Content = new TeamMemberLogo(gameWindow);
+            Member3.Content = new TeamMemberLogo(gameWindow);
+            Member4.Content = new TeamMemberLogo(gameWindow);
+            Member5.Content = new TeamMemberLogo(gameWindow);
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

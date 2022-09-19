@@ -31,7 +31,7 @@
                                FontSize="48" Text="Member Name"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <TextBlock FontFamily="Arial Black" FontSize="36" Text="Level: "/>
-                        <TextBlock x:Name="Lelev" FontFamily="Arial Black" FontSize="36" Text="0"/>
+                        <TextBlock x:Name="Level" FontFamily="Arial Black" FontSize="36" Text="0"/>
                     </StackPanel>
                     <TextBlock x:Name="MemberInfo" HorizontalAlignment="Right" TextWrapping="Wrap" TextAlignment="Right"
                                FontFamily="Arial" FontSize="36" Text="Other short information about member."/>

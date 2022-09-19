@@ -13,28 +13,23 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LeagueOfTeamsBusinessLogic.Models.Members;
+using LeagueOfTeamsUI.Views.Pages.Menu.SmollServicesLinks;
 
 namespace LeagueOfTeamsUI.Views.Pages.Menu.MemberServices
 {
     public partial class MemberTrainings : Page
     {
         GameWindow gameWindow;
-        Page previousServices;
-        public MemberTrainings(GameWindow gameWindow, Page previousServices)
+        PositionLogo position1Logo = new PositionLogo();
+        public MemberTrainings(GameWindow gameWindow)
         {
             InitializeComponent();
             this.gameWindow = gameWindow;
-            this.previousServices = previousServices;
-        }
-        public MemberTrainings(GameWindow gameWindow, Page previousServices, Member member)
-        {
-            InitializeComponent();
-            this.gameWindow = gameWindow;
-            this.previousServices = previousServices;
+            Position1.Content = position1Logo;
         }
         private void BackToTheTeamButton_Click(object sender, RoutedEventArgs e)
         {
-            gameWindow.GameMainFramePageEnumerable(previousServices);
+            gameWindow.GameMainFramePageEnumerable(gameWindow.previousMenu);
         }
     }
 }

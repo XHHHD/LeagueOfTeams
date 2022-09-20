@@ -1,6 +1,6 @@
 ﻿namespace LeagueOfTeamsBusinessLogic.Models.Members
 {
-    internal class MemberPosition
+    public class Position
     {
         private readonly int _id;
         private readonly string _positionName;
@@ -54,13 +54,16 @@
         /// </summary>
         internal int PositionHealth { get => _positionHealth; set => _positionHealth = value; }
 
+        int MemberId { get; set; }
+        Member Member { get; set; }
+
 
 
         //This constructor is using,
         //when we will generate free recruits list.
-        internal MemberPosition(uint playerLevel)
+        internal Position(uint playerLevel)
         {
-            //Chise member position.
+            //Choise member position.
             _positionName = PositionsList.Positions[random.Next(0, PositionsList.Positions.Count - 1)];
             //Equating member with player.
             _positionExpiriance = (uint)((playerLevel + (((double)random.Next(-10,5))/5))*1000);
@@ -73,7 +76,7 @@
         //This constructor will use,
         //when we generate member with corrent position or
         //secondary position for member.
-        internal MemberPosition(string addPositionName, uint playerLevel) : this(playerLevel)
+        internal Position(string addPositionName, uint playerLevel) : this(playerLevel)
         {
             foreach ( string position in PositionsList.Positions)
             {
@@ -91,7 +94,7 @@
         /// <param name="excludedPositionName">Name of first position. It will be used to avoid repetition.</param>
         /// <param name="playerLevel"></param>
         /// <param name="generateMemberWhithotThisPosition">Must be TRUE, for using this constructor.</param>
-        internal MemberPosition(string excludedPositionName, uint playerLevel, bool generateMemberWhithotThisPosition) : this(playerLevel)
+        internal Position(string excludedPositionName, uint playerLevel, bool generateMemberWhithotThisPosition) : this(playerLevel)
         {
             do
             {

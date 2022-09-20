@@ -3,17 +3,18 @@
     public class Member
     {
         public int Id { get; set; }
-        public string MemberNick { get; set; }
-        public byte MemberAge { get; set; }
-        public int MemberEnergy { get; set; }
-        public int MemberMaxEnergy { get; set; }
-        public uint MemberMainExpiriance { get; set; }
-        public byte MemberFreeMainSkillPoints { get; set; }
-        public Positions CurrentlyMemberMainPositionId { get; set; }
-        public List<Positions> PositionsId { get; set; }
-        public List<MemberTrail>? MemberTrailsList { get; set; }
-        public Positions Positions { get; set; }
-        public MemberTrail MemberTrail { get; set; }
-        public DateTime MemberCreationDate { get; set; }
+        public string Name { get; set; }
+        public byte Age { get; set; }
+        public int Energy { get; set; }
+        public int MaxEnergy { get; set; }
+        public uint Expiriance { get; set; }
+        public byte FreeSkillPoints { get; set; }
+        public List<Position> Positions { get; set; }
+        public Position MainPosition { get; set; }
+        public List<MemberTrail>? MemberTrails { get; set; }
+        public int TeamId { get; set; }
+        public Team Team { get; set; }
+        public DateTime CreationDate { get; set; }
+        public DateTime LastChanges { get; set; }
     }
 }

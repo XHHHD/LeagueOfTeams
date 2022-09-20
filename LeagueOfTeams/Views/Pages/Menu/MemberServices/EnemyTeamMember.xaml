@@ -1,4 +1,4 @@
-﻿<Page x:Class="LeagueOfTeamsUI.Views.Pages.Menu.MemberServices.MemberTrainings"
+﻿<Page x:Class="LeagueOfTeamsUI.Views.Pages.Menu.MemberServices.EnemyTeamMember"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:LeagueOfTeamsUI.Views.Pages.Menu.MemberServices"
       mc:Ignorable="d" 
       d:DesignHeight="736" d:DesignWidth="1240"
-      Title="Member Trainings">
+      Title="EnemyTeamMember">
 
     <Grid x:Name="MainGrid">
         <Grid.ColumnDefinitions>
@@ -96,26 +96,20 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Button x:Name="PlaySoloRankedGameButton" Grid.Row="0" MinHeight="100" Margin="3" Background="{x:Null}">
-                    <TextBlock FontFamily="Arial Black" FontSize="28" TextWrapping="Wrap" TextAlignment="Center" Text="Play solo ranked game"/>
+            <StackPanel Grid.Column="0">
+                <Button x:Name="MatchHistory1" MinHeight="80" Margin="3" Background="{x:Null}">
+                    <TextBlock FontFamily="Arial Black" FontSize="28" TextWrapping="Wrap" TextAlignment="Center" Text="Last match history"/>
                 </Button>
-                <Button x:Name="PlayDouRankedGameButton" Grid.Row="1" MinHeight="100" Margin="3" Background="{x:Null}">
-                    <TextBlock FontFamily="Arial Black" FontSize="28" TextWrapping="Wrap" TextAlignment="Center" Text="Play duo ranked game"/>
+                <Button x:Name="MatchHistory2" MinHeight="80" Margin="3" Background="{x:Null}">
+                    <TextBlock FontFamily="Arial Black" FontSize="28" TextWrapping="Wrap" TextAlignment="Center" Text="Last match history"/>
                 </Button>
-                <Button x:Name="RestButton" Grid.Row="2" MinHeight="100" Margin="3" Background="{x:Null}">
-                    <TextBlock FontFamily="Arial Black" FontSize="28" TextWrapping="Wrap" TextAlignment="Center" Text="Rest and watch top highlights"/>
+                <Button x:Name="MatchHistory3" MinHeight="80" Margin="3" Background="{x:Null}">
+                    <TextBlock FontFamily="Arial Black" FontSize="28" TextWrapping="Wrap" TextAlignment="Center" Text="Last match history"/>
                 </Button>
-                <Button x:Name="KickButton" Grid.Row="3" MinHeight="100" Margin="3" Background="{x:Null}">
-                    <TextBlock FontFamily="Arial Black" FontSize="28" TextWrapping="Wrap" TextAlignment="Center" Text="Kick member from team"/>
+                <Button x:Name="MatchHistory4" MinHeight="80" Margin="3" Background="{x:Null}">
+                    <TextBlock FontFamily="Arial Black" FontSize="28" TextWrapping="Wrap" TextAlignment="Center" Text="Last match history"/>
                 </Button>
-            </Grid>
+            </StackPanel>
             <Button Name="BackToTheTeamButton" Grid.Row="1" Background="{x:Null}" Margin="3" Click="BackToTheTeamButton_Click">
                 <TextBlock FontFamily="Arial Black" FontSize="48" TextAlignment="Center" Text="BACK"/>
             </Button>

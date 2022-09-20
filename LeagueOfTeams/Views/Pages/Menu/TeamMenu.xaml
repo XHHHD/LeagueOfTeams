@@ -27,13 +27,15 @@
                 <Image x:Name="TeamLogo" Source="/Img/Default/icons8-ос-free-bsd-100-white.png"/>
             </Border>
         </Grid>
-        <StackPanel x:Name="Members" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left">
-            <Frame x:Name="Member1" NavigationUIVisibility="Hidden" MinWidth="160"/>
-            <Frame x:Name="Member2" NavigationUIVisibility="Hidden" MinWidth="160"/>
-            <Frame x:Name="Member3" NavigationUIVisibility="Hidden" MinWidth="160"/>
-            <Frame x:Name="Member4" NavigationUIVisibility="Hidden" MinWidth="160"/>
-            <Frame x:Name="Member5" NavigationUIVisibility="Hidden" MinWidth="160"/>
-        </StackPanel>
+        <ScrollViewer Grid.Row="1"  HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled">
+            <StackPanel x:Name="Members" Orientation="Horizontal" HorizontalAlignment="Left">
+                <Frame x:Name="Member1" NavigationUIVisibility="Hidden" MinWidth="160"/>
+                <Frame x:Name="Member2" NavigationUIVisibility="Hidden" MinWidth="160"/>
+                <Frame x:Name="Member3" NavigationUIVisibility="Hidden" MinWidth="160"/>
+                <Frame x:Name="Member4" NavigationUIVisibility="Hidden" MinWidth="160"/>
+                <Frame x:Name="Member5" NavigationUIVisibility="Hidden" MinWidth="160"/>
+            </StackPanel>
+        </ScrollViewer>
         <Button x:Name="BackButton" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom"
                 Margin="5" Width="250" Height="250" Click="BackButton_Click" FontFamily="Arial Black"
                 FontSize="60" Content="BACK"/>

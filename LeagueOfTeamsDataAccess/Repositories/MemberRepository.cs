@@ -13,18 +13,6 @@ namespace LeagueOfTeamsDataAccess.Repositories
             _db = new AppContext(dbConnectionString);
         }
         /// <summary>
-        /// Get from database all created members in game.
-        /// </summary>
-        /// <returns>List of members</returns>
-        public List<Member> GetAllMembers() => _db.Members.ToList();
-        /// <summary>
-        /// Get from database currently member by member ID.
-        /// </summary>
-        /// <param name="memberID">Searching member id (int)</param>
-        /// <returns>Member object</returns>
-        public Member GetMemberById(int memberID) => _db.Members.ElementAtOrDefault(memberID);
-        public Member GetMemberByNick(string memberNick) => _db.Members.Find(memberNick);
-        /// <summary>
         /// Save in database new member object.
         /// </summary>
         /// <param name="member">Created member</param>
@@ -37,10 +25,43 @@ namespace LeagueOfTeamsDataAccess.Repositories
         /// Delete from database currently member.
         /// </summary>
         /// <param name="member">Member object, that must be deleted.</param>
-        public void RemuveMember(Member member)
+        public void RemoveMember(Member member)
         {
             _db.Members.Remove(member);
             _db.SaveChanges();
+        }
+
+        /// <summary>
+        /// Get from database all created members in game.
+        /// </summary>
+        /// <returns>List of members</returns>
+        public List<Member> GetAllMembers() => _db.Members.ToList();
+        /// <summary>
+        /// Get from database currently member by member ID.
+        /// </summary>
+        /// <param name="memberID">Searching member id (int)</param>
+        /// <returns>Member object</returns>
+        public Member GetMemberById(int memberID) => _db.Members.ElementAtOrDefault(memberID);
+        public Member GetMemberByNick(string memberNick) => _db.Members.Find(memberNick);
+
+        public Member GetMemberByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Member> GetMembersByTeamId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Member> GetMembersByTeamName(string teamName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Member> GetMembersByPosition(string positionName)
+        {
+            throw new NotImplementedException();
         }
     }
 }

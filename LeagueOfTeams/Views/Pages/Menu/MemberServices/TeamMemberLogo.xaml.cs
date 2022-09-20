@@ -19,16 +19,20 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.MemberServices
     {
         GameWindow gameWindow;
         MemberTrainings memberTrainings;
+        EnemyTeamMember enemyTeamMember;
         public TeamMemberLogo(GameWindow gameWindow)
         {
             InitializeComponent();
             this.gameWindow = gameWindow;
             memberTrainings = new MemberTrainings(gameWindow);
+            enemyTeamMember = new EnemyTeamMember(gameWindow);
         }
 
         private void MemberButton_Click(object sender, RoutedEventArgs e)
         {
-            gameWindow.GameMainFramePageEnumerable(memberTrainings);
+            //Need equals something else
+            if(gameWindow.GameMainFrame.Content == gameWindow.userStatsLogo.userStatsMenu) gameWindow.GameMainFramePageEnumerable(memberTrainings);
+            else gameWindow.GameMainFramePageEnumerable(enemyTeamMember);
         }
     }
 }

@@ -7,9 +7,12 @@ namespace LeagueOfTeamsDataAccess
     {
         public DbSet<User> Users => Set<User>();
         public DbSet<Team> Teams => Set<Team>();
+        public DbSet<TeamRank> TeamRanks => Set<TeamRank>();
         public DbSet<Member> Members => Set<Member>();
+        public DbSet<MemberRank> MembersRanks => Set<MemberRank>();
+        public DbSet<Position> Positions => Set<Position>();
         public DbSet<PositionsNames> PositionsNames => Set<PositionsNames>();
-        public DbSet<PlayerTrail> PlayerTrails => Set<PlayerTrail>();
+        public DbSet<TeamTrail> PlayerTrails => Set<TeamTrail>();
         public DbSet<MemberTrail> MembersTrails => Set<MemberTrail>();
         public AppContext() => Database.EnsureCreated();
         public AppContext(string connectionString) : base(GetOptions(connectionString)) => Database.EnsureCreated();

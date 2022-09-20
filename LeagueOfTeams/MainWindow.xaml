@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         
         Title="Teams league" Height="900" Width="1600" AllowDrop="True"
-        MinWidth="1440" MinHeight="810" WindowStyle="None"
+        MinWidth="1440" MinHeight="810" WindowStyle="None" WindowStartupLocation="CenterScreen"
         
         x:Name="WindowMain"
         MouseLeftButtonDown="MainWindow_MouseLeftButtonDown" Background="{x:Null}"

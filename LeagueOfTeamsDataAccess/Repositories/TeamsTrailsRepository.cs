@@ -2,20 +2,20 @@
 
 namespace LeagueOfTeamsDataAccess.Repositories
 {
-    public class PlayerTrailsRepository
+    public class TeamsTrailsRepository
     {
         AppContext _db;
-        public PlayerTrailsRepository()
+        public TeamsTrailsRepository()
         {
             string dbConnectionString =
                 "Server=(localdb)\\mssqllocaldb;Initial Catalog=MyDB;Integrated Security=True;";
             _db = new AppContext(dbConnectionString);
         }
-        public List<PlayerTrail> GetAllPlayerTrails()
+        public List<TeamTrail> GetAllPlayerTrails()
         {
             return _db.PlayerTrails.ToList();
         }
-        public PlayerTrail GetPlayerTrail(int trailID)
+        public TeamTrail GetPlayerTrail(int trailID)
         {
             return _db.PlayerTrails.ElementAtOrDefault(trailID);
         }

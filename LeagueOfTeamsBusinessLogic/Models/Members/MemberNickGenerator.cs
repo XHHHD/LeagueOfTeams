@@ -15,10 +15,10 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
             "Dack", "Daemon", "Decay", "Diablo", "Doom", "Dracula", "Dragon", "Dissent", "Derange", "DaffyGirl", "DahliaBumble", "DaisyCraft", "Dancing Madman", "Dangle", "DanimalDaze", "DarkHorse", "DarksideOrbit", "DarlingPeacock", "DayHawk", "DesertHaze", "Desperado", "DevilBlade", "DevilChick", "Dexter", "DiamondGamer", "Digger", "DiscoPotato", "DiscoThunder", "DiscoMate", "DonStab", "DozKiller", "Dredd", "DriftDetector", "DriftManiac", "DropStone", "Dropkick", "DrugstoreCowboy", "DuckDuck", "Darko", "Deathstalker", "Demented", "Dutch", "Dux",
             "EarlofArms", "EasySweep", "EerieMizzen", "ElactixNova", "ElderPogue", "ElectricPlayer", "ElectricSaturn", "EmberRope", "Esquire", "ExoticAlpha", "EyeShooter",
             "Fabulous", "FastDraw", "FastLane", "FatherAbbot", "FenderBoyXXX", "FennelDove", "FeralMayhem", "FiendOblivion", "FifthHarmony", "FireFeline", "FireFish", "FireByMisFire", "FistWizard", "Fist", "Footslam", "Frenzy", "FireBred", "Furore", "Fury", "Fender", "Fester", "Fisheye", "Flack", "Falcon", "Fang",
-            "Gash", "Gut", "Geronimo", "Glock", "Gatling", "Grizzly", "Grip", "Goshawk", "Gnaw", "Gargoyle", "Grave", "Gunner",
-            "Hash", "Hashtag", "Hurricane", "Hannibal", "HeadKnocker", "Hellcat", "Howitzer", "Hornet", "Hazzard", "HoHoHo", "Holliday",
-            "Indominus", "Ironclad", "Iron Heart", "Ironsides", "IronCut", "Insurgent", "Ire", "Indigo", "Invader", "ImagineKitties",
-            "Jaguar", "Javelin", "Jawbone", "JesseJames", "Jaggernaut", "Judge", "JustLuck", "Jimbo", "Jeronimo", "JazzCat", "JoyClub",
+            "Gash", "Gut", "Geronimo", "Glock", "Gatling", "Grizzly", "Grip", "Goshawk", "Gnaw", "Gargoyle", "Grave", "Gunner", "Graffy", "GGNext", "GoodGun",
+            "Hash", "Hashtag", "Hurricane", "Hannibal", "HeadKnocker", "Hellcat", "Howitzer", "Hornet", "Hazzard", "HoHoHo", "Holliday", "HolyWar", "Hunter",
+            "Indominus", "Ironclad", "IronHeart", "Ironsides", "IronCut", "Insurgent", "Ire", "Indigo", "Invader", "ImagineKitties", "IIICenturyFox", "IGGI", "IggyRock",
+            "Jaguar", "Javelin", "Jawbone", "JesseJames", "Jaggernaut", "Judge", "JustLuck", "Jimbo", "Jeronimo", "JazzCat", "JoyClub", "Jinjer", "JinCooler",
             "K9", "Kneecap", "Kraken", "Kevlar", "Killer", "Knuckles", "Khan", "KnowWhoMySisterIs", "KannadianGringo", "Koala",
             "Lash","Lightning", "Leon", "Leonidas", "Lynch", "LeonStealer", "LionHorn", "LoveDealer", "LeafKicker", "Lollipop",
             "MadDog", "Maximus", "Matrix", "MadMax", "Madness", "Manic", "Mania", "Mortar", "MrBlonde", "Metapelet",
@@ -30,13 +30,13 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
             "Sasquatch", "Scar", "Shiver", "Skinner", "SkullCrusher", "Slasher", "Steelshot", "Surge", "Sythe", "Steel", "SteelForge", "SteelFoil", "SickRebellious Names", "Sabotage", "Subversion", "Schizo", "Savage", "Siddhartha", "Suleiman", "Slaughter", "Soleus", "Scalp", "Scab", "Socket", "Skeleton", "Sniper", "Siege", "StrikeEagle", "Snake", "Scorpion", "Sting", "SaintLaZBoy", "Sandbox", "ScareStone", "ScaryNinja", "ScaryPumpkin", "Scrapper", "Scrapple", "Screw", "Screwtape", "SealSnake", "ShadowBishop", "ShadowChaser", "SherwoodGladiator", "Shooter", "ShowMeSunset", "ShowMeUrguts", "SidewalkEnforcer", "SiennaPrincess", "SilverStone", "SirShove", "SkullCrusher", "SkyBully", "SkyHerald",
             "Trip", "Trooper", "Tweek", "Tito", "Titanium", "Tempest", "Terminator", "Thor", "Tooth", "Torque", "Torpedo", "Tomcat", "Tusk",
             "Upsurge", "Uprising", "Uproar", "Uploader",
-            "Vein", "Void", "Vulture", "Viper", "Vehiclon",
-            "Wardon", "Wraith", "Wrath", "Wildcat", "Wolf", "Wolverine", "Wonwifter",
+            "Vein", "Void", "Vulture", "Viper", "Vehiclon", "Volt",
+            "Wardon", "Wraith", "Wrath", "Wildcat", "Wolf", "Wolverine", "Wonwifter", "WTph",
             "XMasGift", "XSkull", "XavieL",
             "YellowMaster","YellowKaRaTeBelt", "YodaWasAShearedRat",
             "Zomboid", "Zorrotron", "Zero", "Zoltan", "Zak"
         };
-        internal static string MakeNewMemberNick()
+        internal static string GenerateNewMemberNick()
         {
             HashSet<int> usedNamesID = new HashSet<int>();
             foreach (Member member in MembersTopManager.GetMembersTop())

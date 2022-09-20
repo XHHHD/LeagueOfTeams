@@ -2,10 +2,10 @@
 
 namespace LeagueOfTeamsDataAccess.Repositories
 {
-    public class PositionsNamesRepository
+    public class PositionNameRepository
     {
         AppContext _db;
-        public PositionsNamesRepository()
+        public PositionNameRepository()
         {
             string dbConnectionString =
                 "Server=(localdb)\\mssqllocaldb;Initial Catalog=MyDB;Integrated Security=True;";

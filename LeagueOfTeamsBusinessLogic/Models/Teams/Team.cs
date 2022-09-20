@@ -17,8 +17,6 @@ namespace LeagueOfTeamsBusinessLogic.Models.Teams
         private int _teamPower = 0;
         private int _teamHealth = 0;
         private int _teamCooperation = 0;
-        private List<IMember> _members;
-        private List<PlayerTrail> _playerTrails;
 
         public int TeamID { get => id; }
         public string TeamName { get => _teamName; set => _teamName = value; }
@@ -39,8 +37,8 @@ namespace LeagueOfTeamsBusinessLogic.Models.Teams
                 if (value != null) _teamDescription = value;
             }
         }
-        public List<IMember> Members { get => _members; }
-        public List<PlayerTrail> PlayerTrails { get => _playerTrails; }
+        public List<Member> Members { get; set; }
+        public List<TeamTrail> PlayerTrails { get; set; }
         public uint PlayerExpiriance { get => _playerExpiriance%1000; }
         public uint PlayerLevel { get => _playerExpiriance/1000 + 1; }
         public int TeamEnergy { get => _teamEnergy; }
@@ -51,8 +49,8 @@ namespace LeagueOfTeamsBusinessLogic.Models.Teams
         
         public Team(TeamRegistrationDTO newTeam)
         {
-            _members = new List<IMember>();
-            _playerTrails = new List<PlayerTrail>();
+            Members = new List<Member>();
+            PlayerTrails = new List<TeamTrail>();
             if (newTeam.Name != null && TeamsTopManager.IsThisNamespaceFree(newTeam.Name)) _teamName = newTeam.Name;
             else throw new TeamRegistrationException("Set new team name.");
             string teamShortName;

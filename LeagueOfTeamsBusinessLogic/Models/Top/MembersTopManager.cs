@@ -10,7 +10,7 @@ namespace LeagueOfTeamsBusinessLogic.Models.Top
         /// Check, did the member name is already taked someone.
         /// </summary>
         /// <param name="checkedMemberName"></param>
-        /// <returns>Return False if name is used and True if name is free to use.</returns>
+        /// <returns>Return True if name is free to use and False if name is already used.</returns>
         public static bool IsThisMemberNameFree(string checkedMemberName) => true;
     }
 }

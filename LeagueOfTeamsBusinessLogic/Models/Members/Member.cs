@@ -1,4 +1,5 @@
 ﻿using LeagueOfTeamsBusinessLogic.Interfaces;
+using LeagueOfTeamsBusinessLogic.Models.Teams;
 
 namespace LeagueOfTeamsBusinessLogic.Models.Members
 {
@@ -16,9 +17,7 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
         private int _memberMaxEnergy = 100;
         private uint _memberMainExpiriance = 0;
         private byte _memberFreeMainSkillPoints = 0;
-        private List<int> _memberPositionsId;
-        private int _currentlyMemberMainPositionId;
-        private List<int> _memberTrailsId;
+        private List<MemberTrail> _trails;
         private DateTime _lastUpdateTime;
         readonly Random random = new();
 
@@ -38,16 +37,18 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
         public int MemberMaxEnergy { get => _memberMaxEnergy; set => _memberMaxEnergy = value; }
         public uint MemberMainExpiriance { get => _memberMainExpiriance; }
         public byte MemberFreeMainSkillPoints { get => _memberFreeMainSkillPoints; set => _memberFreeMainSkillPoints = value; }
-        public List<int> MemberPositionsId { get => _memberPositionsId; }
-        public int CurrentlyMemberMainPositionId { get => _currentlyMemberMainPositionId; }
-        public List<int> MemberTrailsId { get => _memberTrailsId; }
+        int TeamId { get; set; }
+        Team Team { get; set; }
+        public List<Position> Positions { get; set; }
+        public Position MainPosition { get; set; }
+        public List<MemberTrail> MemberTrailsId { get; set; }
 
 
         public Member(uint playerLevel)
         {
             memberCreationDate = DateTime.UtcNow;
             _lastUpdateTime = DateTime.UtcNow;
-            _memberNick = MemberNickGenerator.MakeNewMemberNick();
+            _memberNick = MemberNickGenerator.GenerateNewMemberNick();
 
             //Age must be between 14 and 30 yers. Because members, who more then 30 years old whil luse they characteristics.
             //Mmebers, who more then 35, will ask player keep them out. And players 40 years old will out team instantly.
@@ -55,15 +56,15 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
             if (_memberAge > 30) _memberAge = 30;
             
             //Making main position for the member. First main position always must be.
-            MemberPosition firstMemberPosition = new(playerLevel);
-            _currentlyMemberMainPositionId = firstMemberPosition.Id;
-            _memberPositionsId.Add(firstMemberPosition.Id);
+            Position firstMemberPosition = new(playerLevel);
+            MainPosition = firstMemberPosition;
+            Positions.Add(firstMemberPosition);
 
             //There must be 50% chanse to get member with two positions.
             if (random.Next(0, 1) == 1)
             {
-                MemberPosition secondaryMemberPosition = new(firstMemberPosition.PositionName, playerLevel, true);
-                _memberPositionsId.Add(secondaryMemberPosition.Id);
+                Position secondaryMemberPosition = new(firstMemberPosition.PositionName, playerLevel, true);
+                Positions.Add(secondaryMemberPosition);
             }
 
             MemberTrail memberTrails = new();
@@ -73,31 +74,31 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
         /// Method, that will swich player main position between positions he already learned.
         /// </summary>
         /// <param name="positionName"></param>
-        //internal void SetMemberMainPosition(string positionName)
-        //{
-        //    if (_currentlyMemberMainPositionId.PositionName != positionName)
-        //    {
-        //        foreach (MemberPosition position in MemberPositionsId)
-        //        {
-        //            if (position.PositionName == positionName)
-        //            {
-        //                _currentlyMemberMainPositionId = position;
-        //                break;
-        //            }
-        //        }
-        //    }
-        //}
-        //internal string AddMemberPosition(string addPositionName, uint playerLevel)
-        //{
-        //    foreach (MemberPosition position in MemberPositionsId)
-        //    {
-        //        if (position.PositionName == addPositionName)
-        //        {
-        //            return "Error! This member is already can play this position!";
-        //        }
-        //    }
-        //    MemberPositionsId.Add( _currentlyMemberMainPositionId = new MemberPosition(addPositionName, playerLevel));
-        //    return "Done!";
-        //}
+        internal void SetMemberMainPosition(string positionName)
+        {
+            if (MainPosition.PositionName != positionName)
+            {
+                foreach (Position position in Positions)
+                {
+                    if (position.PositionName == positionName)
+                    {
+                        MainPosition = position;
+                        break;
+                    }
+                }
+            }
+        }
+        internal string AddMemberPosition(string addPositionName, uint playerLevel)
+        {
+            foreach (Position position in Positions)
+            {
+                if (position.PositionName == addPositionName)
+                {
+                    return "Error! This member is already can play this position!";
+                }
+            }
+            Positions.Add(MainPosition = new Position(addPositionName, playerLevel));
+            return "Done!";
+        }
     }
 }

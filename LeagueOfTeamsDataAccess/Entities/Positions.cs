@@ -3,10 +3,10 @@
     public class Position
     {
         public int Id { get; set; }
-        public int Name { get; set; }
+        public string Name { get; set; }
         public uint Expiriance { get; set; }
         public uint Level { get; set; }
-        public byte Rank { get; set; }
+        public uint Rank { get; set; }
         public int Power { get; set; }
         public double Favorite { get; set; }
         public int Defence { get; set; }

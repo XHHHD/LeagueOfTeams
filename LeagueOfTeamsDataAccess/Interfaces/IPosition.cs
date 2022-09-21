@@ -12,8 +12,8 @@ namespace LeagueOfTeamsDataAccess.Interfaces
         public void AddPosition(Position position);
         public void RemovePosition(Position position);
         public Position GetPositionById(int id);
-        public List<Member> GetAllPositions();
-        public List<Member> GetPositionsByMemberName(string memberName);
-        public List<Member> GetPositionsByName(string name);
+        public List<Position> GetAllPositions();
+        public List<Position> GetPositionsByMemberName(string memberName);
+        public List<Position> GetPositionsByName(string name);
     }
 }

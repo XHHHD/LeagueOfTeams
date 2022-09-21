@@ -11,13 +11,17 @@ namespace LeagueOfTeamsDataAccess.Repositories
                 "Server=(localdb)\\mssqllocaldb;Initial Catalog=MyDB;Integrated Security=True;";
             _db = new AppContext(dbConnectionString);
         }
-        public List<TeamTrail> GetAllPlayerTrails()
+        public void AddNewTrail(TeamTrail newTrail)
         {
-            return _db.PlayerTrails.ToList();
+            _db.Add(newTrail);
+            _db.SaveChanges();
         }
-        public TeamTrail GetPlayerTrail(int trailID)
+        public void RemoveTrail(TeamTrail trail)
         {
-            return _db.PlayerTrails.ElementAtOrDefault(trailID);
+            _db.Remove(trail);
+            _db.SaveChanges();
         }
+        public List<TeamTrail> GetAllTrails() => _db.TeamTrails.ToList();
+        public TeamTrail GetCurrentTrail(int trailID) => _db.TeamTrails.ElementAtOrDefault(trailID);
     }
 }

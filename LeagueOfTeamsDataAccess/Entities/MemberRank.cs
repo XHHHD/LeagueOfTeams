@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace LeagueOfTeamsDataAccess.Entities
 {
-    internal class MemberRank
+    public class MemberRank
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public Member Members { get; set; }
+        public List<Member> Members { get; set; }
     }
 }

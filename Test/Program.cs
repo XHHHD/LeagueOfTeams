@@ -19,100 +19,108 @@ internal class Program
 
 
         //check users repo
-        Console.WriteLine("\n\n\n           //check users repo");
-        Console.WriteLine("adding");
+        Console.WriteLine("\n\n\n           ======check users repo======");
+        Console.WriteLine("---adding");
         userRepo.AddUser(new User() { Name = "Adm", Password = "123" });
-        Console.WriteLine("up from db");
+        Console.WriteLine("---up from db");
         var userFromDB = userRepo.GetAllUsers().FirstOrDefault();
-        Console.WriteLine("show result");
+        Console.WriteLine("---show result");
         if (userFromDB != null)
         {
             Console.WriteLine(userFromDB.Name);
             Console.WriteLine(userFromDB.Password);
-            Console.WriteLine("successful");
+            Console.WriteLine("+++successful");
         }
         else
-            Console.WriteLine("failed");
+            Console.WriteLine("---failed");
         for (int i = 0; i < 10; i++) Console.Write("_");
 
 
 
         //check teams rank repo
-        Console.WriteLine("\n\n\n           //check teams rank repo");
-        Console.WriteLine("adding");
+        Console.WriteLine("\n\n\n           ======check teams rank repo======");
+        Console.WriteLine("---adding");
         teamRankRepo.AddNewRank(new TeamRank()
         {
             Name = "Dung 5"
         });
-        Console.WriteLine("up from db");
+        Console.WriteLine("---up from db");
         var teamRankFromDB = teamRankRepo.GetAllTeamRanks().FirstOrDefault();
-        Console.WriteLine("show result");
+        Console.WriteLine("---show result");
         if (teamRankFromDB != null)
         {
             Console.WriteLine(teamRankFromDB.Name);
-            Console.WriteLine("successful");
+            Console.WriteLine("+++successful");
         }
-        else Console.WriteLine("failed");
+        else Console.WriteLine("---failed");
         for (int i = 0; i < 10; i++) Console.Write("_");
 
 
 
         //check team trails repo
-        Console.WriteLine("\n\n\n           //check teams trails repo");
-        Console.WriteLine("adding");
+        Console.WriteLine("\n\n\n           ======check teams trails repo======");
+        Console.WriteLine("---adding");
         teamsTrailsRepo.AddNewTrail(new TeamTrail()
         {
             Name = "Traitors",
             Description = "They use every chanse thay have, to trait u!"
         });
+        Console.WriteLine("---up from db");
+        var teamTrailFromDB = teamsTrailsRepo.GetAllTrails().FirstOrDefault();
+        if (teamTrailFromDB != null)
+        {
+            Console.WriteLine(teamTrailFromDB.Name + "\n" + teamTrailFromDB.Description);
+            Console.WriteLine("+++successful");
+        }
+        else Console.WriteLine("---failed");
         for (int i = 0; i < 10; i++) Console.Write("_");
 
 
 
         //check member rank repo
-        Console.WriteLine("\n\n\n           //check member rank repo");
-        Console.WriteLine("adding");
+        Console.WriteLine("\n\n\n           ======check member rank repo======");
+        Console.WriteLine("---adding");
         memberRankRepo.AddNewRank(new MemberRank()
         {
             Name = "Garbage 5"
         });
-        Console.WriteLine("up from db");
+        Console.WriteLine("---up from db");
         var memberRankFromDB = memberRankRepo.GetAllRanks().FirstOrDefault();
-        Console.WriteLine("show result");
+        Console.WriteLine("---show result");
         if (memberRankFromDB != null)
         {
             Console.WriteLine(memberRankFromDB.Name);
-            Console.WriteLine("successful");
+            Console.WriteLine("+++successful");
         }
-        else Console.WriteLine("failed");
+        else Console.WriteLine("---failed");
         for (int i = 0; i < 10; i++) Console.Write("_");
 
 
 
         //check member trail repo
-        Console.WriteLine("\n\n\n           //check member trail repo");
-        Console.Write("adding  with");
+        Console.WriteLine("\n\n\n           ======check member trail repo======");
+        Console.WriteLine("---adding");
         memberTrailRepo.AddMemberTrail(new MemberTrail()
         {
             Name = "Jerk",
             Description = "Member is a jerk"
         });
-        Console.WriteLine("up from db");
+        Console.WriteLine("---up from db");
         var memberTrailFromDB = memberTrailRepo.GetAllMembersTrails().FirstOrDefault();
-        Console.WriteLine("show result");
+        Console.WriteLine("---show result");
         if (memberTrailFromDB != null)
         {
-            Console.WriteLine(memberTrailFromDB.Id + "\n" + memberTrailFromDB.Name + "\n" + memberTrailFromDB.Description);
-            Console.WriteLine("successful");
+            Console.WriteLine(memberTrailFromDB.Name + "\n" + memberTrailFromDB.Description);
+            Console.WriteLine("+++successful");
         }
-        else Console.WriteLine("failed");
+        else Console.WriteLine("---failed");
         for (int i = 0; i < 10; i++) Console.Write("_");
 
 
 
         //check member repo
-        Console.WriteLine("\n\n\n           //check member repo");
-        Console.Write("adding with");
+        Console.WriteLine("\n\n\n           ======check member repo======");
+        Console.Write("---adding with");
         if (memberRankFromDB != null)
         {
             Console.WriteLine(" member rank");
@@ -146,31 +154,31 @@ internal class Program
                 LastChanges= DateTime.Now
             });
         }
-        Console.WriteLine("up from db");
+        Console.WriteLine("---up from db");
         var memberFromDB = memberRepo.GetAllMembers().FirstOrDefault();
-        Console.WriteLine("show result");
+        Console.WriteLine("---show result");
         if (memberFromDB != null)
         {
             Console.WriteLine(memberFromDB.Id);
             Console.WriteLine(memberFromDB.Name);
             Console.WriteLine(memberFromDB.Age);
-            Console.WriteLine("successful");
+            Console.WriteLine("+++successful");
         }
-        else Console.WriteLine("failed");
+        else Console.WriteLine("---failed");
         for (int i = 0; i < 10; i++) Console.Write("_");
 
 
 
         //check position name repo
-        Console.WriteLine("\n\n\n           //check position name repo");
+        Console.WriteLine("\n\n\n           ======check position name repo======");
         for (int i = 0; i < 5; i++) Console.WriteLine(positionNameRepo.GetCurrentlyPosition(i) + "\n");
-        Console.WriteLine("successful");
+        Console.WriteLine("+++successful");
         for (int i = 0; i < 10; i++) Console.Write("_");
 
 
 
         //check position repo
-        Console.WriteLine("\n\n\n           //check position repo");
+        Console.WriteLine("\n\n\n           //======check position repo======");
         Console.Write("adding with");
         if (memberFromDB != null)
         {
@@ -219,7 +227,7 @@ internal class Program
 
 
         //check teams repo
-        Console.WriteLine("\n\n\n           //check repo");
+        Console.WriteLine("\n\n\n           //======check team rank repo======");
         Console.Write("adding with");
         if(teamRankFromDB != null)
         {

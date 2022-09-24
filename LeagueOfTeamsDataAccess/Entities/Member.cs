@@ -16,7 +16,7 @@
 
 
         //POXY KEYS
-        public MemberRank MemberRank { get; set; }
+        public MemberRank? MemberRank { get; set; }
         public Team? Team { get; set; }
         public MemberTrail? MemberTrail { get; set; }
 

@@ -22,9 +22,11 @@ namespace LeagueOfTeamsDataAccess
         {
             return SqlServerDbContextOptionsExtensions.UseSqlServer(new DbContextOptionsBuilder(), connectionString).Options;
         }
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlite("Data Source=helloapp.db");
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Member>()
+                .HasOne(p => p.MemberRank)
+                .WithMany(t => t.Members);
+        }
     }
 }

@@ -41,7 +41,7 @@ namespace LeagueOfTeamsBusinessLogic.Models.Members
             HashSet<int> usedNamesID = new HashSet<int>();
             foreach (Member member in MembersTopManager.GetMembersTop())
             {
-                if (membersNicks.IndexOf(member.MemberNick) != -1) usedNamesID.Add(membersNicks.IndexOf(member.MemberNick));
+                if (membersNicks.IndexOf(member.Nick) != -1) usedNamesID.Add(membersNicks.IndexOf(member.Nick));
             }
             var notUsedInexes = Enumerable.Range(0, membersNicks.Count-1).Where(i => !usedNamesID.Contains(i));
             int randomNameIndexForNotUsedInexes = random.Next(0, 100 - usedNamesID.Count);

@@ -25,5 +25,6 @@ namespace LeagueOfTeamsDataAccess.Repositories
             _db.Users.Remove(user);
             _db.SaveChanges();
         }
+        public Team GetUserTeam(User user) => _db.Teams.FirstOrDefault(t => t.User == user);
     }
 }

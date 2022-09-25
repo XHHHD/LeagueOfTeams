@@ -21,7 +21,11 @@ internal class Program
         //check users repo
         Console.WriteLine("\n\n\n           ======check users repo======");
         Console.WriteLine("---adding");
-        userRepo.AddUser(new User() { Name = "Adm", Password = "123" });
+        userRepo.AddUser(new User()
+        {
+            Name = "Adm",
+            Password = "123"
+        });
         Console.WriteLine("---up from db");
         var userFromDB = userRepo.GetAllUsers().FirstOrDefault();
         Console.WriteLine("---show result");
@@ -33,7 +37,7 @@ internal class Program
         }
         else
             Console.WriteLine("---failed");
-        for (int i = 0; i < 10; i++) Console.Write("_");
+        for (int i = 0; i < 20; i++) Console.Write("_");
 
 
 
@@ -53,7 +57,7 @@ internal class Program
             Console.WriteLine("+++successful");
         }
         else Console.WriteLine("---failed");
-        for (int i = 0; i < 10; i++) Console.Write("_");
+        for (int i = 0; i < 20; i++) Console.Write("_");
 
 
 
@@ -73,7 +77,7 @@ internal class Program
             Console.WriteLine("+++successful");
         }
         else Console.WriteLine("---failed");
-        for (int i = 0; i < 10; i++) Console.Write("_");
+        for (int i = 0; i < 20; i++) Console.Write("_");
 
 
 
@@ -93,7 +97,7 @@ internal class Program
             Console.WriteLine("+++successful");
         }
         else Console.WriteLine("---failed");
-        for (int i = 0; i < 10; i++) Console.Write("_");
+        for (int i = 0; i < 20; i++) Console.Write("_");
 
 
 
@@ -114,16 +118,16 @@ internal class Program
             Console.WriteLine("+++successful");
         }
         else Console.WriteLine("---failed");
-        for (int i = 0; i < 10; i++) Console.Write("_");
+        for (int i = 0; i < 20; i++) Console.Write("_");
 
 
 
         //check member repo
         Console.WriteLine("\n\n\n           ======check member repo======");
         Console.Write("---adding with");
-        if (memberRankFromDB != null)
+        if (memberRankFromDB != null && memberTrailFromDB != null)
         {
-            Console.WriteLine(" member rank");
+            Console.WriteLine(" member rank and trail");
             memberRepo.AddMember(new Member()
             {
                 Name = "Neo",
@@ -135,12 +139,13 @@ internal class Program
                 RankPoints = 0,
                 CreationDate = DateTime.Now,
                 LastChanges = DateTime.Now,
-                MemberRank = memberRankFromDB
+                MemberRankId = memberRankFromDB.Id,
+                MemberTrailId = memberTrailFromDB.Id
             });
         }
         else
         {
-            Console.WriteLine("out member rank");
+            Console.WriteLine("out member rank and trail");
             memberRepo.AddMember(new Member()
             {
                 Name = "Neo",
@@ -165,15 +170,15 @@ internal class Program
             Console.WriteLine("+++successful");
         }
         else Console.WriteLine("---failed");
-        for (int i = 0; i < 10; i++) Console.Write("_");
+        for (int i = 0; i < 20; i++) Console.Write("_");
 
 
 
         //check position name repo
         Console.WriteLine("\n\n\n           ======check position name repo======");
-        for (int i = 0; i < 5; i++) Console.WriteLine(positionNameRepo.GetCurrentlyPosition(i) + "\n");
+        for (int i = 0; i < 5; i++) Console.WriteLine(positionNameRepo.GetCurrentlyPositionName(i) + "\n");
         Console.WriteLine("+++successful");
-        for (int i = 0; i < 10; i++) Console.Write("_");
+        for (int i = 0; i < 20; i++) Console.Write("_");
 
 
 
@@ -185,7 +190,7 @@ internal class Program
             Console.WriteLine(" member");
             positionRepo.AddPosition(new Position()
             {
-                Name = positionNameRepo.GetCurrentlyPosition(0),
+                Name = positionNameRepo.GetCurrentlyPositionName(0),
                 Expiriance = 0,
                 Level = 1,
                 Rank = 999,
@@ -193,7 +198,7 @@ internal class Program
                 Favorite = 0,
                 Defence = 0,
                 Health = 0,
-                Member = memberFromDB
+                MemberId = memberFromDB.Id
             });
         }
         else
@@ -201,7 +206,7 @@ internal class Program
             Console.WriteLine("out member");
             positionRepo.AddPosition(new Position()
             {
-                Name = positionNameRepo.GetCurrentlyPosition(0),
+                Name = positionNameRepo.GetCurrentlyPositionName(0),
                 Expiriance = 0,
                 Level = 1,
                 Rank = 999,
@@ -222,16 +227,16 @@ internal class Program
             Console.WriteLine("successful");
         }
         else Console.WriteLine("failed");
-        for (int i = 0; i < 10; i++) Console.Write("_");
+        for (int i = 0; i < 20; i++) Console.Write("_");
 
 
 
         //check teams repo
-        Console.WriteLine("\n\n\n           //======check team rank repo======");
+        Console.WriteLine("\n\n\n           //======check team repo======");
         Console.Write("adding with");
-        if(teamRankFromDB != null)
+        if(teamRankFromDB != null && teamTrailFromDB != null && userFromDB != null)
         {
-            Console.WriteLine(" team rank");
+            Console.WriteLine(" team rank, trail and user");
             teamRepo.AddTeam(new Team()
             {
                 Name = "Losers",
@@ -243,12 +248,14 @@ internal class Program
                 Health = 0,
                 Teamplay = 0,
                 LeaguePoints = 0,
-                TeamRank = teamRankFromDB
+                TeamTrailId = teamTrailFromDB.Id,
+                TeamRankId = teamRankFromDB.Id,
+                UserId = userFromDB.Id
             });
         }
         else
         {
-            Console.WriteLine("out team rank");
+            Console.WriteLine("out team rank, trail and user");
             teamRepo.AddTeam(new Team()
             {
                 Name = "Losers",
@@ -271,6 +278,6 @@ internal class Program
             Console.WriteLine("successful");
         }
         else Console.WriteLine("failed");
-        for (int i = 0; i < 10; i++) Console.Write("_");
+        for (int i = 0; i < 20; i++) Console.Write("_");
     }
 }

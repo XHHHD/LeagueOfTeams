@@ -24,25 +24,13 @@ namespace LeagueOfTeamsDataAccess.Repositories
             _db.SaveChanges();
         }
 
-        public List<Position> GetAllPositions()
-        {
-            throw new NotImplementedException();
-        }
+        public List<Position> GetAllPositions() => _db.Positions.ToList();
 
-        public Position GetPositionById(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public Position GetPositionById(int id) => _db.Positions.FirstOrDefault(p => p.Id == id);
 
-        public List<Position> GetPositionsByMemberName(string memberName)
-        {
-            throw new NotImplementedException();
-        }
+        public List<Position> GetPositionsByMemberName(string memberName) => _db.Positions.Where(p => p.Member.Name == memberName).ToList();
 
-        public List<Position> GetPositionsByName(string name)
-        {
-            throw new NotImplementedException();
-        }
+        public List<Position> GetPositionsByName(string name) => _db.Positions.Where(p => p.Name == name).ToList();
 
     }
 }

@@ -22,5 +22,6 @@ namespace LeagueOfTeamsDataAccess.Repositories
             _db.SaveChanges();
         }
         public List<MemberRank> GetAllRanks() => _db.MembersRanks.ToList();
+        public List<Member> GetAllMembersInThisRank(MemberRank rank) => _db.Members.Where(m => m.MemberRank == rank).ToList();
     }
 }

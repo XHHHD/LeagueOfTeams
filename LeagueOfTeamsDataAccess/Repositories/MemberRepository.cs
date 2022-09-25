@@ -41,27 +41,28 @@ namespace LeagueOfTeamsDataAccess.Repositories
         /// </summary>
         /// <param name="memberID">Searching member id (int)</param>
         /// <returns>Member object</returns>
-        public Member GetMemberById(int memberID) => _db.Members.ElementAtOrDefault(memberID);
-        public Member GetMemberByNick(string memberNick) => _db.Members.Find(memberNick);
+        public Member GetMemberById(int memberID) =>
+            _db.Members.ElementAtOrDefault(memberID);
 
-        public Member GetMemberByName(string name)
-        {
-            throw new NotImplementedException();
-        }
+        public Member GetMemberByName(string name) =>
+            _db.Members.FirstOrDefault(m => m.Name == name);
 
-        public List<Member> GetMembersByTeamId(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public List<Member> GetMembersByTeamId(int teamId) =>
+            _db.Teams.FirstOrDefault(t => t.Id == teamId).Members.ToList();
 
-        public List<Member> GetMembersByTeamName(string teamName)
-        {
-            throw new NotImplementedException();
-        }
+        public List<Member> GetMembersByTeamName(string teamName) =>
+            _db.Teams.FirstOrDefault(t => t.Name == teamName).Members.ToList();
 
-        public List<Member> GetMembersByPosition(string positionName)
-        {
-            throw new NotImplementedException();
-        }
+
+
+        /// <summary>
+        /// Need to correct this method.
+        /// </summary>
+        /// <param name="positionName"></param>
+        /// <returns></returns>
+        public List<Member> GetMembersByPosition(string positionName) =>
+            _db.Members
+            .Where(m => m.Positions.FirstOrDefault(p => p.Name == positionName).Name == positionName)
+            .ToList();
     }
 }

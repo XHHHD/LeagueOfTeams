@@ -19,11 +19,13 @@
         //PROXY STATS
         public TeamRank TeamRank { get; set; }
         public TeamTrail? TeamTrail { get; set; }
+        public User? User { get; set; }
         public List<Member> Members { get; set; }
 
 
         //PROXY KEYS
         public int TeamRankId { get; set; }
         public int TeamTrailId { get; set; }
+        public int? UserId { get; set; }
     }
 }

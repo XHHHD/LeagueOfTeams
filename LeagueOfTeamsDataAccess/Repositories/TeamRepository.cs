@@ -20,10 +20,11 @@ namespace LeagueOfTeamsDataAccess.Repositories
             _db.Teams.Add(team);
             _db.SaveChanges();
         }
-        public void RemuveTeam(Team team)
+        public void RemoveTeam(Team team)
         {
             _db.Teams.Remove(team);
             _db.SaveChanges();
         }
+        public List<Member> GetMembers(Team team) => _db.Members.Where(m => m.TeamId == team.Id).ToList();
     }
 }

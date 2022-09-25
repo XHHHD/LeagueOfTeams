@@ -22,9 +22,9 @@
 
 
         //PROXY STATS
-        //public int TeamId { get; set; }
-        //public int MemberRankId { get; set; }
-        //public int MemberTrailId { get; set; }
+        public int? TeamId { get; set; }
+        public int? MemberRankId { get; set; }
+        public int? MemberTrailId { get; set; }
         public List<Position> Positions { get; set; }
     }
 }

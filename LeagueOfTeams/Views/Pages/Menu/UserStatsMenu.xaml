@@ -28,13 +28,28 @@
                 <Border.Background>
                     <SolidColorBrush Color="Black" Opacity="0.1"/>
                 </Border.Background>
-                <Image x:Name="UserRankImg" Margin="3" OpacityMask="Black"
-                       Source="/Img/Default/icons8-ос-free-bsd-100-black.png" />
+                <Image x:Name="UserRankImg" Margin="3"
+                       Source="/Resources/Default/icons8-ос-free-bsd-100-black.png" />
             </Border>
         </Grid>
-        <StackPanel x:Name="MatchHistoryStack" Grid.Row="1">
-            <TextBlock FontFamily="Castellar" Margin="5" FontSize="24" FontWeight="Bold" Text="Matches History"/>
-            <ListBox x:Name="MatchHistoryList" Margin="3" MinHeight="50"/>
-        </StackPanel>
+        <GroupBox Grid.Row="1">
+            <GroupBox.Header>
+                <TextBlock FontFamily="Castellar" Margin="5" FontSize="24" FontWeight="Bold" Text="Matches History"/>
+            </GroupBox.Header>
+            <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                <StackPanel x:Name="MatchHistoryStack">
+                    <ListBox x:Name="MatchHistoryList1" Margin="3" MinHeight="50"/>
+                    <ListBox x:Name="MatchHistoryList2" Margin="3" MinHeight="50"/>
+                    <ListBox x:Name="MatchHistoryList3" Margin="3" MinHeight="50"/>
+                    <ListBox x:Name="MatchHistoryList4" Margin="3" MinHeight="50"/>
+                    <ListBox x:Name="MatchHistoryList5" Margin="3" MinHeight="50"/>
+                    <ListBox x:Name="MatchHistoryList6" Margin="3" MinHeight="50"/>
+                    <ListBox x:Name="MatchHistoryList7" Margin="3" MinHeight="50"/>
+                    <ListBox x:Name="MatchHistoryList8" Margin="3" MinHeight="50"/>
+                    <ListBox x:Name="MatchHistoryList9" Margin="3" MinHeight="50"/>
+                    <ListBox x:Name="MatchHistoryList10" Margin="3" MinHeight="50"/>
+                </StackPanel>
+            </ScrollViewer>
+        </GroupBox>
     </Grid>
 </Page>

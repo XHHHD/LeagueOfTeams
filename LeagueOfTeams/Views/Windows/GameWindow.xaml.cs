@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using AutoMapper;
+using LOT.BLL.Models;
+using LOT.BLL.Models.Teams;
+using LOT.BLL.Services.Teams;
+using LOT.DAL.Entities;
+using LOT.DAL.Repositories;
 using LeagueOfTeamsUI.Views.Pages.Menu;
 using LeagueOfTeamsUI.Views.Pages.Menu.Logos;
 using LeagueOfTeamsUI.Views.Pages.Menu.MemberServices;
@@ -19,6 +15,8 @@ namespace LeagueOfTeamsUI.Views
 {
     public partial class GameWindow : Window
     {
+
+        public UserModel user = GetTestUserModeel();
         public UserStatsLogo userStatsLogo;
         public TrainingsLogo trainingsLogo;
         public TeamStatsLogo teamStatsLogo;
@@ -98,6 +96,19 @@ namespace LeagueOfTeamsUI.Views
             else topMembersLogo.TButton.IsChecked = true;
 
             GameMainFrame.Content = nextPageContent;
+        }
+
+        private static UserModel GetTestUserModeel()
+        {
+            TeamService teamServ = new();
+            var user = new UserModel()
+            {
+                Id = 1,
+                Level = 1,
+                Name = "Test Player",
+                Team = teamServ.Get(1)
+            };
+            return user;
         }
     }
 }

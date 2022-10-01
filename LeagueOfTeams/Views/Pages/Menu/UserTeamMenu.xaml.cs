@@ -1,4 +1,5 @@
-﻿using LeagueOfTeamsUI.Views.Pages.Menu.MemberServices;
+﻿using LOT.BLL.Models;
+using LeagueOfTeamsUI.Views.Pages.Menu.MemberServices;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -10,6 +11,7 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu
         public UserTeamMenu(GameWindow gameWindow)
         {
             InitializeComponent();
+            InitComponents(gameWindow.user);
             this.gameWindow = gameWindow;
             Member1.Content = new TeamMemberLogo(gameWindow);
             Member2.Content = new TeamMemberLogo(gameWindow);
@@ -20,6 +22,11 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu
         private void AddMemberButton_Click(object sender, RoutedEventArgs e)
         {
             gameWindow.GameMainFramePageEnumerable(gameWindow.newMemberMenu, this);
+        }
+        public void InitComponents (UserModel user)
+        {
+            TeamName.Text = user.Team.Name;
+            TeamInformation.Text = user.Team.Description;
         }
     }
 }

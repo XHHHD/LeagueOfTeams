@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 using LeagueOfTeamsUI.Views;
 using LeagueOfTeamsUI.Pages;
 
-namespace LeagueOfTeamsBusinessLogic
+namespace LOT.BLL
 {
     public partial class MainWindow : Window
     {

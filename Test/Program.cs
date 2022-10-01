@@ -1,7 +1,7 @@
-﻿using LeagueOfTeamsDataAccess.Entities;
-using LeagueOfTeamsDataAccess.Repositories;
-using LeagueOfTeamsDataAccess.Interfaces;
-using LeagueOfTeamsDataAccess;
+﻿using LOT.DAL.Entities;
+using LOT.DAL.Repositories;
+using LOT.DAL.Interfaces;
+using LOT.DAL;
 internal class Program
 {
     private static void Main(string[] args)
@@ -135,7 +135,7 @@ internal class Program
                 Energy = 100,
                 MaxEnergy = 100,
                 Expiriance = 0,
-                FreeSkillPoints = 0,
+                SkillPoints = 0,
                 RankPoints = 0,
                 CreationDate = DateTime.Now,
                 LastChanges = DateTime.Now,
@@ -153,10 +153,10 @@ internal class Program
                 Energy = 100,
                 MaxEnergy = 100,
                 Expiriance = 0,
-                FreeSkillPoints = 0,
+                SkillPoints = 0,
                 RankPoints = 0,
-                CreationDate= DateTime.Now,
-                LastChanges= DateTime.Now
+                CreationDate = DateTime.Now,
+                LastChanges = DateTime.Now
             });
         }
         Console.WriteLine("---up from db");
@@ -247,7 +247,7 @@ internal class Program
                 Power = 0,
                 Health = 0,
                 Teamplay = 0,
-                LeaguePoints = 0,
+                RankPoints = 0,
                 TeamTrailId = teamTrailFromDB.Id,
                 TeamRankId = teamRankFromDB.Id,
                 UserId = userFromDB.Id
@@ -266,11 +266,11 @@ internal class Program
                 Power = 0,
                 Health = 0,
                 Teamplay = 0,
-                LeaguePoints = 0
+                RankPoints = 0
             });
         }
         Console.WriteLine("up from db");
-        var teamFromDb = teamRepo.GetAllTeams().FirstOrDefault();
+        var teamFromDb = teamRepo.GetAll().FirstOrDefault();
         Console.WriteLine("show result");
         if (teamFromDb != null)
         {

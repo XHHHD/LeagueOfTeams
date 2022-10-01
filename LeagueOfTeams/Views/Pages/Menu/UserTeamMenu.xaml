@@ -18,15 +18,13 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="0.25*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Vertical" Grid.Column="0">
+            <StackPanel x:Name="InformationStack" Orientation="Vertical" Grid.Column="0">
                 <TextBlock x:Name="TeamName" Text="Team Name" FontFamily="Arial Black" FontSize="48"/>
                 <TextBlock x:Name="TeamInformation" FontFamily="Arial Black" FontSize="24"
                            Text="Team Stats Information"/>
             </StackPanel>
-            <Border Grid.Column="1" HorizontalAlignment="Left" Background="White">
-                <Image x:Name="TeamLogo" Source="/Img/Default/icons8-ос-free-bsd-100-white.png"/>
-            </Border>
         </Grid>
+        <Image x:Name="TeamLogo" HorizontalAlignment="Right" Source="/Resources/Default/icons8-ос-free-bsd-100-white.png" />
         <StackPanel x:Name="Members" Grid.Row="1" Orientation="Horizontal">
             <Frame x:Name="Member1" NavigationUIVisibility="Hidden" MinWidth="160"/>
             <Frame x:Name="Member2" NavigationUIVisibility="Hidden" MinWidth="160"/>

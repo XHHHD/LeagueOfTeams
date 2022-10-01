@@ -11,15 +11,13 @@
     <Button x:Name="TeamButton" Background="{x:Null}" Click="TeamButton_Click">
         <Grid Height="60" Width="930">
             <StackPanel Orientation="Horizontal">
-                <Border Background="Black">
-                    <Image x:Name="TeamLogo" Height="60" Width="60" Margin="2"/>
-                </Border>
+                <Image x:Name="TeamLogo" Height="50" Width="50" Margin="2"
+                       Source="/Resources/Default/icons8-ос-free-bsd-100-white.png"/>
                 <TextBlock x:Name="TeamName" FontFamily="Arial Black" FontSize="40" Text="TeamName" VerticalAlignment="Center"
                            Margin="3"/>
             </StackPanel>
-            <Border Background="Black" Height="60" Width="60" HorizontalAlignment="Right">
-                <Image x:Name="TeamRank" Height="60" Width="60" HorizontalAlignment="Right" Margin="2"/>
-            </Border>
+            <Image x:Name="TeamRank" Height="50" Width="50" HorizontalAlignment="Right" Margin="2"
+                   Source="/Resources/Default/icons8-ос-free-bsd-100-black.png"/>
         </Grid>
     </Button>
 </Page>

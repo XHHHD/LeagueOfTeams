@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LeagueOfTeamsDataAccess\LeagueOfTeamsDataAccess.csproj" />
+    <ProjectReference Include="..\LOT.DAL\LOT.DAL.csproj" />
   </ItemGroup>
 
 </Project>

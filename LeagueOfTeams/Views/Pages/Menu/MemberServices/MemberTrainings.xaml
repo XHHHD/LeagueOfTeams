@@ -23,9 +23,8 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Width="200" Height="200" Background="Black">
-                    <Image x:Name="MemberLogo" Width="200" Height="200" Margin="3"/>
-                </Border>
+                <Image x:Name="MemberLogo" Grid.Row="0" HorizontalAlignment="Left" Width="200" Height="200"
+                       Margin="3" Source="/Resources/Default/icons8-ос-free-bsd-100-black.png"/>
                 <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Vertical">
                     <TextBlock x:Name="MemberName" HorizontalAlignment="Right" FontFamily="Arial Black"
                                FontSize="48" Text="Member Name"/>

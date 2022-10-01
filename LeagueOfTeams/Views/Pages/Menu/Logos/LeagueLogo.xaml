@@ -11,12 +11,11 @@
     <ToggleButton x:Name="TButton" Background="{x:Null}" BorderBrush="{x:Null}" Click="ToggleButton_Click">
         <Grid>
             <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-            <Border Grid.Row="0" Height="70" Width="70" Background="Black">
-                <Image x:Name="LeagueLogoImg" Margin="3" Source="/Img/Default/icons8-ос-free-bsd-100-white.png" />
-            </Border>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image x:Name="LeagueLogoImg" Grid.Row="0" Margin="3" Height="70" Width="70"
+                   Source="/Resources/Default/icons8-ос-free-bsd-100-white.png" />
             <TextBlock Text="League" Grid.Row="1" FontSize="30" FontFamily="Arial Black"
                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>

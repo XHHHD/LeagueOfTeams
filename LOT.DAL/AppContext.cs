@@ -17,7 +17,11 @@ namespace LOT.DAL
         {
             Database.EnsureCreated();
         }
-        public AppContext(string connectionString) : base(GetOptions(connectionString)) => Database.EnsureCreated();
+        public AppContext(string connectionString) : base(GetOptions(connectionString))
+        {
+            Database.EnsureDeleted();
+            Database.EnsureCreated();
+        }
         private static DbContextOptions GetOptions(string connectionString)
         {
             return SqlServerDbContextOptionsExtensions.UseSqlServer(new DbContextOptionsBuilder(), connectionString).Options;

@@ -236,7 +236,7 @@ internal class Program
         Console.Write("adding with");
         if(teamRankFromDB != null && teamTrailFromDB != null && userFromDB != null)
         {
-            Console.WriteLine(" team rank, trail and user");
+            Console.WriteLine(" team rank, trail");
             teamRepo.AddTeam(new Team()
             {
                 Name = "Losers",
@@ -249,8 +249,7 @@ internal class Program
                 Teamplay = 0,
                 RankPoints = 0,
                 TeamTrailId = teamTrailFromDB.Id,
-                TeamRankId = teamRankFromDB.Id,
-                UserId = userFromDB.Id
+                TeamRankId = teamRankFromDB.Id
             });
         }
         else

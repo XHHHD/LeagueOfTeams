@@ -10,7 +10,7 @@ namespace LOT.BLL.Models.Teams
 {
     public class TeamModel : ITeam
     {
-        private readonly int _id;
+        private int _id;
         private string _name = "";
         private string _shortName = "";
         private string _description = "There are no description here.";
@@ -22,7 +22,7 @@ namespace LOT.BLL.Models.Teams
         private int _rankPoints = 0;
         private string _img = "/Resources/Default/icons8-ос-free-bsd-100-white.png";
 
-        public int Id { get => _id; }
+        public int Id { get => _id; set => _id = value; }
         public string Name { get => _name; set => _name = value; }
         public string ShortName { get => _shortName; set => _shortName = value; }
         public string DisplayName

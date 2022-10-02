@@ -5,7 +5,7 @@ namespace LOT.DAL.Entities
     public class Team : ITeam
     {
         //BASIC STATS
-        public int Id { get; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
         public string Description { get; set; }
@@ -15,19 +15,19 @@ namespace LOT.DAL.Entities
         public int Health { get; set; }
         public int Teamplay { get; set; }
         public int RankPoints { get; set; }
-        public string Image { get; set; }
+        public string? Image { get; set; }
 
 
         //PROXY STATS
         public TeamRank TeamRank { get; set; }
-        public TeamTrail? TeamTrail { get; set; }
-        public User? User { get; set; }
+        public TeamTrail TeamTrail { get; set; }
+        public User User { get; set; }
         public List<Member> Members { get; set; }
 
 
         //PROXY KEYS
-        public int TeamRankId { get; set; }
-        public int TeamTrailId { get; set; }
+        public int? TeamRankId { get; set; }
+        public int? TeamTrailId { get; set; }
         public int? UserId { get; set; }
     }
 }

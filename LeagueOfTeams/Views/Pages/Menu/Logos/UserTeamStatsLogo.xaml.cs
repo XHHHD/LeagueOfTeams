@@ -10,9 +10,11 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.Logos
         public TeamStatsLogo(GameWindow gameWindow)
         {
             InitializeComponent();
-            gameWindow.TeamStatsButton.Content = this;
             this.gameWindow = gameWindow;
+            gameWindow.TeamStatsButton.Content = this;
             userTeamMenu = new UserTeamMenu(gameWindow);
+            if(gameWindow.user.Team != null)
+                TeamName.Text = gameWindow.user.Team.Name;
         }
         private void ToggleButton_Click(object sender, RoutedEventArgs e)
         {

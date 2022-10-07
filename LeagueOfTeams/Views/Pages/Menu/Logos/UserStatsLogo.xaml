@@ -15,9 +15,9 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Image x:Name="PlayerLogo" Grid.Row="0" Height="70" Width="70" Margin="3"
-                       Source="/Resources/Default/icons8-ос-free-bsd-100-black.png" />
-            <TextBlock Text="Statistics" Grid.Row="1" FontSize="30" FontFamily="Arial Black"
-                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                   Source="/Resources/Default/icons8-ос-free-bsd-100-black.png" />
+            <TextBlock x:Name="UserName" Grid.Row="1" FontSize="30" FontFamily="Arial Black"
+                       HorizontalAlignment="Center" VerticalAlignment="Center" Text="Statistics"/>
         </Grid>
     </ToggleButton>
 </Page>

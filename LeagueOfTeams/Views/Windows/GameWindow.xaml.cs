@@ -5,18 +5,18 @@ using AutoMapper;
 using LOT.BLL.Models;
 using LOT.BLL.Models.Teams;
 using LOT.BLL.Services.Teams;
-using LOT.DAL.Entities;
-using LOT.DAL.Repositories;
 using LeagueOfTeamsUI.Views.Pages.Menu;
 using LeagueOfTeamsUI.Views.Pages.Menu.Logos;
 using LeagueOfTeamsUI.Views.Pages.Menu.MemberServices;
+using System.Collections.Generic;
+using LOT.BLL.Models.Ranks;
 
 namespace LeagueOfTeamsUI.Views
 {
     public partial class GameWindow : Window
     {
 
-        public UserModel user = GetTestUserModeel();
+        public UserModel user;
         public UserStatsLogo userStatsLogo;
         public TrainingsLogo trainingsLogo;
         public TeamStatsLogo teamStatsLogo;
@@ -30,8 +30,8 @@ namespace LeagueOfTeamsUI.Views
         public GameWindow()
         {
             InitializeComponent();
+            user = GetTestUserModeel();
             userStatsLogo = new UserStatsLogo(this);
-            previousMenu = userStatsLogo.userStatsMenu;
             teamStatsLogo = new TeamStatsLogo(this);
             trainingsLogo = new TrainingsLogo(this);
             leagueLogo = new LeagueLogo(this);
@@ -39,6 +39,7 @@ namespace LeagueOfTeamsUI.Views
             topMembersLogo = new TopMembersLogo(this);
             teamMenu = new TeamMenu(this);
             newMemberMenu = new NewMemberMenu(this);
+            previousMenu = userStatsLogo.userStatsMenu;
             GameMainFramePageEnumerable(userStatsLogo.userStatsMenu);
         }
         private void GameMainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -105,9 +106,31 @@ namespace LeagueOfTeamsUI.Views
             {
                 Id = 1,
                 Level = 1,
-                Name = "Test Player",
-                Team = teamServ.Get(1)
+                Name = "Test Player"
             };
+            var team = new TeamModel()
+            {
+                Id = 1,
+                Name = "Test Team",
+                ShortName = "TES",
+                Description = "This is test team",
+                Expiriance = 0,
+                Energy = 0,
+                Power = 0,
+                Health = 0,
+                Teamplay = 0,
+                RankPoints = 0,
+                UserId = 1,
+                User = user
+            };
+            var teamRank = new TeamRankModel()
+            {
+                Id = 1,
+                Name = "Test Rank",
+                Teams = new List<TeamModel>() { team }
+            };
+            team.TeamRank = teamRank;
+            user.Team = team;
             return user;
         }
     }

@@ -16,13 +16,22 @@ namespace LOT.DAL.Repositories
             _db.Teams.Add(team);
             _db.SaveChanges();
         }
+        public void UpdateTeam(Team team)
+        {
+            _db.Update(team);
+        }
         public void RemoveTeam(Team team)
         {
             _db.Teams.Remove(team);
             _db.SaveChanges();
         }
-        public List<Team> GetAll() => _db.Teams.ToList();
-        public Team GetTeamById(int id) => _db.Teams.FirstOrDefault( t => t.Id == id);
-        public List<Member> GetTeamMembers(Team team) => _db.Members.Where(m => m.TeamId == team.Id).ToList();
+        public async void RemoveTeamByIdAsync(int id)
+        {
+            Team teamToRemove = await _db.Teams.FindAsync(id);
+            if(teamToRemove != null) await Task.Run(() => _db.Teams.Remove(teamToRemove));
+        }
+        public Team GetTeamById(int id) => _db.Teams.FirstOrDefault(t => t.Id == id);
+        public IEnumerable<Member> GetTeamMembers(int id) => _db.Members.Where(m => m.TeamId == id);
+        public IEnumerable<Team> GetAll() => _db.Teams.ToList();
     }
 }

@@ -10,6 +10,7 @@ namespace LOT.DAL.Interfaces
         public string Description { get; set; }
         public uint Expiriance { get; set; }
         public int Energy { get; set; }
+        public int MaxEnergy { get; set; }
         public int Power { get; set; }
         public int Health { get; set; }
         public int Teamplay { get; set; }

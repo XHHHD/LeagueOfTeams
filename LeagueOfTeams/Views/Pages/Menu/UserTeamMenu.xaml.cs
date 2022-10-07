@@ -11,22 +11,25 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu
         public UserTeamMenu(GameWindow gameWindow)
         {
             InitializeComponent();
-            InitComponents(gameWindow.user);
             this.gameWindow = gameWindow;
             Member1.Content = new TeamMemberLogo(gameWindow);
             Member2.Content = new TeamMemberLogo(gameWindow);
             Member3.Content = new TeamMemberLogo(gameWindow);
             Member4.Content = new TeamMemberLogo(gameWindow);
             Member5.Content = new TeamMemberLogo(gameWindow);
+            InitComponents(gameWindow.user);
         }
         private void AddMemberButton_Click(object sender, RoutedEventArgs e)
         {
             gameWindow.GameMainFramePageEnumerable(gameWindow.newMemberMenu, this);
         }
-        public void InitComponents (UserModel user)
+        private void InitComponents(UserModel user)
         {
-            TeamName.Text = user.Team.Name;
-            TeamInformation.Text = user.Team.Description;
+            if (user.Team != null)
+            {
+                TeamName.Text = user.Team.Name;
+                TeamInformation.Text = user.Team.Description;
+            }
         }
     }
 }

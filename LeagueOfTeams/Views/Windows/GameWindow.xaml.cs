@@ -116,6 +116,7 @@ namespace LeagueOfTeamsUI.Views
                 Description = "This is test team",
                 Expiriance = 0,
                 Energy = 0,
+                MaxEnergy = 100,
                 Power = 0,
                 Health = 0,
                 Teamplay = 0,

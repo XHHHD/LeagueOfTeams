@@ -16,8 +16,9 @@ namespace LOT.BLL.Models.Teams
         private string _description = "This team has no any description.";
         private uint _expiriance = 0;
         private int _energy = 0;
-        private int _power = 0;
+        private int _maxEnergy = 0;
         private int _health = 0;
+        private int _power = 0;
         private int _teamplay = 0;
         private int _rankPoints = 0;
         private string _img = "/Resources/Default/icons8-ос-free-bsd-100-white.png";
@@ -51,9 +52,20 @@ namespace LOT.BLL.Models.Teams
         public List<MemberModel> Members { get; set; }
         public uint Expiriance { get => _expiriance % 1000; set => _expiriance = value; }
         public uint Level { get => _expiriance/1000 + 1; }
-        public int Energy { get => _energy; set => _energy = value; }
-        public int Power { get => _power; set => _power = value; }
+        public int Energy
+        {
+            get => _energy;
+            set
+            {
+                if(value >= _maxEnergy)
+                    _energy = _maxEnergy;
+                else
+                    _energy = value;
+            }
+        }
+        public int MaxEnergy { get => _maxEnergy; set => _maxEnergy = value; }
         public int Health { get => _health; set => _health = value;  }
+        public int Power { get => _power; set => _power = value; }
         public int Teamplay { get => _teamplay; set => _teamplay = value; }
         public int RankPoints { get => _rankPoints; set => _rankPoints = value; }
         public string Image { get => _img; set => _img = value; }

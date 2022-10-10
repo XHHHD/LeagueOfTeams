@@ -11,6 +11,7 @@ using LeagueOfTeamsUI.Views.Pages.Menu.MemberServices;
 using System.Collections.Generic;
 using LOT.BLL.Models.Ranks;
 using LOT.BLL.Models.Members;
+using System.Reflection;
 
 namespace LeagueOfTeamsUI.Views
 {
@@ -28,7 +29,7 @@ namespace LeagueOfTeamsUI.Views
         public NewMemberMenu newMemberMenu;
 
         public Page previousMenu;
-        public GameWindow()
+        public GameWindow(WindowState windowState, object sender, RoutedEventArgs e)
         {
             InitializeComponent();
             user = GetTestUserModeel();
@@ -39,11 +40,14 @@ namespace LeagueOfTeamsUI.Views
             topTeamsLogo = new TopTeamsLogo(this);
             topMembersLogo = new TopMembersLogo(this);
             teamMenu = new TeamMenu(this);
-            if (user.Team != null)
-                if (user.Team.Members != null && user.Team.Members.Count < 1)
-                    newMemberMenu = new NewMemberMenu(this, user.Team.Members[0]);
+            newMemberMenu = new NewMemberMenu(this);
             previousMenu = userStatsLogo.userStatsMenu;
             GameMainFramePageEnumerable(userStatsLogo.userStatsMenu);
+            if (windowState == WindowState.Maximized)
+            {
+                CheckedFullScreenButton_Click(sender, e);
+                FullScreenButton.IsChecked = true;
+            }
         }
         private void GameMainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {

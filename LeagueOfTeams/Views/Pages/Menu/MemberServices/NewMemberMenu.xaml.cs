@@ -1,5 +1,6 @@
 ﻿using LeagueOfTeamsUI.Views.Pages.Menu.SmollServicesLinks;
 using LOT.BLL.Models.Members;
+using LOT.BLL.Services.Members;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -9,10 +10,12 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.MemberServices
     {
         GameWindow gameWindow;
         PositionLogo position1Logo, position2Logo;
-        public NewMemberMenu(GameWindow gameWindow, MemberModel member)
+        MemberModel member;
+        public NewMemberMenu(GameWindow gameWindow)
         {
             InitializeComponent();
             this.gameWindow = gameWindow;
+            member = MemberGenerator.GenerateNewMember(gameWindow.user.Expiriance);
             InitComponent(member);
         }
 

@@ -66,7 +66,7 @@ namespace LOT.BLL
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            GameWindow game = new GameWindow();
+            GameWindow game = new GameWindow(WindowState, sender, e);
             game.Show();
             WindowMain.Close();
         }

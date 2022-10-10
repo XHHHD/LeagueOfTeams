@@ -40,7 +40,7 @@ namespace LOT.BLL.Models.DTO
 
         public MemberRegistrationDTO(UserModel user, string position)
         {
-            Nick = NickGenerator.GenerateNewMemberNick();
+            Nick = NickGenerator.GenerateNewNick();
             //Age must be between 14 and 30 yers. Because members, who more then 30 years old whil luse they characteristics.
             //Mmebers, who more then 35, will ask player keep them out. And players 40 years old will out team instantly.
             _age = (byte)(14 + random.Next(0, 2) + user.Level / 3);

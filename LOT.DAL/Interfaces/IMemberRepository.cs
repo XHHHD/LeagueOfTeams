@@ -9,9 +9,9 @@ namespace LOT.DAL.Interfaces
         public void RemoveMember(Member member);
         public Member GetMemberById(int id);
         public Member GetMemberByName(string name);
-        public List<Member> GetAllMembers();
-        public List<Member> GetMembersByTeamId(int id);
-        public List<Member> GetMembersByTeamName(string teamName);
-        public List<Member> GetMembersByPosition(string positionName);
+        public IEnumerable<Member> GetAllMembers();
+        public IEnumerable<Member> GetMembersByTeam(int id);
+        public IEnumerable<Member> GetMembersByTeamName(string teamName);
+        public IEnumerable<Member> GetMembersByPosition(string positionName);
     }
 }

@@ -12,11 +12,11 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu
         {
             InitializeComponent();
             this.gameWindow = gameWindow;
-            Member1.Content = new TeamMemberLogo(gameWindow);
-            Member2.Content = new TeamMemberLogo(gameWindow);
-            Member3.Content = new TeamMemberLogo(gameWindow);
-            Member4.Content = new TeamMemberLogo(gameWindow);
-            Member5.Content = new TeamMemberLogo(gameWindow);
+            Member1.Content = new TeamMemberLogo(gameWindow, true);
+            Member2.Content = new TeamMemberLogo(gameWindow, true);
+            Member3.Content = new TeamMemberLogo(gameWindow, true);
+            Member4.Content = new TeamMemberLogo(gameWindow, true);
+            Member5.Content = new TeamMemberLogo(gameWindow, true);
             InitComponents(gameWindow.user);
         }
         private void AddMemberButton_Click(object sender, RoutedEventArgs e)

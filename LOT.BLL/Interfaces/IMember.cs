@@ -16,7 +16,7 @@ namespace LOT.BLL.Interfaces
         public int Energy { get; set; }
         public int MaxEnergy { get; set; }
         public uint Expiriance { get; set; }
-        public byte FreeSkillPoints { get; set; }
+        public byte SkillPoints { get; set; }
         public int RankPoints { get; set; }
         
         //PROXY KEY's

@@ -1,5 +1,6 @@
 ﻿using LOT.DAL.Entities;
 using LOT.DAL.Interfaces;
+using System.Linq;
 
 namespace LOT.DAL.Repositories
 {
@@ -34,8 +35,26 @@ namespace LOT.DAL.Repositories
         /// <summary>
         /// Get from database all created members in game.
         /// </summary>
-        /// <returns>List of members</returns>
-        public List<Member> GetAllMembers() => _db.Members.ToList();
+        /// <returns>Enumerable members</returns>
+        public IEnumerable<Member> GetAllMembers() => _db.Members;
+
+        public IEnumerable<Member> GetMembersByTeam(int teamId) =>
+            _db.Teams.FirstOrDefault(t => t.Id == teamId).Members;
+
+        public IEnumerable<Member> GetMembersByTeamName(string teamName) =>
+            _db.Teams.FirstOrDefault(t => t.Name == teamName).Members;
+
+
+
+        /// <summary>
+        /// Need to correct this method.
+        /// </summary>
+        /// <param name="positionName"></param>
+        /// <returns></returns>
+        public IEnumerable<Member> GetMembersByPosition(string positionName) =>
+            _db.Members
+            .Where(m => m.Positions.FirstOrDefault(p => p.Name == positionName).Name == positionName);
+
         /// <summary>
         /// Get from database currently member by member ID.
         /// </summary>
@@ -47,22 +66,7 @@ namespace LOT.DAL.Repositories
         public Member GetMemberByName(string name) =>
             _db.Members.FirstOrDefault(m => m.Name == name);
 
-        public List<Member> GetMembersByTeamId(int teamId) =>
-            _db.Teams.FirstOrDefault(t => t.Id == teamId).Members.ToList();
-
-        public List<Member> GetMembersByTeamName(string teamName) =>
-            _db.Teams.FirstOrDefault(t => t.Name == teamName).Members.ToList();
-
-
-
-        /// <summary>
-        /// Need to correct this method.
-        /// </summary>
-        /// <param name="positionName"></param>
-        /// <returns></returns>
-        public List<Member> GetMembersByPosition(string positionName) =>
-            _db.Members
-            .Where(m => m.Positions.FirstOrDefault(p => p.Name == positionName).Name == positionName)
-            .ToList();
+        public Member GetLast() =>
+            _db.Members.OrderBy(id => id == id).LastOrDefault();
     }
 }

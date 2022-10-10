@@ -53,11 +53,11 @@
                             <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
                                TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Energy:"/>
                             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                                <TextBlock x:Name="EnergyValue" VerticalAlignment="Center"
+                                <TextBlock x:Name="Energy" VerticalAlignment="Center"
                                        TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="0"/>
                                 <TextBlock VerticalAlignment="Center" TextAlignment="Center" FontFamily="Arial Black"
                                                FontSize="28" Text="/"/>
-                                <TextBlock x:Name="MaxEnergyValue" VerticalAlignment="Center"
+                                <TextBlock x:Name="MaxEnergy" VerticalAlignment="Center"
                                        TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="100"/>
                             </StackPanel>
                         </Grid>
@@ -69,8 +69,8 @@
                         </Grid>
                         <Grid>
                             <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
-                               TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Skill power:"/>
-                            <TextBlock x:Name="SkillPower" HorizontalAlignment="Right" VerticalAlignment="Center"
+                               TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Power:"/>
+                            <TextBlock x:Name="Power" HorizontalAlignment="Right" VerticalAlignment="Center"
                                TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="0"/>
                         </Grid>
                         <Grid>
@@ -81,11 +81,18 @@
                         </Grid>
                         <Grid>
                             <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
+                               TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Mental resistance:"/>
+                            <TextBlock x:Name="MentalResistance" HorizontalAlignment="Right" VerticalAlignment="Center"
+                               TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="0"/>
+                        </Grid>
+                        <Grid>
+                            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
                                TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Teamplay:"/>
                             <TextBlock x:Name="Teamplay" HorizontalAlignment="Right" VerticalAlignment="Center"
                                TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="0"/>
                         </Grid>
                         <Frame x:Name="Position1" NavigationUIVisibility="Hidden"/>
+                        <Frame x:Name="Position2" NavigationUIVisibility="Hidden"/>
                     </StackPanel>
                 </ScrollViewer>
             </GroupBox>

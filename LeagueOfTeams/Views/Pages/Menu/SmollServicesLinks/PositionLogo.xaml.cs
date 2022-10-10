@@ -1,28 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using LOT.BLL.Models.Members;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LeagueOfTeamsUI.Views.Pages.Menu.SmollServicesLinks
 {
-    /// <summary>
-    /// Логика взаимодействия для PositionLogo.xaml
-    /// </summary>
     public partial class PositionLogo : Page
     {
-        public PositionLogo()
+        public PositionLogo(PositionModel position)
         {
             InitializeComponent();
+            InitComponents(position);
+        }
+        private void InitComponents(PositionModel position)
+        {
+            Level.Text = position.Level.ToString();
+            Expiriance.Text = (1000 - position.Expiriance).ToString();
+            Rank.Text = position.Rank.ToString();
+            Power.Text = position.Power.ToString();
+            Happines.Text = position.Happines.ToString();
+            Defence.Text = position.Defence.ToString();
+            Health.Text = position.Health.ToString();
         }
     }
 }

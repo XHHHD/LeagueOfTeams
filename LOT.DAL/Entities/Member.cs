@@ -8,9 +8,14 @@ namespace LOT.DAL.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public byte Age { get; set; }
+        public int Power { get; set; }
         public int Energy { get; set; }
         public int MaxEnergy { get; set; }
+        public int MentalPower { get; set; }
+        public int MentalResistance { get; set; }
+        public int Teamplay { get; set; }
         public uint Expiriance { get; set; }
+        public uint Level { get; }
         public byte SkillPoints { get; set; }
         public int RankPoints { get; set; }
         public DateTime CreationDate { get; set; }

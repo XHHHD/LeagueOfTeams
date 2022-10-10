@@ -2,66 +2,67 @@
 {
     public class PositionModel
     {
-        private readonly int _id;
-        private readonly string _name;
+        private int _id;
+        private string _name;
         private uint _expiriance;
         private double _favorite;
         private int _power;
         private int _defence;
         private int _health;
-        readonly Random random = new();
+        private readonly Random random = new();
 
 
-        internal int Id { get => _id; }
+        public int Id { get => _id; set => _id = value; }
         /// <summary>
         /// Name of position: top/mid/bot/damagedealer/defender or else.
         /// For more information look PositionList.
         /// </summary>
-        internal string Name { get => _name; }
+        public string Name { get => _name; set => _name = value; }
 
         /// <summary>
         /// Expiriance played or trained on this position.
         /// </summary>
-        internal uint Expiriance { get => _expiriance; set => _expiriance = value; }
+        public uint Expiriance { get => _expiriance % 1000; set => _expiriance = value; }
 
         /// <summary>
         /// Points score for implementatin skills of member.
         /// </summary>
-        internal uint Level { get => _expiriance/1000; }
+        public uint Level { get => _expiriance / 1000 + 1; }
 
         /// <summary>
         /// Secondary argumet for the mental motivation users.
         /// </summary>
-        internal byte Rank { get => (byte)_expiriance; }
+        public byte Rank { get; set; }
 
         /// <summary>
         /// Core parameter for win position fight between members.
         /// </summary>
-        internal int Power { get => _power; set => _power = value; }
+        public int Power { get => _power; set => _power = value; }
 
         /// <summary>
         /// This will multiply position power member in fight.
         /// </summary>
-        internal double Happines { get => _favorite; }
+        public double Happines { get => _favorite; set => _favorite = value; }
 
         /// <summary>
         /// Member chanse get resistance on corrent position.
         /// </summary>
-        internal int Defence { get => _defence; }
+        public int Defence { get => _defence; set => _defence = value; }
 
         /// <summary>
         /// Current position health.
         /// </summary>
-        internal int Health { get => _health; set => _health = value; }
+        public int Health { get => _health; set => _health = value; }
 
-        int MemberId { get; set; }
-        MemberModel Member { get; set; }
+        public int MemberId { get; set; }
+        public MemberModel Member { get; set; }
 
 
 
+        public PositionModel() { }
         //This constructor is using,
         //when we will generate free recruits list.
-        internal PositionModel(UserModel user, string name)
+        public PositionModel(UserModel user, string name)
         {
             _name = name;
             //Equating member with player.
@@ -72,19 +73,45 @@
             _health = (int)Level + random.Next(-1,1);
         }
 
-        internal void AddPositionExpiriance(uint addedExpirianceAmount)
+        public void AddPositionExpiriance(uint addedExpirianceAmount)
         {
             uint positionLevelWas = Level;
             _expiriance += addedExpirianceAmount;
-            if (Level > positionLevelWas) MemberPositionLevelUp();
+            if (Level > positionLevelWas)
+                MemberPositionLevelUp();
         }
         private void MemberPositionLevelUp()
         {
-            _expiriance++;
             _favorite++;
             _power++;
             _defence++;
             _health++;
+        }
+        public void AddStats(string stat)
+        {
+            switch (stat)
+            {
+                case "PosFavorite":
+                    {
+                        _favorite++;
+                        break;
+                    }
+                case "PosPower":
+                    {
+                        _power++;
+                        break;
+                    }
+                case "PosDefence":
+                    {
+                        _defence++;
+                        break;
+                    }
+                case "PosHealth":
+                    {
+                        _health++;
+                        break;
+                    }
+            }    
         }
     }
 }

@@ -10,6 +10,7 @@ using LeagueOfTeamsUI.Views.Pages.Menu.Logos;
 using LeagueOfTeamsUI.Views.Pages.Menu.MemberServices;
 using System.Collections.Generic;
 using LOT.BLL.Models.Ranks;
+using LOT.BLL.Models.Members;
 
 namespace LeagueOfTeamsUI.Views
 {
@@ -38,7 +39,9 @@ namespace LeagueOfTeamsUI.Views
             topTeamsLogo = new TopTeamsLogo(this);
             topMembersLogo = new TopMembersLogo(this);
             teamMenu = new TeamMenu(this);
-            newMemberMenu = new NewMemberMenu(this);
+            if (user.Team != null)
+                if (user.Team.Members != null && user.Team.Members.Count < 1)
+                    newMemberMenu = new NewMemberMenu(this, user.Team.Members[0]);
             previousMenu = userStatsLogo.userStatsMenu;
             GameMainFramePageEnumerable(userStatsLogo.userStatsMenu);
         }
@@ -122,15 +125,53 @@ namespace LeagueOfTeamsUI.Views
                 Teamplay = 0,
                 RankPoints = 0,
                 UserId = 1,
-                User = user
+                User = user,
+                Members = new()
             };
             var teamRank = new TeamRankModel()
             {
                 Id = 1,
-                Name = "Test Rank",
+                Name = "Test rank",
                 Teams = new List<TeamModel>() { team }
             };
+            var member = new MemberModel()
+            {
+                Id = 1,
+                Name = "Test Player",
+                Age = 20,
+                Power = 10,
+                Energy = 10,
+                MaxEnergy = 100,
+                MentalPower = 10,
+                MentalResistance = 10,
+                Teamplay = 10,
+                Expiriance = 100,
+                SkillPoints = 0,
+                RankPoints = 0,
+                Positions = new()
+            };
+            var memberRank = new MemberRankModel()
+            {
+                Id = 1,
+                Name = "Test member rank",
+                Members = new List<MemberModel>() { member }
+            };
+            var position = new PositionModel()
+            {
+                Id = 1,
+                Name = "Top",
+                Expiriance = 0,
+                Rank = 0,
+                Power = 10,
+                Happines = 10,
+                Defence = 10,
+                Health = 10,
+                Member = member
+            };
+            member.Positions.Add(position);
+            member.MemberRankId = memberRank.Id;
             team.TeamRank = teamRank;
+            team.Members.Add(member);
             user.Team = team;
             return user;
         }

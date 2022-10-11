@@ -160,7 +160,7 @@ internal class Program
             });
         }
         Console.WriteLine("---up from db");
-        var memberFromDB = memberRepo.GetAllMembers().FirstOrDefault();
+        var memberFromDB = memberRepo.GetAll().FirstOrDefault();
         Console.WriteLine("---show result");
         if (memberFromDB != null)
         {
@@ -237,7 +237,7 @@ internal class Program
         if(teamRankFromDB != null && teamTrailFromDB != null && userFromDB != null)
         {
             Console.WriteLine(" team rank, trail");
-            teamRepo.AddTeam(new Team()
+            teamRepo.Add(new Team()
             {
                 Name = "Losers",
                 ShortName = "LOS",
@@ -255,7 +255,7 @@ internal class Program
         else
         {
             Console.WriteLine("out team rank, trail and user");
-            teamRepo.AddTeam(new Team()
+            teamRepo.Add(new Team()
             {
                 Name = "Losers",
                 ShortName = "LOS",

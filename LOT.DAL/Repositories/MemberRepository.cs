@@ -36,7 +36,7 @@ namespace LOT.DAL.Repositories
         /// Get from database all created members in game.
         /// </summary>
         /// <returns>Enumerable members</returns>
-        public IEnumerable<Member> GetAllMembers() => _db.Members;
+        public IEnumerable<Member> GetAll() => _db.Members;
 
         public IEnumerable<Member> GetMembersByTeam(int teamId) =>
             _db.Teams.FirstOrDefault(t => t.Id == teamId).Members;

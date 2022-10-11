@@ -1,11 +1,15 @@
-﻿using LOT.BLL.Services.Ranks;
-using LOT.BLL.Models.Members;
+﻿using LOT.BLL.Models.Members;
 
 namespace LOT.BLL.Services.Members
 {
     public static class NickGenerator
     {
         private static Random random = new();
+
+        /// <summary>
+        /// Get free random nick from default nick collection wich is free to use.
+        /// </summary>
+        /// <returns>String Nick</returns>
         internal static string GenerateNewNick()
         {
             HashSet<int> usedNamesIndexes = new HashSet<int>();
@@ -39,6 +43,10 @@ namespace LOT.BLL.Services.Members
             }
         }
 
+        /// <summary>
+        /// Get random nick from default nick collection.
+        /// </summary>
+        /// <returns>String Nick</returns>
         private static string RandomNewNick() =>
             DefaultNicksSource.nicksList[random.Next(0, DefaultNicksSource.nicksList.Count())];
 
@@ -49,7 +57,8 @@ namespace LOT.BLL.Services.Members
         /// <returns>True, if nick is free to use.</returns>
         internal static bool IsThisNickIsFree(string nick)
         {
-            foreach (MemberModel member in MemberService.GetAll())
+            var members = MemberService.GetAll();
+            foreach (MemberModel member in members)
             {
                 if (member.Name == nick)
                     return false;

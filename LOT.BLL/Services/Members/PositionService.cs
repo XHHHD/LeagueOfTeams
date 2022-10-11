@@ -17,6 +17,7 @@ namespace LOT.BLL.Services.Members
             else if (member.Positions[1].Equals(newMainPosition))
                 member.Positions.Reverse();
         }
+
         /// <summary>
         /// Method added
         /// </summary>

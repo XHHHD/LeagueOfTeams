@@ -108,7 +108,6 @@ namespace LeagueOfTeamsUI.Views
 
         private static UserModel GetTestUserModeel()
         {
-            TeamService teamServ = new();
             var user = new UserModel()
             {
                 Id = 1,

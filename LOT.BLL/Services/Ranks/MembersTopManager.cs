@@ -1,16 +1,42 @@
-﻿using LOT.BLL.Models.Members;
+﻿using AutoMapper;
+using LOT.BLL.Models.Members;
+using LOT.DAL.Repositories;
 
 namespace LOT.BLL.Services.Ranks
 {
-    internal class MembersTopManager
+    internal static class MembersTopManager
     {
-        public static List<MemberModel> GetMembersTop() => new List<MemberModel>();
-        public static MemberModel GetCurrentMember(int memberID) => null;
+        private static readonly IMapper mapper;
+        private static readonly MemberRepository repository = new();
+
         /// <summary>
-        /// Check, did the member name is already taked someone.
+        /// Get collection of members with highest rank.
         /// </summary>
-        /// <param name="checkedMemberName"></param>
-        /// <returns>Return True if name is free to use and False if name is already used.</returns>
-        public static bool IsThisMemberNameFree(string checkedMemberName) => true;
+        /// <returns>Members list or EMPTY members list.</returns>
+        public static List<MemberModel> GetMembersTop()
+        {
+            var allMembers = repository.GetAll();
+            if (allMembers == null)
+                return new List<MemberModel>();
+            else
+            {
+                var membersTop = mapper.Map<List<MemberModel>>(allMembers);
+                membersTop.OrderBy(x => x.RankPoints).ToList();
+                return membersTop;
+            }
+        }
+
+        /// <summary>
+        /// Get currently count collection of members with highest rank.
+        /// Careful - list can be smaller than expected size!
+        /// </summary>
+        /// <param name="topCount">Size of collection.</param>
+        /// <returns>Members list or EMPTY members list.</returns>
+        public static List<MemberModel> GetMembersTop(int topCount)
+        {
+            var members = GetMembersTop();
+            members.RemoveRange(topCount,members.Count);
+            return members;
+        }
     }
 }

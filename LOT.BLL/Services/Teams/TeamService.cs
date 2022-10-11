@@ -3,49 +3,48 @@ using LOT.BLL.Exceptions;
 using LOT.BLL.Models.Members;
 using LOT.BLL.Models.Teams;
 using LOT.DAL.Entities;
-using LOT.DAL.Interfaces;
 using LOT.DAL.Repositories;
 
 namespace LOT.BLL.Services.Teams
 {
-    public class TeamService
+    public static class TeamService
     {
-        private readonly IMapper mapper;
-        private readonly TeamRepository repository = new();
-        public TeamService()
-        {
-            mapper = MappingHelper.GetMapper();
-        }
-        public void AddTeam(TeamModel team)
+        private static readonly IMapper mapper;
+        private static readonly TeamRepository repository = new();
+        public static void AddTeam(TeamModel team)
         {
             if (team != null)
-                repository.AddTeam(mapper.Map<Team>(team));
+                repository.Add(mapper.Map<Team>(team));
             else
                 throw new TeamServicesException("Trying to create null team!");
         }
-        public void UpdateTeame(TeamModel team)
+        public static void UpdateTeame(TeamModel team)
         {
             if(team != null)
                 repository.UpdateTeam(mapper.Map<Team>(team));
             else
                 throw new TeamServicesException("Trying to update null team!");
         }
-        public void RemoveTeam(TeamModel team)
+        public static void RemoveTeam(int id)
         {
-            if (repository.GetTeamById(team.Id) == null)
+            var teamToRemove = repository.GetTeam(id);
+            if (teamToRemove == null)
                 throw new TeamServicesException("Removing team was failed! Can`t find current team in data.");
             else
-                repository.RemoveTeam(mapper.Map<Team>(team));
+                repository.RemoveTeam(teamToRemove.Id);
         }
-        public void RemoveTeamById(int id)
+        public static void RemoveTeamById(int id)
         {
-            if(repository.GetTeamById(id) == null)
+            if(repository.GetTeam(id) == null)
                 throw new TeamServicesException("Removing team was failed! Can`t find current team in data.");
             else
-                repository.RemoveTeamByIdAsync(id);
+                repository.RemoveAsync(id);
         }
-        public TeamModel GetTeam(int id) => mapper.Map<TeamModel>(repository.GetTeamById(id));
-        public IEnumerable<MemberModel> GetTeamMembers(int id) => mapper.Map<IEnumerable<MemberModel>>(repository.GetTeamMembers(id));
-        public IEnumerable<TeamModel> GetAllTeams() => mapper.Map<IEnumerable<TeamModel>>(repository.GetAll());
+        public static TeamModel GetTeam(int id) =>
+            mapper.Map<TeamModel>(repository.GetTeam(id));
+        public static IEnumerable<MemberModel> GetTeamMembers(int id) =>
+            mapper.Map<IEnumerable<MemberModel>>(repository.GetTeamMembers(id));
+        public static IEnumerable<TeamModel> GetAllTeams() =>
+            mapper.Map<IEnumerable<TeamModel>>(repository.GetAll());
     }
 }

@@ -1,10 +1,10 @@
 ﻿using LOT.BLL.Models.Members;
-using LOT.BLL.Services.Ranks;
 using LOT.BLL.Models.DTO;
 using LOT.BLL.Exceptions;
 using LOT.BLL.Models.Trails;
 using LOT.DAL.Interfaces;
 using LOT.BLL.Models.Ranks;
+using LOT.BLL.Services.Teams;
 
 namespace LOT.BLL.Models.Teams
 {
@@ -81,18 +81,18 @@ namespace LOT.BLL.Models.Teams
         public TeamModel(TeamRegistrationDTO newTeam)
         {
             Members = new List<MemberModel>();
-            if (newTeam.Name != null && TeamsTopManager.IsThisNamespaceFree(newTeam.Name)) _name = newTeam.Name;
+            if (newTeam.Name != null && TeamsNamesService.IsThisNamespaceFree(newTeam.Name)) _name = newTeam.Name;
             else throw new TeamServicesException("Set new team name.");
             string teamShortName;
             if (newTeam.ShortName == null)
             {
                 teamShortName = _name.Remove(2, _name.Length - 1).ToUpper();
-                if (TeamsTopManager.IsThisNamespaceFree(teamShortName)) _name = teamShortName;
+                if (TeamsNamesService.IsThisNamespaceFree(teamShortName)) _name = teamShortName;
                 else throw new TeamServicesException("Auto generated TeamShortName is already taken.");
             }
             else
             {
-                if (TeamsTopManager.IsThisNamespaceFree(newTeam.ShortName)) _name = newTeam.ShortName.ToUpper();
+                if (TeamsNamesService.IsThisNamespaceFree(newTeam.ShortName)) _name = newTeam.ShortName.ToUpper();
                 else throw new TeamServicesException("TeamShortName provided by User is already taken.");
             }
             if (newTeam.Description != null) _description = newTeam.Description;

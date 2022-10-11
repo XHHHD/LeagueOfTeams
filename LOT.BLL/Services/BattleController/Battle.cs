@@ -1,9 +1,4 @@
 ﻿using LOT.BLL.Models.Teams;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LOT.BLL.Services.BattleController
 {
@@ -20,6 +15,5 @@ namespace LOT.BLL.Services.BattleController
             if (firstTeam.Energy > 50 && secondTeam.Energy > 50) return true;
             return false;
         }
-
     }
 }

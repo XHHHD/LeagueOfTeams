@@ -1,4 +1,5 @@
 ﻿using LOT.DAL.Entities;
+using LOT.DAL.Exceptions;
 using LOT.DAL.Interfaces;
 
 namespace LOT.DAL.Repositories
@@ -13,15 +14,66 @@ namespace LOT.DAL.Repositories
             _db = new AppContext(dbConnectionString);
         }
 
+        /// <summary>
+        /// Add new position entity in database.
+        /// </summary>
+        /// <param name="position">Adding posotion entity.</param>
+        /// <exception cref="PositionDataException"></exception>
         public void AddPosition(Position position)
         {
-            _db.Positions.Add(position);
-            _db.SaveChanges();
+            if (position is null)
+                throw new PositionDataException("Adding position is null!");
+            else
+            {
+                _db.Positions.Add(position);
+                _db.SaveChanges();
+            }
         }
+
+        /// <summary>
+        /// Remove current position by ID from database.
+        /// </summary>
+        /// <param name="id">ID of position, with must be removed.</param>
+        /// <exception cref="PositionDataException"></exception>
+        public void RemovePosition(int id)
+        {
+            var position = _db.Positions.Find(id);
+            if (position is null)
+                throw new PositionDataException("Attempt to remove a missing item.");
+            else
+            {
+                _db.Positions.Remove(position);
+                _db.SaveChanges();
+            }
+        }
+
+        /// <summary>
+        /// Remove current position from database.
+        /// </summary>
+        /// <param name="position">Position object, with must be removed.</param>
+        /// <exception cref="PositionDataException"></exception>
         public void RemovePosition(Position position)
         {
-            _db.Positions.Remove(position);
-            _db.SaveChanges();
+            if (position is null || _db.Positions.Find(position) is null)
+                throw new PositionDataException("Attempt to remove a missing item.");
+            else
+            {
+                _db.Positions.Remove(position);
+                _db.SaveChanges();
+            }
+        }
+
+        /// <summary>
+        /// Update current position in database.
+        /// </summary>
+        /// <param name="position">Position object, with must be updated.</param>
+        /// <exception cref="PositionDataException"></exception>
+        public void UpdatePosition(Position position)
+        {
+            if (position is null)
+                throw new PositionDataException("Position entity is NULL!");
+            else
+                _db.Positions.Update(position);
         }
 
         public List<Position> GetAllPositions() => _db.Positions.ToList();

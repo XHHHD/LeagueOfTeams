@@ -1,7 +1,7 @@
-﻿using LOT.BLL.Models.Members;
+﻿using LOT.BLL.Models.Positions;
 using LOT.BLL.Models.Teams;
-using LOT.BLL.Models.Trails;
 using LOT.BLL.Services.Members;
+using LOT.BLL.Enums;
 
 namespace LOT.BLL.Models.DTO
 {
@@ -38,7 +38,7 @@ namespace LOT.BLL.Models.DTO
         public List<PositionModel> Positions { get; set; }
         public TeamModel? Team { get; set; }
 
-        public MemberRegistrationDTO(UserModel user, string position)
+        public MemberRegistrationDTO(UserModel user, PositionsNames positionName)
         {
             Nick = NickGenerator.GenerateNewNick();
             //Age must be between 14 and 30 yers. Because members, who more then 30 years old whil luse they characteristics.
@@ -46,11 +46,12 @@ namespace LOT.BLL.Models.DTO
             _age = (byte)(14 + random.Next(0, 2) + user.Level / 3);
             if (_age > 30) _age = 30;
             //Making main position for the member. First main position always must be.
-            PositionService.AddPosition(user, Positions, position);
+            PositionService.AddPosition(user, Positions, positionName);
             //There must be 50% chanse to get member with two positions.
             if (random.Next(0, 1) == 1)
             {
-                string name = PositionsListModel.Positions[random.Next(0, PositionsListModel.Positions.Count - 1)];
+                Array names = Enum.GetValues(typeof(PositionsNames));
+                PositionsNames name = (PositionsNames)names.GetValue(random.Next(names.Length));
                 PositionService.AddPosition(user, Positions, name);
             }
             _maxEnergy = 100 + random.Next(-5, 5);

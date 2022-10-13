@@ -1,9 +1,13 @@
-﻿namespace LOT.BLL.Models.Members
+﻿using LOT.BLL.Enums;
+using LOT.BLL.Models.Members;
+using PositionsNames = LOT.BLL.Enums.PositionsNames;
+
+namespace LOT.BLL.Models.Positions
 {
     public class PositionModel
     {
         private int _id;
-        private string _name;
+        private PositionsNames _name;
         private uint _expiriance;
         private double _favorite;
         private int _power;
@@ -17,7 +21,7 @@
         /// Name of position: top/mid/bot/damagedealer/defender or else.
         /// For more information look PositionList.
         /// </summary>
-        public string Name { get => _name; set => _name = value; }
+        public PositionsNames Name { get => _name; set => _name = value; }
 
         /// <summary>
         /// Expiriance played or trained on this position.
@@ -62,15 +66,15 @@
         public PositionModel() { }
         //This constructor is using,
         //when we will generate free recruits list.
-        public PositionModel(UserModel user, string name)
+        public PositionModel(UserModel user, PositionsNames name)
         {
             _name = name;
             //Equating member with player.
-            _expiriance = (uint)((user.Level + (((double)random.Next(-10,5))/5))*1000);
-            _favorite = Level + random.Next(-1,1);
-            _power = (int)Level + random.Next(-1,1);
-            _defence = (int)Level + random.Next(-1,1);
-            _health = (int)Level + random.Next(-1,1);
+            _expiriance = (uint)((user.Level + (double)random.Next(-10, 5) / 5) * 1000);
+            _favorite = Level + random.Next(-1, 1);
+            _power = (int)Level + random.Next(-1, 1);
+            _defence = (int)Level + random.Next(-1, 1);
+            _health = (int)Level + random.Next(-1, 1);
         }
 
         public void AddPositionExpiriance(uint addedExpirianceAmount)
@@ -87,31 +91,31 @@
             _defence++;
             _health++;
         }
-        public void AddStats(string stat)
+        public void AddStats(StatsUp stat)
         {
             switch (stat)
             {
-                case "PosFavorite":
+                case StatsUp.PositionFavorite:
                     {
                         _favorite++;
                         break;
                     }
-                case "PosPower":
+                case StatsUp.PositionPower:
                     {
                         _power++;
                         break;
                     }
-                case "PosDefence":
+                case StatsUp.PositionDefence:
                     {
                         _defence++;
                         break;
                     }
-                case "PosHealth":
+                case StatsUp.PositionHealth:
                     {
                         _health++;
                         break;
                     }
-            }    
+            }
         }
     }
 }

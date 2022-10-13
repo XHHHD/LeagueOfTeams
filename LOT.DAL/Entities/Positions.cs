@@ -3,7 +3,7 @@
     public class Position
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public PositionsNames Name { get; set; }
         public uint Expiriance { get; set; }
         public uint Level { get; set; }
         public uint Rank { get; set; }

@@ -1,4 +1,6 @@
-﻿using LOT.BLL.Models.DTO;
+﻿using LOT.BLL.Enums;
+using LOT.BLL.Models.DTO;
+using LOT.BLL.Models.Positions;
 using LOT.BLL.Models.Teams;
 using LOT.BLL.Models.Trails;
 using LOT.DAL.Interfaces;
@@ -75,7 +77,7 @@ namespace LOT.BLL.Models.Members
         {
 
         }
-        public MemberModel(UserModel user, MemberRegistrationDTO dTO)
+        public MemberModel(MemberRegistrationDTO dTO)
         {
             _creationDate = DateTime.UtcNow;
             _lastChanges = DateTime.UtcNow;
@@ -103,33 +105,33 @@ namespace LOT.BLL.Models.Members
             _power += (int)levelDifference;
             _skillPoints += (byte)levelDifference;
         }
-        public void AddStat(string stat)
+        public void AddStat(StatsUp stat)
         {
             if (_skillPoints < 0)
             {
                 switch (stat)
                 {
-                    case "Power":
+                    case StatsUp.Power:
                         {
                             _power++;
                             break;
                         }
-                    case "MaxEnergy":
+                    case StatsUp.MaxEnergy:
                         {
                             _maxEnergy++;
                             break;
                         }
-                    case "MenthalPower":
+                    case StatsUp.MenthalPower:
                         {
                             _mentalPower++;
                             break;
                         }
-                    case "MenthalHealth":
+                    case StatsUp.MenthalHealth:
                         {
                             _mentalResistance++;
                             break;
                         }
-                    case "Teamplay":
+                    case StatsUp.Teamplay:
                         {
                             _teamplay++;
                             break;

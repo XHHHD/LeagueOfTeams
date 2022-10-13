@@ -1,23 +1,18 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using AutoMapper;
 using LOT.BLL.Models;
-using LOT.BLL.Models.Teams;
-using LOT.BLL.Services.Teams;
 using LeagueOfTeamsUI.Views.Pages.Menu;
 using LeagueOfTeamsUI.Views.Pages.Menu.Logos;
 using LeagueOfTeamsUI.Views.Pages.Menu.MemberServices;
-using System.Collections.Generic;
-using LOT.BLL.Models.Ranks;
-using LOT.BLL.Models.Members;
-using System.Reflection;
+using LeagueOfTeamsUI.Views.Windows;
+using LOT.BLL.Services;
+using System.Runtime.CompilerServices;
 
 namespace LeagueOfTeamsUI.Views
 {
     public partial class GameWindow : Window
     {
-
         public UserModel user;
         public UserStatsLogo userStatsLogo;
         public TrainingsLogo trainingsLogo;
@@ -31,8 +26,11 @@ namespace LeagueOfTeamsUI.Views
         public Page previousMenu;
         public GameWindow(WindowState windowState, object sender, RoutedEventArgs e)
         {
+            LoadingWindow loading = new();
+            loading.Show();
+
             InitializeComponent();
-            user = GetTestUserModeel();
+            user = UserService.GetTestUserModeel();
             userStatsLogo = new UserStatsLogo(this);
             teamStatsLogo = new TeamStatsLogo(this);
             trainingsLogo = new TrainingsLogo(this);
@@ -48,6 +46,8 @@ namespace LeagueOfTeamsUI.Views
                 CheckedFullScreenButton_Click(sender, e);
                 FullScreenButton.IsChecked = true;
             }
+
+            loading.Close();
         }
         private void GameMainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -104,79 +104,6 @@ namespace LeagueOfTeamsUI.Views
             else topMembersLogo.TButton.IsChecked = true;
 
             GameMainFrame.Content = nextPageContent;
-        }
-
-        private static UserModel GetTestUserModeel()
-        {
-            var user = new UserModel()
-            {
-                Id = 1,
-                Level = 1,
-                Name = "Test Player"
-            };
-            var team = new TeamModel()
-            {
-                Id = 1,
-                Name = "Test Team",
-                ShortName = "TES",
-                Description = "This is test team",
-                Expiriance = 0,
-                Energy = 0,
-                MaxEnergy = 100,
-                Power = 0,
-                Health = 0,
-                Teamplay = 0,
-                RankPoints = 0,
-                UserId = 1,
-                User = user,
-                Members = new()
-            };
-            var teamRank = new TeamRankModel()
-            {
-                Id = 1,
-                Name = "Test rank",
-                Teams = new List<TeamModel>() { team }
-            };
-            var member = new MemberModel()
-            {
-                Id = 1,
-                Name = "Test Player",
-                Age = 20,
-                Power = 10,
-                Energy = 10,
-                MaxEnergy = 100,
-                MentalPower = 10,
-                MentalResistance = 10,
-                Teamplay = 10,
-                Expiriance = 100,
-                SkillPoints = 0,
-                RankPoints = 0,
-                Positions = new()
-            };
-            var memberRank = new MemberRankModel()
-            {
-                Id = 1,
-                Name = "Test member rank",
-                Members = new List<MemberModel>() { member }
-            };
-            var position = new PositionModel()
-            {
-                Id = 1,
-                Name = "Top",
-                Expiriance = 0,
-                Rank = 0,
-                Power = 10,
-                Happines = 10,
-                Defence = 10,
-                Health = 10,
-                Member = member
-            };
-            member.Positions.Add(position);
-            member.MemberRankId = memberRank.Id;
-            team.TeamRank = teamRank;
-            team.Members.Add(member);
-            user.Team = team;
-            return user;
         }
     }
 }

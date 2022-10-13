@@ -44,12 +44,12 @@ internal class Program
         //check teams rank repo
         Console.WriteLine("\n\n\n           ======check teams rank repo======");
         Console.WriteLine("---adding");
-        teamRankRepo.AddNewRank(new TeamRank()
+        teamRankRepo.Add(new TeamRank()
         {
             Name = "Dung 5"
         });
         Console.WriteLine("---up from db");
-        var teamRankFromDB = teamRankRepo.GetAllTeamRanks().FirstOrDefault();
+        var teamRankFromDB = teamRankRepo.GetAll().FirstOrDefault();
         Console.WriteLine("---show result");
         if (teamRankFromDB != null)
         {
@@ -84,7 +84,7 @@ internal class Program
         //check member rank repo
         Console.WriteLine("\n\n\n           ======check member rank repo======");
         Console.WriteLine("---adding");
-        memberRankRepo.AddNewRank(new MemberRank()
+        memberRankRepo.Add(new MemberRank()
         {
             Name = "Garbage 5"
         });

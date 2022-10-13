@@ -5,12 +5,11 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu
 {
     public partial class TeamTrainingsMenu : Page
     {
-        GameWindow gameWindow;
         public TeamTrainingsMenu(GameWindow gameWindow)
         {
             InitializeComponent();
-            this.gameWindow = gameWindow;
-            InitComponents(gameWindow.user);
+            if(gameWindow.user != null)
+                InitComponents(gameWindow.user);
         }
         private void InitComponents(UserModel user)
         {

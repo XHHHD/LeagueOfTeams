@@ -2,8 +2,6 @@
 
 namespace LOT.BLL.Services
 {
-    public class UserService
-    {
-        private readonly IMapper _mapper;
-    }
+    public static class UserService
+    { }
 }

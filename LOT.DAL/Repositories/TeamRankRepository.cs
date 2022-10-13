@@ -1,9 +1,5 @@
 ﻿using LOT.DAL.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LOT.DAL.Exceptions;
 
 namespace LOT.DAL.Repositories
 {
@@ -15,16 +11,65 @@ namespace LOT.DAL.Repositories
             string dbConnectionString = "Server=(localdb)\\mssqllocaldb;Initial Catalog=MyDB;Integrated Security=True;";
             _db = new AppContext(dbConnectionString);
         }
-        public void AddNewRank(TeamRank newRank)
+
+        /// <summary>
+        /// Add new team rank.
+        /// </summary>
+        /// <param name="newRank">TeamRank entity</param>
+        public void Add(TeamRank newRank)
         {
-            _db.TeamRanks.Add(newRank);
-            _db.SaveChanges();
+            if (_db.TeamRanks.FirstOrDefault(newRank) == null)
+            {
+                _db.TeamRanks.Add(newRank);
+                _db.SaveChanges();
+            }
+            else
+                throw new TeamDataException("Currently team rank is already present in database!");
         }
-        public void RemoveRank(TeamRank rank)
+
+        /// <summary>
+        /// Remove team rank from database.
+        /// </summary>
+        /// <param name="rank">Id of the team rank, wich must be removed.</param>
+        public void Remove(int id)
         {
-            _db?.TeamRanks.Remove(rank);
-            _db?.SaveChanges();
+            var rankToRemove = _db.TeamRanks.FirstOrDefault(x => x.Id == id);
+            if (rankToRemove != null)
+            {
+                _db.TeamRanks.Remove(rankToRemove);
+                _db.SaveChanges();
+            }
+            else
+                throw new TeamDataException("Can`t find currently team rank entity in database for removing.");
         }
-        public List<TeamRank> GetAllTeamRanks() => _db.TeamRanks.ToList();
+
+        /// <summary>
+        /// Update current team rank in database.
+        /// </summary>
+        /// <param name="teamRank">Team rank wich must be updated.</param>
+        /// <exception cref="TeamDataException"></exception>
+        public void Update(TeamRank teamRank)
+        {
+            if (teamRank != null)
+                _db.TeamRanks.Update(teamRank);
+            else
+                throw new TeamDataException("Team rank is NULL!");
+        }
+        
+        /// <summary>
+        /// Get currently team rank.
+        /// </summary>
+        /// <param name="id">Team rank ID</param>
+        /// <returns></returns>
+        public TeamRank GetRank(int id) => _db.TeamRanks.FirstOrDefault(x => x.Id == id);
+
+        /// <summary>
+        /// Get currently team rank.
+        /// </summary>
+        /// <param name="name">Team rank name</param>
+        /// <returns></returns>
+        public TeamRank GetRank(string name) => _db.TeamRanks.FirstOrDefault(x => x.Name == name);
+
+        public IEnumerable<TeamRank> GetAll() => _db.TeamRanks;
     }
 }

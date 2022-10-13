@@ -1,4 +1,4 @@
-﻿using LOT.BLL.Models.Members;
+﻿using LOT.BLL.Models.Positions;
 using System.Windows.Controls;
 
 namespace LeagueOfTeamsUI.Views.Pages.Menu.SmollServicesLinks

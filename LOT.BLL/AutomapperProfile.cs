@@ -5,6 +5,7 @@ using LOT.BLL.Models.Teams;
 using LOT.BLL.Models.Members;
 using LOT.BLL.Models.Trails;
 using LOT.BLL.Models.Ranks;
+using LOT.BLL.Models.Positions;
 
 namespace LOT.BLL
 {

@@ -24,7 +24,6 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.MemberServices
 
         private void MemberButton_Click(object sender, RoutedEventArgs e)
         {
-            //Need equals something else
             if (isThisUserTeam)
             {
                 if (memberTrainings != null)

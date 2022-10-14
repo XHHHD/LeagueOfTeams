@@ -22,7 +22,9 @@ namespace LOT.BLL.Services.Members
             if (model is null)
                 throw new PositionServicesException(nameof(model) + "is null!");
             else
-                repository.AddPosition(mapper.Map<Position>(model));
+                model = mapper.Map<PositionModel>(
+                    repository.AddPosition(
+                        mapper.Map<Position>(model)));
         }
 
         /// <summary>

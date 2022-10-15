@@ -7,29 +7,61 @@ namespace LOT.BLL.Services.Members
 {
     public class PositionGenerator
     {
-        private Random random = new();
-        private PositionService service = new();
-        //public static PositionModel GeneratePosition(MemberModel member)
-        //{
-        //    if (member.Positions.Count >= 2)
-        //        throw new PositionServicesException("Member already know maximum positions he can!");
-        //    else
-        //    {
-        //        foreach (PositionModel existingPosition in member.Positions)
-        //        {
-        //            if (existingPosition.Name == newPositionName)
-        //                throw new PositionServicesException("Error! This member is already can play this position!");
-        //        }
+        private const int memberMaxPositionCountConst = 2;
+        private const int powerLowerRandomConst = -10;
+        private const int powerUpperRandom = 10;
+        private const int happynesLowerRandom = -1;
+        private const int happynesUpperRandom = 1;
+        private const int defenceLowerRandom = 0;
+        private const int defenceUpperRandom = 5;
+        private const int healthLowerRandomConst = 90;
+        private const int healthUpperRandomConst = 110;
+        private Random random;
+        private PositionService service;
 
-        //        member.Positions.Add(newPosition);
-        //    }
-        //}
-
-        private PositionModel CreatePosition(int memberLevel = 1)
+        public PositionGenerator()
         {
-            PositionModel position = CreateEmptyPosition(memberLevel);
-            position.Name = GetNewRandomPositionName();
-            // No need to adding postition in DB, before assigning position to player
+            random = new();
+            service = new();
+        }
+
+        /// <summary>
+        /// A method that checks whether the conditions for adding random position or positions to the member model.
+        /// It also includes submethods that create, fill and connect a new position.
+        /// </summary>
+        /// <param name="member">MemberMode.</param>
+        /// <exception cref="PositionServicesException"></exception>
+        public void GenerateNewPositionForMember(MemberModel member, PositionsNames expectedPosition, byte expectedPositionCount)
+        {
+            if (member.Positions.Count >= memberMaxPositionCountConst)
+                throw new PositionServicesException("Member already know maximum positions he can!");
+            else
+            {
+                if (member.Positions.Count == 0)
+                {
+                    member.Positions.Add(
+                        CreatePositionInMember(member, expectedPosition));
+                }
+                if (member.Positions.Count < (int)expectedPositionCount)
+                {
+                    var randomPositionName = GetNewRandomPositionName();
+                    member.Positions.Add(
+                        CreatePositionInMember(member, randomPositionName));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Method fills the empty position, add it to the member model and save it in database.
+        /// </summary>
+        /// <param name="member">MemberModel.</param>
+        /// <returns>Ready to use PositionModel.</returns>
+        public PositionModel CreatePositionInMember(MemberModel member, PositionsNames positionName)
+        {
+            PositionModel position = CreateEmptyPosition((int)member.Level);
+            position.Name = positionName;
+            position.Member = member;
+            service.Add(position);
             return position;
         }
 
@@ -43,10 +75,10 @@ namespace LOT.BLL.Services.Members
             {
                 Expiriance = 0,
                 Rank = 0,
-                Power = memberLevel + random.Next(-10, 10),
-                Happines = memberLevel + random.Next(-1, 1),
-                Defence = memberLevel + random.Next(0, 5),
-                Health = memberLevel * 10 + random.Next(-90, 110)
+                Power = memberLevel + random.Next(powerLowerRandomConst, powerUpperRandom),
+                Happines = memberLevel + random.Next(happynesLowerRandom, happynesUpperRandom),
+                Defence = memberLevel + random.Next(defenceLowerRandom, defenceUpperRandom),
+                Health = memberLevel * 10 + random.Next(healthLowerRandomConst, healthUpperRandomConst)
             };
 
             return position;
@@ -59,7 +91,9 @@ namespace LOT.BLL.Services.Members
         private PositionsNames GetNewRandomPositionName()
         {
             Array names = Enum.GetValues(typeof(PositionsNames));
+
             PositionsNames newName = (PositionsNames)names.GetValue(random.Next(names.Length));
+
             return newName;
         }
 

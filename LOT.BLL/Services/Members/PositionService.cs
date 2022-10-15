@@ -9,8 +9,8 @@ namespace LOT.BLL.Services.Members
 {
     public class PositionService
     {
-        private static readonly IMapper mapper;
-        private static readonly PositionRepository repository = new();
+        private readonly IMapper mapper;
+        private readonly PositionRepository repository = new();
 
         /// <summary>
         /// Add new position in database.
@@ -20,11 +20,9 @@ namespace LOT.BLL.Services.Members
         public void Add(PositionModel model)
         {
             if (model is null)
-                throw new PositionServicesException(nameof(model) + "is null!");
+                throw new PositionServicesException(nameof(model) + "is NULL!");
             else
-                model = mapper.Map<PositionModel>(
-                    repository.AddPosition(
-                        mapper.Map<Position>(model)));
+                repository.AddPosition(mapper.Map<Position>(model));
         }
 
         /// <summary>

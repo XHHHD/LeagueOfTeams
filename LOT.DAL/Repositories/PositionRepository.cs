@@ -19,14 +19,15 @@ namespace LOT.DAL.Repositories
         /// </summary>
         /// <param name="position">Adding posotion entity.</param>
         /// <exception cref="PositionDataException"></exception>
-        public void AddPosition(Position position)
+        public int AddPosition(Position position)
         {
             if (position is null)
-                throw new PositionDataException("Adding position is null!");
+                throw new PositionDataException("Adding position is NULL!");
             else
             {
                 _db.Positions.Add(position);
                 _db.SaveChanges();
+                return position.Id;
             }
         }
 

@@ -9,10 +9,13 @@ using LOT.BLL.Enums;
 
 namespace LOT.BLL.Services
 {
-    public static class GameService
+    public class GameService
     {
+        public GameService()
+        {
+        }
 
-        public static void GenerateGameEnvirement(int expectedTeamsCount = 99)
+        public void GenerateGameEnvirement(int expectedTeamsCount = 99)
         {
             int teamsCount = expectedTeamsCount - TeamService.GetAllTeams().Count();
             if (teamsCount > 0)
@@ -22,7 +25,7 @@ namespace LOT.BLL.Services
                 { }
             }
         }
-        private static List<TeamRankModel> GenerateTeamRanks(int ranksCount)
+        private List<TeamRankModel> GenerateTeamRanks(int ranksCount)
         {
             List<TeamRankModel> allRanks = new();
             for (int i = 1; i <= ranksCount; i++)
@@ -31,7 +34,7 @@ namespace LOT.BLL.Services
             }
             return allRanks;
         }
-        private static TeamRankModel GenerateTeamRank(int rankNum)
+        private TeamRankModel GenerateTeamRank(int rankNum)
         {
             TeamRankModel teamRankModel = new TeamRankModel()
             {
@@ -45,19 +48,26 @@ namespace LOT.BLL.Services
             var rankFromDb = TeamsRankService.GetRank(teamRankModel.Name);
             return rankFromDb;
         }
-        private static TeamModel GenerateTeam(TeamRankModel rank)
-        {
 
-        }
-        private static MemberModel GenerateMember(TeamModel team)
+        //
+        private TeamModel GenerateTeam(TeamRankModel rank)
         {
-
+            throw new NotImplementedException();
         }
-        private static PositionModel GeneratePosition(MemberModel member)
+
+        //
+        private MemberModel GenerateMember(TeamModel team)
         {
-
+            throw new NotImplementedException();
         }
-        private static MemberRankModel GenerateMemberRank(int rankNum)
+
+        //
+        private PositionModel GeneratePosition(MemberModel member)
+        {
+            throw new NotImplementedException();
+        }
+
+        private MemberRankModel GenerateMemberRank(int rankNum)
         {
             MemberRankModel memberRankModel = new()
             {
@@ -73,7 +83,7 @@ namespace LOT.BLL.Services
         /// member, member rank, position).
         /// </summary>
         /// <returns>User model</returns>
-        public static UserModel GetTestUserModeel()
+        public UserModel GetTestUserModeel()
         {
             var user = new UserModel()
             {

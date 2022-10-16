@@ -8,13 +8,14 @@ namespace LOT.Tests.BusinessLogicTests
     public class MappingTests
     {
         [DataRow(1, "Player", "pass")]
-        [DataRow(35, "", "32g2")]
+        [DataRow(35, "o", "32g2")]
+        [DataRow(456, "", "")]
         [TestMethod]
         public void AutomapperMapsEntitiesCorrecctly(int id, string name, string password)
         {
             //arrange
             var mapper = MappingHelper.GetMapper();
-            var team = GetTestTeamEntity();
+            var team = GetTestTeamEntity(name);
 
             var userEntity = new User()
             {
@@ -40,11 +41,13 @@ namespace LOT.Tests.BusinessLogicTests
             Assert.AreEqual(expectedModel.Password, actualMappedModel.Password);
         }
 
-        private Team GetTestTeamEntity()
+        private Team GetTestTeamEntity(string name)
         {
             return new Team()
             {
-
+                Name = name,
+                ShortName = name,
+                Description = ""
             };
         }
     }

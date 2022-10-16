@@ -1,5 +1,4 @@
 ﻿using LOT.DAL.Entities;
-using LOT.DAL.Repositories;
 
 namespace LOT.DAL.Interfaces
 {
@@ -12,6 +11,6 @@ namespace LOT.DAL.Interfaces
         public IEnumerable<Member> GetAll();
         public IEnumerable<Member> GetMembersByTeam(int id);
         public IEnumerable<Member> GetMembersByTeamName(string teamName);
-        public IEnumerable<Member> GetMembersByPosition(string positionName);
+        public IEnumerable<Member> GetMembersByPosition(PositionsNames positionName);
     }
 }

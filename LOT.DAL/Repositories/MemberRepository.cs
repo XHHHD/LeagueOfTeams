@@ -1,6 +1,5 @@
 ﻿using LOT.DAL.Entities;
 using LOT.DAL.Interfaces;
-using System.Linq;
 
 namespace LOT.DAL.Repositories
 {
@@ -51,7 +50,7 @@ namespace LOT.DAL.Repositories
         /// </summary>
         /// <param name="positionName"></param>
         /// <returns></returns>
-        public IEnumerable<Member> GetMembersByPosition(string positionName) =>
+        public IEnumerable<Member> GetMembersByPosition(PositionsNames positionName) =>
             _db.Members
             .Where(m => m.Positions.FirstOrDefault(p => p.Name == positionName).Name == positionName);
 

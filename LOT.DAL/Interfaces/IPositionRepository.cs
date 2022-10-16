@@ -1,9 +1,4 @@
 ﻿using LOT.DAL.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LOT.DAL.Interfaces
 {
@@ -14,6 +9,6 @@ namespace LOT.DAL.Interfaces
         public Position GetPositionById(int id);
         public List<Position> GetAllPositions();
         public List<Position> GetPositionsByMemberName(string memberName);
-        public List<Position> GetPositionsByName(string name);
+        public IEnumerable<Position> GetPositionsByName(PositionsNames name);
     }
 }

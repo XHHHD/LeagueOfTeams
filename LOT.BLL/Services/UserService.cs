@@ -2,6 +2,6 @@
 
 namespace LOT.BLL.Services
 {
-    public static class UserService
+    public class UserService
     { }
 }

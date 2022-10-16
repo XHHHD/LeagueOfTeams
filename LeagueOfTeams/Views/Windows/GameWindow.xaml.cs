@@ -14,6 +14,7 @@ namespace LeagueOfTeamsUI.Views
     public partial class GameWindow : Window
     {
         public UserModel user;
+        public GameService gameService;
         public UserStatsLogo userStatsLogo;
         public TrainingsLogo trainingsLogo;
         public TeamStatsLogo teamStatsLogo;
@@ -29,8 +30,10 @@ namespace LeagueOfTeamsUI.Views
             LoadingWindow loading = new();
             loading.Show();
 
+            gameService = new GameService();
+            user = gameService.GetTestUserModeel();
+
             InitializeComponent();
-            user = UserService.GetTestUserModeel();
             userStatsLogo = new UserStatsLogo(this);
             teamStatsLogo = new TeamStatsLogo(this);
             trainingsLogo = new TrainingsLogo(this);

@@ -74,6 +74,25 @@ namespace LOT.DAL.Repositories
         /// <returns>Collection of the Teams entities.</returns>
         public IEnumerable<Team> GetAll() => _db.Teams;
 
+        public bool IsThisNamespaceFree(string name)
+        {
+            var searchingResult = _db.Teams.Select(n => n.Name).FirstOrDefault(name);
+            if(searchingResult is null)
+                return true;
+            else
+                return false;
+        }
+
+        public bool IsThisShortNameFree(string shortName)
+        {
+            var searchingResult = _db.Teams.Select(n => n.ShortName).FirstOrDefault(shortName);
+            if (searchingResult is null)
+                return true;
+            else
+                return false;
+        }
+
+
         /// <summary>
         /// Get from data base team with currently Id.
         /// </summary>

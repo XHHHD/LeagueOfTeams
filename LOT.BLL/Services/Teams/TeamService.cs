@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using LOT.BLL.Exceptions;
+using LOT.BLL.Models.DTO;
 using LOT.BLL.Models.Members;
 using LOT.BLL.Models.Teams;
 using LOT.DAL.Entities;
@@ -7,25 +8,63 @@ using LOT.DAL.Repositories;
 
 namespace LOT.BLL.Services.Teams
 {
-    public static class TeamService
+    public class TeamService
     {
-        private static readonly IMapper mapper;
-        private static readonly TeamRepository repository = new();
-        public static void AddTeam(TeamModel team)
+        private const int teamUpperPowerRandomConst = 5;
+        private const int teamLowerPowerRandomConst = 0;
+        private const int teamUpperTeamplayRandomConst = 5;
+        private const int teamLowerTeamplayRandomConst = -1;
+        /// <summary>
+        /// NOTA BENE!
+        /// This parameter will be multiplicated by 5 afte randomizing!
+        /// </summary>
+        private const int teamUpperMaxEnergyRandomConst = 22;
+        /// <summary>
+        /// NOTA BENE!
+        /// This parameter will be multiplicated by 5 afte randomizing!
+        /// </summary>
+        private const int teamLowerMaxEnergyRandomConst = 18;
+        /// <summary>
+        /// NOTA BENE!
+        /// This parameter will be multiplicated by 5 afte randomizing!
+        /// </summary>
+        private const int teamUpperHealthRandomConst = 22;
+        /// <summary>
+        /// NOTA BENE!
+        /// This parameter will be multiplicated by 5 afte randomizing!
+        /// </summary>
+        private const int teamLowerHealthRandomConst = 18;
+
+        private readonly Random random;
+        private readonly IMapper mapper;
+        private readonly TeamRepository repository;
+        private readonly TeamsNamesService namesService;
+
+        public TeamService()
+        {
+            random = new();
+            repository = new();
+            namesService = new();
+            mapper = MappingHelper.GetMapper();
+        }
+
+        public void AddTeam(TeamModel team)
         {
             if (team != null)
                 repository.Add(mapper.Map<Team>(team));
             else
                 throw new TeamServicesException("Trying to create null team!");
         }
-        public static void UpdateTeame(TeamModel team)
+
+        public void UpdateTeame(TeamModel team)
         {
-            if(team != null)
+            if (team != null)
                 repository.UpdateTeam(mapper.Map<Team>(team));
             else
                 throw new TeamServicesException("Trying to update null team!");
         }
-        public static void RemoveTeam(int id)
+
+        public void RemoveTeam(int id)
         {
             var teamToRemove = repository.GetTeam(id);
             if (teamToRemove == null)
@@ -33,18 +72,115 @@ namespace LOT.BLL.Services.Teams
             else
                 repository.RemoveTeam(teamToRemove.Id);
         }
-        public static void RemoveTeamById(int id)
+
+        public void RemoveTeamById(int id)
         {
-            if(repository.GetTeam(id) == null)
+            if (repository.GetTeam(id) == null)
                 throw new TeamServicesException("Removing team was failed! Can`t find current team in data.");
             else
                 repository.RemoveAsync(id);
         }
-        public static TeamModel GetTeam(int id) =>
+
+        public TeamModel GetTeamFromDB(int id) =>
             mapper.Map<TeamModel>(repository.GetTeam(id));
-        public static IEnumerable<MemberModel> GetTeamMembers(int id) =>
+
+        public IEnumerable<MemberModel> GetMembersOfTeamFromDB(int id) =>
             mapper.Map<IEnumerable<MemberModel>>(repository.GetTeamMembers(id));
-        public static IEnumerable<TeamModel> GetAllTeams() =>
+
+        public IEnumerable<TeamModel> GetAllTeams() =>
             mapper.Map<IEnumerable<TeamModel>>(repository.GetAll());
+
+        /// <summary>
+        /// Generate new random team.
+        /// </summary>
+        /// <returns>Team model.</returns>
+        public TeamModel GetTeamModel()
+        {
+            var team = GetEmptyTeamModel();
+            //
+            team.Name = namesService
+                .GetNewTeamName();
+            //
+            team.ShortName = namesService
+                .GetNewShortName(team.Name);
+            //
+            team.MaxEnergy = random
+                .Next(teamLowerMaxEnergyRandomConst, teamUpperMaxEnergyRandomConst) * 5;
+            team.Energy = team.MaxEnergy;
+            //
+            team.Health = random
+                .Next(teamLowerHealthRandomConst, teamUpperHealthRandomConst) * 5;
+            //
+            team.Power = random
+                .Next(teamLowerPowerRandomConst, teamUpperPowerRandomConst);
+            //
+            team.Teamplay = random
+                .Next(teamLowerTeamplayRandomConst, teamUpperTeamplayRandomConst);
+            //
+            return team;
+        }
+
+        //Generate new team for user by his DTO instruction.
+        public TeamModel GetTeamModel(TeamRegistrationDTO newTeamDTO)
+        {
+            var team = GetTeamModel();
+            //
+            team.Name = newTeamDTO.Name;
+            //
+            team.ShortName = newTeamDTO.ShortName;
+            //
+            team.Description = newTeamDTO.Description;
+            //
+            return team;
+        }
+
+        /// <summary>
+        /// Method create new empty team model with empty Name, ShortName and without Id.
+        /// </summary>
+        /// <returns>Empty PositionModel object.</returns>
+        private static TeamModel GetEmptyTeamModel()
+        {
+            var team = new TeamModel()
+            {
+                Name = "",
+                ShortName = "",
+                Description = "This team has no any description.",
+                Image = "/Resources/Default/icons8-ос-free-bsd-100-white.png",
+                Expiriance = 0,
+                MaxEnergy = 100,
+                Energy = 100,
+                Health = 100,
+                Power = 0,
+                Teamplay = 0,
+                RankPoints = 0
+            };
+            return team;
+        }
+
+        /// <summary>
+        /// Add expiriance to currently team.
+        /// </summary>
+        /// <param name="team">Team model.</param>
+        /// <param name="addedValue">Added expiriance value.</param>
+        public void AddExpiriance(TeamModel team, uint addedValue)
+        {
+            var levelWas = team.Level;
+            team.Expiriance += addedValue;
+            var levelDifference = (int)(team.Level - levelWas);
+            if (levelDifference > 0)
+                LevelUp(team, levelDifference);
+        }
+        /// <summary>
+        /// Up currently team stats after here level is growed up.
+        /// </summary>
+        /// <param name="team">Team model.</param>
+        /// <param name="levelDifference">Level difference value.</param>
+        private void LevelUp(TeamModel team, int levelDifference)
+        {
+            team.MaxEnergy += levelDifference * 5;
+            team.Health += levelDifference * 5;
+            team.Power += levelDifference;
+            team.Teamplay += levelDifference;
+        }
     }
 }

@@ -8,14 +8,14 @@ namespace LOT.BLL.Services.Members
     public class PositionGenerator
     {
         private const int memberMaxPositionCountConst = 2;
-        private const int powerLowerRandomConst = -10;
         private const int powerUpperRandom = 10;
-        private const int happynesLowerRandom = -1;
+        private const int powerLowerRandomConst = -10;
         private const int happynesUpperRandom = 1;
-        private const int defenceLowerRandom = 0;
+        private const int happynesLowerRandom = -1;
         private const int defenceUpperRandom = 5;
-        private const int healthLowerRandomConst = 90;
+        private const int defenceLowerRandom = 0;
         private const int healthUpperRandomConst = 110;
+        private const int healthLowerRandomConst = 90;
         private Random random;
         private PositionService service;
 
@@ -80,6 +80,9 @@ namespace LOT.BLL.Services.Members
                 Defence = memberLevel + random.Next(defenceLowerRandom, defenceUpperRandom),
                 Health = memberLevel * 10 + random.Next(healthLowerRandomConst, healthUpperRandomConst)
             };
+
+            if(position.Power < 0)
+                position.Power = 0;
 
             return position;
         }

@@ -1,15 +1,28 @@
-﻿namespace LOT.BLL.Services.Teams
+﻿using LOT.DAL.Repositories;
+
+namespace LOT.BLL.Services.Teams
 {
-    internal static class TeamsNamesService
+    public class TeamsNamesService
     {
-        internal static bool IsThisNamespaceFree(string name)
+        TeamRepository repository;
+
+        public TeamsNamesService()
         {
-            var allTeams = TeamService.GetAllTeams();
-            if(allTeams == null)
-                return true;
-            else if (allTeams.FirstOrDefault(x => x.Name == name) == null)
-                return true;
-            return false;
+            repository = new();
+        }
+
+        public bool IsThisNamespaceFree(string name) => repository.IsThisNamespaceFree(name);
+
+        public bool IsThisShortNameFree(string shortName) => repository.IsThisShortNameFree(shortName);
+
+        public string GetNewTeamName()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetNewShortName(string teamName)
+        {
+            throw new NotImplementedException();
         }
     }
 }

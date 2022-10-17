@@ -1,13 +1,16 @@
-﻿using LOT.DAL.Repositories;
+﻿using LOT.BLL.Models.Teams;
+using LOT.DAL.Repositories;
 
 namespace LOT.BLL.Services.Teams
 {
     public class TeamsNamesService
     {
+        Random random;
         TeamRepository repository;
 
         public TeamsNamesService()
         {
+            random = new();
             repository = new();
         }
 
@@ -17,12 +20,15 @@ namespace LOT.BLL.Services.Teams
 
         public string GetNewTeamName()
         {
-            throw new NotImplementedException();
+            var name = DefaultTeamNamesSource.FirstNamesList[random.Next(0, DefaultTeamNamesSource.FirstNamesList.Count)];
+            name += " ";
+            name += DefaultTeamNamesSource.SecondNamesList[random.Next(0, DefaultTeamNamesSource.SecondNamesList.Count)];
+            return name;
         }
 
         public string GetNewShortName(string teamName)
         {
-            throw new NotImplementedException();
+            return teamName.Remove(4).ToUpper();
         }
     }
 }

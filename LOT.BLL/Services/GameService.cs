@@ -12,9 +12,11 @@ namespace LOT.BLL.Services
     public class GameService
     {
         TeamService teamService;
+        TeamsNamesService namesService;
         public GameService()
         {
             teamService = new();
+            namesService = new();
         }
 
         public void GenerateGameEnvirement(int expectedTeamsCount = 99)
@@ -55,7 +57,19 @@ namespace LOT.BLL.Services
         //
         private TeamModel GenerateTeam(TeamRankModel rank)
         {
-            throw new NotImplementedException();
+            var teamModel = new TeamModel();
+            teamModel.TeamRank = rank;
+            return teamModel;
+        }
+
+        private TeamModel GenerateEmptyTeamModel()
+        {
+            var team = new TeamModel()
+            {
+                Name = namesService.GetNewTeamName(),
+
+            };
+            return team;
         }
 
         //
@@ -78,9 +92,10 @@ namespace LOT.BLL.Services
             {
                 Name = "Rank" + rankNum.ToString()
             };
+
             MembersRankService.Add(memberRankModel);
-            var rankFromDb = MembersRankService.GetRank(memberRankModel.Name);
-            return rankFromDb;
+
+            return memberRankModel;
         }
 
         /// <summary>

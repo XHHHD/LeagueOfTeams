@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using LOT.BLL.Enums;
 using LOT.BLL.Exceptions;
 using LOT.BLL.Models.DTO;
 using LOT.BLL.Models.Members;
 using LOT.BLL.Models.Teams;
+using LOT.BLL.Services.Members;
 using LOT.DAL.Entities;
 using LOT.DAL.Repositories;
 
@@ -39,12 +41,14 @@ namespace LOT.BLL.Services.Teams
         private readonly IMapper mapper;
         private readonly TeamRepository repository;
         private readonly TeamsNamesService namesService;
+        private readonly MemberService memberService;
 
         public TeamService()
         {
             random = new();
             repository = new();
             namesService = new();
+            memberService = new();
             mapper = MappingHelper.GetMapper();
         }
 
@@ -90,11 +94,27 @@ namespace LOT.BLL.Services.Teams
         public IEnumerable<TeamModel> GetAllTeams() =>
             mapper.Map<IEnumerable<TeamModel>>(repository.GetAll());
 
+        public TeamModel GetTeamModel()
+        {
+            var team = GetTeamModelWhithoutMembers();
+            //
+            var positions = Enum.GetValues(typeof(PositionsNames));
+            foreach (PositionsNames position in positions)
+            {
+                team.Members.Add(memberService
+                    .GenerateNewMember(position));
+            }
+            //
+            UpdateTeame(team);
+            //
+            return team;
+        }
+
         /// <summary>
-        /// Generate new random team.
+        /// Generate new random team without members.
         /// </summary>
         /// <returns>Team model.</returns>
-        public TeamModel GetTeamModel()
+        public TeamModel GetTeamModelWhithoutMembers()
         {
             var team = GetEmptyTeamModel();
             //
@@ -117,11 +137,15 @@ namespace LOT.BLL.Services.Teams
             team.Teamplay = random
                 .Next(teamLowerTeamplayRandomConst, teamUpperTeamplayRandomConst);
             //
+            repository
+                .Add(mapper
+                .Map<Team>(team));
+            //
             return team;
         }
 
         //Generate new team for user by his DTO instruction.
-        public TeamModel GetTeamModel(TeamRegistrationDTO newTeamDTO)
+        public TeamModel GetTeamModelWhithoutMembers(TeamRegistrationDTO newTeamDTO)
         {
             var team = GetTeamModel();
             //
@@ -131,6 +155,9 @@ namespace LOT.BLL.Services.Teams
             //
             team.Description = newTeamDTO.Description;
             //
+            repository
+                .UpdateTeam(mapper
+                .Map<Team>(team));
             return team;
         }
 

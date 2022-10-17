@@ -91,7 +91,7 @@ namespace LOT.BLL.Services.Members
         /// Method generate random name for new position for member.
         /// </summary>
         /// <returns>Random PositionName enum.</returns>
-        private PositionsNames GetNewRandomPositionName()
+        internal PositionsNames GetNewRandomPositionName()
         {
             Array names = Enum.GetValues(typeof(PositionsNames));
 

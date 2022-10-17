@@ -11,10 +11,12 @@ namespace LOT.BLL.Services
 {
     public class GameService
     {
+        Random random;
         TeamService teamService;
         TeamsNamesService namesService;
         public GameService()
         {
+            random = new();
             teamService = new();
             namesService = new();
         }
@@ -67,8 +69,13 @@ namespace LOT.BLL.Services
             var team = new TeamModel()
             {
                 Name = namesService.GetNewTeamName(),
-
+                Description = "This team has no any description.",
+                Image = "/Resources/Default/icons8-ос-free-bsd-100-white.png",
+                Expiriance = 0,
+                MaxEnergy = random.Next(),
             };
+            team.ShortName = namesService.GetNewShortName(team.Name);
+            team.Energy = team.MaxEnergy;
             return team;
         }
 

@@ -33,6 +33,7 @@ namespace LOT.DAL.Repositories
                 _db.Update(team);
             else
                 Add(team);
+            _db.SaveChanges();
         }
 
         /// <summary>

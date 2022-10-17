@@ -9,6 +9,6 @@ namespace LOT.DAL.Interfaces
         public Position GetPositionById(int id);
         public List<Position> GetAllPositions();
         public List<Position> GetPositionsByMemberName(string memberName);
-        public IEnumerable<Position> GetPositionsByName(PositionsNames name);
+        public IEnumerable<Position> GetPositionsByName(PositionsNamesDAL name);
     }
 }

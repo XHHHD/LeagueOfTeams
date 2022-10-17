@@ -82,7 +82,7 @@ namespace LOT.DAL.Repositories
 
         public List<Position> GetPositionsByMemberName(string memberName) => _db.Positions.Where(p => p.Member.Name == memberName).ToList();
 
-        public IEnumerable<Position> GetPositionsByName(PositionsNames name) => _db.Positions.Where(p => p.Name == name);
+        public IEnumerable<Position> GetPositionsByName(PositionsNamesDAL name) => _db.Positions.Where(p => p.Name == name);
 
     }
 }

@@ -35,6 +35,16 @@ namespace LOT.BLL.Models.Members
         public string Name { get => _name; set => _name = value; }
         public string Image { get => _img; set => _img = value; }
         public byte Age { get => _age; set => _age = value; }
+        public int MaxEnergy { get => _maxEnergy; set => _maxEnergy = value; }
+        public int Energy
+        {
+            get => _energy;
+            set
+            {
+                if (value <= MaxEnergy) _energy = value;
+                else _energy = MaxEnergy;
+            }
+        }
         public int Power
         {
             get
@@ -46,16 +56,6 @@ namespace LOT.BLL.Models.Members
             }
             set => _power = value;
         }
-        public int Energy
-        {
-            get => _energy;
-            set
-            {
-                if (value <= MaxEnergy) _energy = value;
-                else _energy = MaxEnergy;
-            }
-        }
-        public int MaxEnergy { get => _maxEnergy; set => _maxEnergy = value; }
         public int MentalPower { get => _mentalPower; set => _mentalPower = value; }
         public int MentalResistance { get => _mentalResistance; set => _mentalResistance = value; }
         public int Teamplay { get => _teamplay; set => _teamplay = value; }

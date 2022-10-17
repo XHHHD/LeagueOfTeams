@@ -1,6 +1,6 @@
 ﻿namespace LOT.DAL.Entities
 {
-    public enum PositionsNames
+    public enum PositionsNamesDAL
     {
         Top,
         Jungler,

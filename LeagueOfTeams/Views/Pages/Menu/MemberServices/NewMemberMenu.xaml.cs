@@ -11,11 +11,13 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.MemberServices
         GameWindow gameWindow;
         PositionLogo position1Logo, position2Logo;
         MemberModel member;
+        MemberService memberService;
         public NewMemberMenu(GameWindow gameWindow)
         {
             InitializeComponent();
             this.gameWindow = gameWindow;
-            member = MemberGenerator.GenerateNewMember(gameWindow.user.Expiriance);
+            memberService = new();
+            member = memberService.GenerateNewMember(gameWindow.user.Expiriance);
             InitComponent(member);
         }
 

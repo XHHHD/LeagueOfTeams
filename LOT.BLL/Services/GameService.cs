@@ -11,26 +11,30 @@ namespace LOT.BLL.Services
 {
     public class GameService
     {
-        Random random;
         TeamService teamService;
-        TeamsNamesService namesService;
+        TeamRankService teamsRankService;
         public GameService()
         {
-            random = new();
             teamService = new();
-            namesService = new();
+            teamsRankService = new();
         }
 
+        //
         public void GenerateGameEnvirement(int expectedTeamsCount = 99)
         {
             int teamsCount = expectedTeamsCount - teamService.GetAllTeams().Count();
             if (teamsCount > 0)
             {
-                GenerateTeamRanks(teamsCount / TeamRankModel.maxTeamsCount);
-                if (teamsCount % 20 > 0)
-                { }
+                int ranksCount = teamsCount / TeamRankModel.maxTeamsCount;
+                var ranksList = GenerateTeamRanks(ranksCount);
+                if ((teamsCount % TeamRankModel.maxTeamsCount) > 0)
+                {
+                    ranksList.Add(GenerateTeamRank(++ranksCount));
+                }
             }
         }
+
+        //
         private List<TeamRankModel> GenerateTeamRanks(int ranksCount)
         {
             List<TeamRankModel> allRanks = new();
@@ -40,59 +44,35 @@ namespace LOT.BLL.Services
             }
             return allRanks;
         }
+
+        //
         private TeamRankModel GenerateTeamRank(int rankNum)
         {
             TeamRankModel teamRankModel = new TeamRankModel()
             {
                 Name = "Rank" + rankNum.ToString()
             };
-            TeamsRankService.Add(teamRankModel);
+            teamsRankService.Add(teamRankModel);
             for (int i = 1; i <= 20; i++)
             {
-                GenerateTeam(teamRankModel);
+                GenerateTeamInRank(teamRankModel);
             }
-            var rankFromDb = TeamsRankService.GetRank(teamRankModel.Name);
+            teamsRankService.Update(teamRankModel);
+            var rankFromDb = teamsRankService.GetRank(teamRankModel.Name);
             return rankFromDb;
         }
 
         //
-        //
-        private TeamModel GenerateTeam(TeamRankModel rank)
+        private TeamModel GenerateTeamInRank(TeamRankModel rank)
         {
-            var teamModel = new TeamModel();
+            var teamModel = teamService.GetTeamModel();
+            rank.Teams.Add(teamModel);
             teamModel.TeamRank = rank;
+            teamService.UpdateTeame(teamModel);
             return teamModel;
         }
 
-        private TeamModel GenerateEmptyTeamModel()
-        {
-            var team = new TeamModel()
-            {
-                Name = namesService.GetNewTeamName(),
-                Description = "This team has no any description.",
-                Image = "/Resources/Default/icons8-ос-free-bsd-100-white.png",
-                Expiriance = 0,
-                MaxEnergy = random.Next(),
-            };
-            team.ShortName = namesService.GetNewShortName(team.Name);
-            team.Energy = team.MaxEnergy;
-            return team;
-        }
-
         //
-        //
-        private MemberModel GenerateMember(TeamModel team)
-        {
-            throw new NotImplementedException();
-        }
-
-        //
-        //
-        private PositionModel GeneratePosition(MemberModel member)
-        {
-            throw new NotImplementedException();
-        }
-
         private MemberRankModel GenerateMemberRank(int rankNum)
         {
             MemberRankModel memberRankModel = new()

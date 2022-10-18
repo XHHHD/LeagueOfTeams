@@ -94,6 +94,10 @@ namespace LOT.BLL.Services.Teams
         public IEnumerable<TeamModel> GetAllTeams() =>
             mapper.Map<IEnumerable<TeamModel>>(repository.GetAll());
 
+        /// <summary>
+        /// Generate team with members.
+        /// </summary>
+        /// <returns></returns>
         public TeamModel GetTeamModel()
         {
             var team = GetTeamModelWhithoutMembers();

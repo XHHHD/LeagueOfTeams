@@ -4,7 +4,7 @@ using LOT.BLL.Services.Members;
 namespace LOT.Tests.BusinessLogicTests
 {
     [TestClass]
-    internal class PositionGeneratorTests
+    public class PositionServicesTests
     {
         [DataRow(PositionsNames.Top)]
         [DataRow(PositionsNames.Jungler)]
@@ -15,7 +15,7 @@ namespace LOT.Tests.BusinessLogicTests
         public void GetNewRandomPositionNameGeneratesPosition(PositionsNames exceptedPositionName)
         {
             //arrange
-            var positionGenerator = new PositionGenerator();
+            var positionGenerator = new PositionService();
             PositionsNames generatedPositionName;
 
             //act

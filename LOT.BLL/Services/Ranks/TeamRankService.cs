@@ -9,15 +9,22 @@ namespace LOT.BLL.Services.Ranks
 {
     //This is the class, that will be hendle to the data and show
     //different views for teams top, team sort and team searching.
-    internal static class TeamsRankService
+    internal class TeamRankService
     {
-        private static readonly IMapper mapper;
-        private static readonly TeamRankRepository rankRepo = new();
-        private static readonly TeamRepository teamRepo = new();
+        private readonly IMapper mapper;
+        private readonly TeamRepository teamRepo;
+        private readonly TeamRankRepository rankRepo;
 
-        public static void Add(TeamRankModel rankModel) => rankRepo.Add(mapper.Map<TeamRank>(rankModel));
-        public static void Remove(TeamRankModel rankModel) => rankRepo.Remove(rankModel.Id);
-        public static void Update(TeamRankModel rankModel) => rankRepo.Update(mapper.Map<TeamRank>(rankModel));
+        public TeamRankService()
+        {
+            teamRepo = new();
+            rankRepo = new();
+            mapper = MappingHelper.GetMapper();
+        }
+
+        public void Add(TeamRankModel rankModel) => rankRepo.Add(mapper.Map<TeamRank>(rankModel));
+        public void Remove(TeamRankModel rankModel) => rankRepo.Remove(rankModel.Id);
+        public void Update(TeamRankModel rankModel) => rankRepo.Update(mapper.Map<TeamRank>(rankModel));
 
         /// <summary>
         /// Get Team rank model by ID.
@@ -25,7 +32,7 @@ namespace LOT.BLL.Services.Ranks
         /// <param name="id">Team rank ID.</param>
         /// <returns>TeamRankModel.</returns>
         /// <exception cref="TeamRankServicesException"></exception>
-        public static TeamRankModel GetRank(int id)
+        public TeamRankModel GetRank(int id)
         {
             var entity = rankRepo.GetRank(id);
             if (entity is null)
@@ -40,7 +47,7 @@ namespace LOT.BLL.Services.Ranks
         /// <param name="name">Team rank name.</param>
         /// <returns>TeamRankModel.</returns>
         /// <exception cref="TeamRankServicesException"></exception>
-        public static TeamRankModel GetRank(string name)
+        public TeamRankModel GetRank(string name)
         {
             var entity = rankRepo.GetRank(name);
             if (entity is null)
@@ -54,7 +61,7 @@ namespace LOT.BLL.Services.Ranks
         /// </summary>
         /// <returns>TeamRanks collection.</returns>
         /// <exception cref="TeamRankServicesException"></exception>
-        public static IEnumerable<TeamRankModel> GetAllRanks()
+        public IEnumerable<TeamRankModel> GetAllRanks()
         {
             var allRanks = rankRepo.GetAll();
             if (allRanks != null)
@@ -70,7 +77,7 @@ namespace LOT.BLL.Services.Ranks
         /// Get collection of teams with highest rank.
         /// </summary>
         /// <returns>Teams list or EMPTY teams list.</returns>
-        public static List<TeamModel> GetTeamsTop()
+        public List<TeamModel> GetTeamsTop()
         {
             var allTeams = teamRepo.GetAll();
             if (allTeams == null)
@@ -89,7 +96,7 @@ namespace LOT.BLL.Services.Ranks
         /// </summary>
         /// <param name="topCount">Size of collection.</param>
         /// <returns>Teams list or EMPTY teams list.</returns>
-        public static List<TeamModel> GetTeamsTop(int topCount)
+        public List<TeamModel> GetTeamsTop(int topCount)
         {
             var teams = GetTeamsTop();
             teams.RemoveRange(topCount, teams.Count);

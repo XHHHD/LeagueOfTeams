@@ -40,14 +40,14 @@ namespace LOT.BLL.Services.Members
         private readonly IMapper mapper;
         private readonly MemberRepository repository;
         private readonly NickGenerator nickGenerator;
-        private readonly PositionGenerator positionGenerator;
+        private readonly PositionService positionService;
 
         public MemberService()
         {
             random = new();
             repository = new();
             nickGenerator = new();
-            positionGenerator = new();
+            positionService = new();
             mapper = MappingHelper.GetMapper();
         }
 
@@ -164,7 +164,7 @@ namespace LOT.BLL.Services.Members
             return member;
         }
 
-        //It`s work, but NEED TO REMAKE!
+        //It`s work, but NEED TO REMAKE coz it is repeating!
         public MemberModel GenerateNewMember(uint exp)
         {
             var member = GenerateNewMember();
@@ -196,7 +196,7 @@ namespace LOT.BLL.Services.Members
         {
             var member = GenerateEmptyMember();
             member.Positions
-                .Add(positionGenerator
+                .Add(positionService
                 .CreatePositionInMember(member, expectedPosition));
             UpdateMember(member);
             return member;
@@ -205,10 +205,9 @@ namespace LOT.BLL.Services.Members
         public MemberModel GenerateNewMember()
         {
             var member = GenerateEmptyMember();
-            var randomPosition = positionGenerator.GetNewRandomPositionName();
-            member.Positions
-                .Add(positionGenerator
-                .CreatePositionInMember(member, randomPosition));
+            var randomPosition = positionService.GetNewRandomPositionName();
+            var positionForMember = positionService.CreatePositionInMember(member, randomPosition);
+            member.Positions.Add(positionForMember);
             UpdateMember(member);
             return member;
         }
@@ -232,7 +231,8 @@ namespace LOT.BLL.Services.Members
                 Teamplay = random.Next(0, memberUpperTeamplayRandomConst),
                 Expiriance = 0,
                 SkillPoints = 0,
-                RankPoints = 0
+                RankPoints = 0,
+                Positions = new()
             };
             member.Energy = member.MaxEnergy;
             AddMember(member);

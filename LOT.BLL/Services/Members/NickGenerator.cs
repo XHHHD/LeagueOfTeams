@@ -1,16 +1,17 @@
 ﻿using LOT.BLL.Models.Members;
+using LOT.DAL.Repositories;
 
 namespace LOT.BLL.Services.Members
 {
     public class NickGenerator
     {
         private readonly Random random;
-        private readonly MemberService service;
+        private readonly MemberRepository repository;
 
         public NickGenerator()
         {
             random = new();
-            service = new();
+            repository = new();
         }
 
         /// <summary>
@@ -21,14 +22,14 @@ namespace LOT.BLL.Services.Members
         {
             HashSet<int> used = new HashSet<int>();
             //
-            if (service.GetAll() == null)
+            if (repository.GetAll() == null)
             {
                 return RandomNewNick();
             }
             //
             else
             {
-                foreach (string name in service.GetAllNames())
+                foreach (string name in repository.GetAllNames())
                 {
                     if (DefaultNicksSource.nicksList.IndexOf(name) != -1)
                         used.Add(DefaultNicksSource.nicksList.IndexOf(name));
@@ -67,7 +68,7 @@ namespace LOT.BLL.Services.Members
         /// </summary>
         /// <returns>String Nick</returns>
         private string RandomNewNick() =>
-            DefaultNicksSource.nicksList[random.Next(0, DefaultNicksSource.nicksList.Count())];
+            DefaultNicksSource.nicksList[random.Next(0, DefaultNicksSource.nicksList.Count)];
 
         /// <summary>
         /// 
@@ -76,7 +77,7 @@ namespace LOT.BLL.Services.Members
         /// <returns>True, if nick is free to use.</returns>
         internal bool IsThisNickIsFree(string nick)
         {
-            var names = service.GetAllNames();
+            var names = repository.GetAllNames();
             foreach (string name in names)
             {
                 if (name == nick)

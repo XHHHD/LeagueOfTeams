@@ -78,10 +78,10 @@ namespace LOT.DAL.Repositories
         public bool IsThisNamespaceFree(string name)
         {
             var searchingResult = _db.Teams.Select(n => n.Name).FirstOrDefault(name);
-            if(searchingResult is null)
-                return true;
-            else
+            if(searchingResult != null)
                 return false;
+            else
+                return true;
         }
 
         public bool IsThisShortNameFree(string shortName)

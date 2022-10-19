@@ -20,7 +20,7 @@ namespace LOT.BLL.Services
         }
 
         //
-        public void GenerateGameEnvirement(int expectedTeamsCount = 99)
+        public void GenerateGameEnvironment(int expectedTeamsCount = 99)
         {
             int teamsCount = expectedTeamsCount - teamService.GetAllTeams().Count();
             if (teamsCount > 0)

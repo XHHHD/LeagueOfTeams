@@ -31,6 +31,7 @@ namespace LeagueOfTeamsUI.Views
             loading.Show();
 
             gameService = new GameService();
+            //gameService.GenerateGameEnvironment();
             user = gameService.GetTestUserModeel();
 
             InitializeComponent();

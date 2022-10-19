@@ -10,7 +10,7 @@ namespace LOT.Tests.BusinessLogicTests
         [DataRow(PositionsNames.Jungler)]
         [DataRow(PositionsNames.Mid)]
         [DataRow(PositionsNames.Bot)]
-        [DataRow(PositionsNames.Support)]
+        //[DataRow(PositionsNames.Support)]
         [TestMethod]
         public void GetNewRandomPositionNameGeneratesPosition(PositionsNames exceptedPositionName)
         {

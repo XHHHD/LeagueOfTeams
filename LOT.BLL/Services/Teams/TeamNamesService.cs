@@ -23,7 +23,8 @@ namespace LOT.BLL.Services.Teams
             string name;
             do
             {
-                name = DefaultTeamNamesSource.FirstNamesList[random.Next(0, DefaultTeamNamesSource.FirstNamesList.Count)];
+                name = null;
+                name += DefaultTeamNamesSource.FirstNamesList[random.Next(0, DefaultTeamNamesSource.FirstNamesList.Count)];
                 name += " ";
                 name += DefaultTeamNamesSource.SecondNamesList[random.Next(0, DefaultTeamNamesSource.SecondNamesList.Count)];
             } while (repository.IsThisNamespaceFree(name));

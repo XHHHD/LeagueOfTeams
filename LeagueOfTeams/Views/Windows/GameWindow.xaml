@@ -35,6 +35,8 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="6*"/>
             </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Grid.Row="0" Background="#FF3D7E88" Panel.ZIndex="0"/>
+            <Border Grid.Column="0" Grid.Row="1" Background="#FF255663" Panel.ZIndex="0"/>
             <ScrollViewer Grid.Row="1" Grid.Column="0" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                 <StackPanel Orientation="Vertical" Margin="15,0,0,15" CanVerticallyScroll="True">
                     <Frame x:Name="TeamStatsButton" NavigationUIVisibility="Hidden" Height="120" Width="240"/>
@@ -45,7 +47,8 @@
                     <Frame x:Name="UserStatsButton" NavigationUIVisibility="Hidden" Height="120" Width="240"/>
                 </StackPanel>
             </ScrollViewer>
-            <Grid Grid.Row="0" Grid.Column="1">
+            <Border Grid.Column="1" Grid.Row="0" Background="#FF3D8E88" Panel.ZIndex="0"/>
+            <Grid Grid.Column="1" Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="3*"/>
                     <ColumnDefinition Width="*"/>
@@ -73,6 +76,7 @@
                         MinWidth="40" MinHeight="40" Background="{x:Null}" BorderBrush="{x:Null}"/>
                 </StackPanel>
             </Grid>
+            <Border Grid.Column="1" Grid.Row="1" Background="CadetBlue" Panel.ZIndex="0"/>
             <Frame x:Name="GameMainFrame" Grid.Column="1" Grid.Row="1" Margin="5,5,20,20" NavigationUIVisibility="Hidden"
                    Foreground="{x:Null}" BorderBrush="Black"/>
         </Grid>

@@ -50,7 +50,8 @@ namespace LOT.BLL.Services
         {
             TeamRankModel teamRankModel = new TeamRankModel()
             {
-                Name = "Rank" + rankNum.ToString()
+                Name = "Rank" + rankNum.ToString(),
+                Teams = new()
             };
             teamsRankService.Add(teamRankModel);
             for (int i = 1; i <= 20; i++)
@@ -65,7 +66,7 @@ namespace LOT.BLL.Services
         //
         private TeamModel GenerateTeamInRank(TeamRankModel rank)
         {
-            var teamModel = teamService.GetTeamModel();
+            var teamModel = teamService.GetFullTeamModel();
             rank.Teams.Add(teamModel);
             teamModel.TeamRank = rank;
             teamService.UpdateTeame(teamModel);
@@ -77,7 +78,8 @@ namespace LOT.BLL.Services
         {
             MemberRankModel memberRankModel = new()
             {
-                Name = "Rank" + rankNum.ToString()
+                Name = "Rank" + rankNum.ToString(),
+                Members = new()
             };
 
             MembersRankService.Add(memberRankModel);
@@ -113,7 +115,8 @@ namespace LOT.BLL.Services
                 RankPoints = 0,
                 UserId = 1,
                 User = user,
-                Members = new()
+                Members = new(),
+                TeamRank = new()
             };
             var teamRank = new TeamRankModel()
             {

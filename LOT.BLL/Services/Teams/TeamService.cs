@@ -98,7 +98,7 @@ namespace LOT.BLL.Services.Teams
         /// Generate team with members.
         /// </summary>
         /// <returns></returns>
-        public TeamModel GetTeamModel()
+        public TeamModel GetFullTeamModel()
         {
             var team = GetTeamModelWhithoutMembers();
             //
@@ -151,7 +151,7 @@ namespace LOT.BLL.Services.Teams
         //Generate new team for user by his DTO instruction.
         public TeamModel GetTeamModelWhithoutMembers(TeamRegistrationDTO newTeamDTO)
         {
-            var team = GetTeamModel();
+            var team = GetFullTeamModel();
             //
             team.Name = newTeamDTO.Name;
             //
@@ -183,7 +183,8 @@ namespace LOT.BLL.Services.Teams
                 Health = 100,
                 Power = 0,
                 Teamplay = 0,
-                RankPoints = 0
+                RankPoints = 0,
+                TeamRank = new()
             };
             return team;
         }

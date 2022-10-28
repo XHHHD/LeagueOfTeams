@@ -201,9 +201,9 @@ namespace LOT.BLL.Services.Members
         {
             List<PositionsNames> positionNames = Enum.GetValues(typeof(PositionsNames)).Cast<PositionsNames>().ToList();
 
-            var filteredPositionNames = positionNames.Where(x => x != exceptedPosition);
+            List<PositionsNames> filteredPositionNames = positionNames.Where(x => x != exceptedPosition).Cast<PositionsNames>().ToList();
 
-            PositionsNames newName = positionNames[random.Next(positionNames.Count)];
+            PositionsNames newName = filteredPositionNames[random.Next(filteredPositionNames.Count)];
             return newName;
         }
     }

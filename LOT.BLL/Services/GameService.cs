@@ -150,7 +150,7 @@ namespace LOT.BLL.Services
             {
                 Id = 1,
                 Name = PositionsNames.Top,
-                Expiriance = 0,
+                Expirience = 0,
                 Rank = 0,
                 Power = 10,
                 Happines = 10,

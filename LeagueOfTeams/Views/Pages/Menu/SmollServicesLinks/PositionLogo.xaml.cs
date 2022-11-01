@@ -13,7 +13,7 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.SmollServicesLinks
         private void InitComponents(PositionModel position)
         {
             Level.Text = position.Level.ToString();
-            Expiriance.Text = (1000 - position.Expiriance).ToString();
+            Expiriance.Text = (1000 - position.Expirience).ToString();
             Rank.Text = position.Rank.ToString();
             Power.Text = position.Power.ToString();
             Happines.Text = position.Happines.ToString();

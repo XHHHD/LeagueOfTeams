@@ -41,7 +41,11 @@ namespace LOT.BLL.Services.Members
             if (model is null)
                 throw new PositionServicesException(nameof(model) + "is NULL!");
             else
-                repository.AddPosition(mapper.Map<Position>(model));
+            {
+                var entity = mapper.Map<Position>(model);
+                repository.AddPosition(entity);
+                model.Id = entity.Id;
+            }
         }
 
         /// <summary>
@@ -164,7 +168,7 @@ namespace LOT.BLL.Services.Members
         {
             var position = new PositionModel()
             {
-                Expiriance = 0,
+                Expirience = 0,
                 Rank = 0,
                 Power = memberLevel + random.Next(powerLowerRandomConst, powerUpperRandom),
                 Happines = memberLevel + random.Next(happynesLowerRandom, happynesUpperRandom),

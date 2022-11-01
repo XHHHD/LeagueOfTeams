@@ -13,7 +13,7 @@ namespace LOT.DAL.Repositories
         }
 
         /// <summary>
-        /// Add new team rank.
+        /// Add new team rank. Rank name must be unique!
         /// </summary>
         /// <param name="newRank">TeamRank entity</param>
         public void AddRank(TeamRank newRank)

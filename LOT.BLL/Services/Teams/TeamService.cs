@@ -141,9 +141,11 @@ namespace LOT.BLL.Services.Teams
             team.Teamplay = random
                 .Next(teamLowerTeamplayRandomConst, teamUpperTeamplayRandomConst);
             //
+            var entity = mapper
+                .Map<Team>(team);
             repository
-                .Add(mapper
-                .Map<Team>(team));
+                .Add(entity);
+            team.Id = entity.Id;
             //
             return team;
         }
@@ -184,7 +186,7 @@ namespace LOT.BLL.Services.Teams
                 Power = 0,
                 Teamplay = 0,
                 RankPoints = 0,
-                TeamRank = new()
+                Members = new()
             };
             return team;
         }

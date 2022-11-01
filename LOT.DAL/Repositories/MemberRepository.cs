@@ -39,7 +39,7 @@ namespace LOT.DAL.Repositories
         }
 
         /// <summary>
-        /// Update or save member in database.
+        /// Update or add member in database.
         /// </summary>
         /// <param name="member"></param>
         public void UpdateMember(Member member)

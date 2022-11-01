@@ -22,6 +22,10 @@ namespace LOT.BLL.Services.Ranks
             mapper = MappingHelper.GetMapper();
         }
 
+        /// <summary>
+        /// Add new team rank model in database. NOTA BENE! Rank name must be unique!
+        /// </summary>
+        /// <param name="rankModel">Model with must be added.</param>
         public void Add(TeamRankModel rankModel) => rankRepo.AddRank(mapper.Map<TeamRank>(rankModel));
         public void Remove(TeamRankModel rankModel) => rankRepo.Remove(rankModel.Id);
         public void Update(TeamRankModel rankModel) => rankRepo.Update(mapper.Map<TeamRank>(rankModel));

@@ -20,9 +20,9 @@ namespace LOT.DAL.Entities
 
 
         //PROXY STATS
-        public TeamRank TeamRank { get; set; }
-        public TeamTrail TeamTrail { get; set; }
-        public User User { get; set; }
+        public TeamRank? TeamRank { get; set; }
+        public TeamTrail? TeamTrail { get; set; }
+        public User? User { get; set; }
         public List<Member> Members { get; set; }
 
 

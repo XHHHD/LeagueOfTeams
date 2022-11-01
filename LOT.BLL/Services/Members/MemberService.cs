@@ -53,11 +53,16 @@ namespace LOT.BLL.Services.Members
 
         public void AddMember(MemberModel model)
         {
-            if(model is null)
+            if (model is null)
                 throw new MemberServicesException("Adding model is NULL!");
             else
-                repository.AddMember(mapper.Map<Member>(model));
+            {
+                var entity = mapper.Map<Member>(model);
+                repository.AddMember(entity);
+                model.Id = entity.Id;
+            }
         }
+
         public void RemoveMember(int id)
         {
             if (repository.GetMemberById(id) is null)
@@ -65,12 +70,17 @@ namespace LOT.BLL.Services.Members
             else
                 repository.RemoveMember(id);
         }
+
         public void UpdateMember(MemberModel model)
         {
             if (model is null)
                 throw new MemberServicesException("Updating model is NULL!");
             else
-                repository.UpdateMember(mapper.Map<Member>(model));
+            {
+                var entity = mapper.Map<Member>(model);
+                repository.UpdateMember(entity);
+                model.Id = entity.Id;
+            }
         }
 
         /// <summary>
@@ -195,9 +205,10 @@ namespace LOT.BLL.Services.Members
         public MemberModel GenerateNewMember(PositionsNames expectedPosition)
         {
             var member = GenerateEmptyMember();
+            var position = positionService
+                .CreatePositionInMember(member, expectedPosition);
             member.Positions
-                .Add(positionService
-                .CreatePositionInMember(member, expectedPosition));
+                .Add(position);
             UpdateMember(member);
             return member;
         }
@@ -213,7 +224,7 @@ namespace LOT.BLL.Services.Members
         }
 
         /// <summary>
-        /// Generate empty default member without using any parameters.
+        /// Generate empty default member without using any parameters, and NOT REGISTRAITED in database.
         /// </summary>
         /// <returns></returns>
         public MemberModel GenerateEmptyMember()
@@ -235,7 +246,6 @@ namespace LOT.BLL.Services.Members
                 Positions = new()
             };
             member.Energy = member.MaxEnergy;
-            AddMember(member);
             return member;
         }
     }

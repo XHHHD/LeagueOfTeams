@@ -29,6 +29,7 @@ namespace LOT.DAL.Repositories
         /// <param name="team">The entity Team, wich must be updated.</param>
         public void UpdateTeam(Team team)
         {
+            var check = GetTeam(team.Id);
             if(GetTeam(team.Id) != null)
                 _db.Update(team);
             else

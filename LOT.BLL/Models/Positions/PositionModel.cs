@@ -24,9 +24,9 @@ namespace LOT.BLL.Models.Positions
         public PositionsNames Name { get => _name; set => _name = value; }
 
         /// <summary>
-        /// Expiriance played or trained on this position.
+        /// Expirience played or trained on this position.
         /// </summary>
-        public uint Expiriance { get => _expiriance % 1000; set => _expiriance = value; }
+        public uint Expirience { get => _expiriance % 1000; set => _expiriance = value; }
 
         /// <summary>
         /// Points score for implementatin skills of member.

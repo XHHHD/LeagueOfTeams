@@ -22,7 +22,7 @@ namespace LOT.BLL.Services.Ranks
             mapper = MappingHelper.GetMapper();
         }
 
-        public void Add(TeamRankModel rankModel) => rankRepo.Add(mapper.Map<TeamRank>(rankModel));
+        public void Add(TeamRankModel rankModel) => rankRepo.AddRank(mapper.Map<TeamRank>(rankModel));
         public void Remove(TeamRankModel rankModel) => rankRepo.Remove(rankModel.Id);
         public void Update(TeamRankModel rankModel) => rankRepo.Update(mapper.Map<TeamRank>(rankModel));
 

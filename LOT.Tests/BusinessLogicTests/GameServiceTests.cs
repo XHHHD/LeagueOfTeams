@@ -6,7 +6,7 @@ namespace LOT.Tests.BusinessLogicTests
     [TestClass]
     public class GameServiceTests
     {
-        [DataRow]
+        //[DataRow]
         [DataRow(1)]
         [DataRow(9)]
         [DataRow(11)]

@@ -54,12 +54,12 @@ namespace LOT.BLL.Models.Positions
         public int Defence { get => _defence; set => _defence = value; }
 
         /// <summary>
-        /// Current position health.
+        /// Current position maximum health.
         /// </summary>
         public int Health { get => _health; set => _health = value; }
 
-        public int MemberId { get; set; }
-        public MemberModel Member { get; set; }
+        public int? MemberId { get; set; }
+        public MemberModel? Member { get; set; }
 
 
 

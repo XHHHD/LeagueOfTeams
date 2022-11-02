@@ -138,7 +138,8 @@ namespace LOT.BLL.Services
                 Expiriance = 100,
                 SkillPoints = 0,
                 RankPoints = 0,
-                Positions = new()
+                Positions = new(),
+                Trails = new()
             };
             var memberRank = new MemberRankModel()
             {

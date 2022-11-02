@@ -33,5 +33,6 @@ namespace LOT.DAL.Entities
         public int? MemberRankId { get; set; }
         public int? MemberTrailId { get; set; }
         public List<Position> Positions { get; set; }
+        public List<MemberTrail> Trails { get; set; }
     }
 }

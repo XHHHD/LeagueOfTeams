@@ -36,7 +36,7 @@ namespace LOT.BLL.Services.Members
         /// </summary>
         /// <param name="model">Position model.</param>
         /// <exception cref="PositionServicesException"></exception>
-        public void Add(PositionModel model)
+        public void AddPosition(PositionModel model)
         {
             if (model is null)
                 throw new PositionServicesException(nameof(model) + "is NULL!");
@@ -53,7 +53,7 @@ namespace LOT.BLL.Services.Members
         /// </summary>
         /// <param name="id">Position ID.</param>
         /// <returns>Position model.</returns>
-        public PositionModel Get(int id)
+        public PositionModel GetPosition(int id)
         {
             var position = repository.GetPositionById(id);
             if (position is null)
@@ -67,7 +67,7 @@ namespace LOT.BLL.Services.Members
         /// </summary>
         /// <param name="id">Position ID.</param>
         /// <exception cref="PositionServicesException"></exception>
-        public void Remove(int id)
+        public void RemovePosition(int id)
         {
             var position = repository.GetPositionById(id);
             if (position is null)
@@ -81,25 +81,23 @@ namespace LOT.BLL.Services.Members
         /// </summary>
         /// <param name="model">Position model.</param>
         /// <exception cref="PositionServicesException"></exception>
-        public void Remove(PositionModel model)
+        public void RemovePosition(PositionModel model)
         {
             if (model is null)
                 throw new PositionServicesException("Model is NULL!");
             else
-                Remove(model.Id);
+                RemovePosition(model.Id);
         }
 
         /// <summary>
-        /// Update or create currently position in databse.
+        /// Update currently position in databse.
         /// </summary>
         /// <param name="model">Position model.</param>
         /// <exception cref="PositionServicesException"></exception>
-        public void Update(PositionModel model)
+        public void UpdatePosition(PositionModel model)
         {
             if (model is null)
                 throw new PositionServicesException("Position model is NULL!");
-            else if(Get(model.Id) is null)
-                Add(model);
             else
                 repository.UpdatePosition(mapper.Map<Position>(model));
         }
@@ -133,15 +131,11 @@ namespace LOT.BLL.Services.Members
                 if (member.Positions.Count == 0)
                 {
                     var position = CreatePositionInMember(member, expectedPosition);
-                    member.Positions.Add(position);
-                    Update(position);
                 }
                 if (member.Positions.Count < (int)expectedPositionCount)
                 {
                     var randomPositionName = GetNewRandomPositionName();
-                    var position = CreatePositionInMember(member, randomPositionName);
-                    member.Positions.Add(position);
-                    Update(position);
+                    CreatePositionInMember(member, randomPositionName);
                 }
             }
         }
@@ -156,7 +150,8 @@ namespace LOT.BLL.Services.Members
             PositionModel position = CreateEmptyPosition((int)member.Level);
             position.Name = positionName;
             position.Member = member;
-            Add(position);
+            member.Positions.Add(position);
+            AddPosition(position);
             return position;
         }
 
@@ -173,7 +168,8 @@ namespace LOT.BLL.Services.Members
                 Power = memberLevel + random.Next(powerLowerRandomConst, powerUpperRandom),
                 Happines = memberLevel + random.Next(happynesLowerRandom, happynesUpperRandom),
                 Defence = memberLevel + random.Next(defenceLowerRandom, defenceUpperRandom),
-                Health = memberLevel * 10 + random.Next(healthLowerRandomConst, healthUpperRandomConst)
+                Health = memberLevel * 10 + random.Next(healthLowerRandomConst, healthUpperRandomConst),
+                 
             };
 
             if (position.Power < 0)

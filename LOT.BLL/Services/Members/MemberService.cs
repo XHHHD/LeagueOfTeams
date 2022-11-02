@@ -205,10 +205,8 @@ namespace LOT.BLL.Services.Members
         public MemberModel GenerateNewMember(PositionsNames expectedPosition)
         {
             var member = GenerateEmptyMember();
-            var position = positionService
+            positionService
                 .CreatePositionInMember(member, expectedPosition);
-            member.Positions
-                .Add(position);
             UpdateMember(member);
             return member;
         }
@@ -216,9 +214,9 @@ namespace LOT.BLL.Services.Members
         public MemberModel GenerateNewMember()
         {
             var member = GenerateEmptyMember();
-            var randomPosition = positionService.GetNewRandomPositionName();
-            var positionForMember = positionService.CreatePositionInMember(member, randomPosition);
-            member.Positions.Add(positionForMember);
+            var randomPositionName = positionService.GetNewRandomPositionName();
+            positionService
+                .CreatePositionInMember(member, randomPositionName);
             UpdateMember(member);
             return member;
         }
@@ -243,9 +241,13 @@ namespace LOT.BLL.Services.Members
                 Expiriance = 0,
                 SkillPoints = 0,
                 RankPoints = 0,
-                Positions = new()
+                Positions = new(),
+                Trails = new()
             };
             member.Energy = member.MaxEnergy;
+
+            AddMember(member);
+
             return member;
         }
     }

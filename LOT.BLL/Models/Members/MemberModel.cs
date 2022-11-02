@@ -70,7 +70,7 @@ namespace LOT.BLL.Models.Members
         public int? MemberTrailId { get; set; }
         TeamModel? Team { get; set; }
         public List<PositionModel> Positions { get; set; }
-        public List<MemberTrailModel>? Trails { get; set; }
+        public List<MemberTrailModel> Trails { get; set; }
 
 
         public MemberModel()
@@ -90,6 +90,7 @@ namespace LOT.BLL.Models.Members
             _expiriance = dTO.Expiriance;
             _skillPoints = dTO.SkillPoints;
             Positions = dTO.Positions;
+            Trails = new();
         }
         public void AddExpiriance(uint exp)
         {

@@ -17,7 +17,19 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.MemberServices
             InitializeComponent();
             this.gameWindow = gameWindow;
             memberService = new();
-            member = memberService.GenerateNewMember(gameWindow.user.Expiriance);
+
+            ///NOT IMPLEMENTED!
+            ///NOT IMPLEMENTED!
+            ///NOT IMPLEMENTED!
+            ///NOT IMPLEMENTED!
+            ///NOT IMPLEMENTED!
+            ///Enable this, when method "GenerateGameEnvironment" will pass tests.
+            //member = memberService.GenerateNewMember(gameWindow.user.Expiriance);
+            ///
+            member = gameWindow.user.Team.Members[0];
+            ///
+            ///
+
             InitComponent(member);
         }
 

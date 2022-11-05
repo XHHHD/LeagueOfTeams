@@ -58,7 +58,6 @@ namespace LOT.BLL.Services
             {
                 GenerateTeamInRank(teamRankModel);
             }
-            teamsRankService.Update(teamRankModel);
             var rankFromDb = teamsRankService.GetRank(teamRankModel.Name);
             return rankFromDb;
         }
@@ -67,9 +66,7 @@ namespace LOT.BLL.Services
         private TeamModel GenerateTeamInRank(TeamRankModel rank)
         {
             var teamModel = teamService.GetFullTeamModel();
-            rank.Teams.Add(teamModel);
-            teamModel.TeamRank = rank;
-            teamService.UpdateTeame(teamModel);
+            teamService.AddTeamInRank(rank.Id,teamModel.Id);
             return teamModel;
         }
 

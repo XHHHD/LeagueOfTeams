@@ -44,11 +44,28 @@ namespace LOT.DAL.Repositories
         /// <param name="member"></param>
         public void UpdateMember(Member member)
         {
-            if(GetMemberById(member.Id) is null)
-                AddMember(member);
+            if (GetMemberById(member.Id) is null)
+                throw new MemberDataException("Didn`t find member entity in database!");
             else
+            {
                 _db.Members.Update(member);
-            _db.SaveChanges();
+                _db.SaveChanges();
+            }
+        }
+
+        public Member AddPositionToTheMember(int memberId, Position position)
+        {
+            if(position is null)
+                throw new MemberDataException("Position can`t be added, coz position is NULL!");
+            var member = GetMemberById(memberId);
+            if (member is null)
+                throw new MemberDataException("Didn`t find currently member in database!");
+            else
+            {
+                member.Positions.Add(position);
+                _db.SaveChanges();
+            }
+            return member;
         }
 
         /// <summary>

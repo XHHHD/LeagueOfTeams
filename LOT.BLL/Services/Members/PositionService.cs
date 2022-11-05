@@ -149,9 +149,9 @@ namespace LOT.BLL.Services.Members
         {
             PositionModel position = CreateEmptyPosition((int)member.Level);
             position.Name = positionName;
-            position.Member = member;
-            member.Positions.Add(position);
-            AddPosition(position);
+            //position.Member = member;
+            //AddPosition(position);
+            //member.Positions.Add(position);
             return position;
         }
 
@@ -159,7 +159,7 @@ namespace LOT.BLL.Services.Members
         /// Method create new empty position object without Name and Id.
         /// </summary>
         /// <returns>Empty PositionModel object.</returns>
-        private PositionModel CreateEmptyPosition(int memberLevel = 1)
+        public PositionModel CreateEmptyPosition(int memberLevel = 1)
         {
             var position = new PositionModel()
             {

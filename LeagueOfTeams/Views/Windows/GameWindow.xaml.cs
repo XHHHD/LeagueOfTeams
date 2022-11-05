@@ -31,6 +31,8 @@ namespace LeagueOfTeamsUI.Views
             loading.Show();
 
             gameService = new GameService();
+
+            ///Enable this, when method "GenerateGameEnvironment" will be passed tests.
             //gameService.GenerateGameEnvironment();
             user = gameService.GetTestUserModeel();
 

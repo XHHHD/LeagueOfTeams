@@ -6,11 +6,11 @@ namespace LOT.Tests.BusinessLogicTests
     [TestClass]
     public class GameServiceTests
     {
-        //[DataRow]
+        [DataRow]
         [DataRow(1)]
-        //[DataRow(9)]
-        //[DataRow(11)]
-        //[DataRow(99)]
+        [DataRow(9)]
+        [DataRow(11)]
+        [DataRow(99)]
         [TestMethod]
         public void GenerateGameEnvironmentIsGenerate(int count)
         {

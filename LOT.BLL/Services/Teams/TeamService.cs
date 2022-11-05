@@ -52,12 +52,16 @@ namespace LOT.BLL.Services.Teams
             mapper = MappingHelper.GetMapper();
         }
 
-        public void AddTeam(TeamModel team)
+        public void AddTeam(TeamModel model)
         {
-            if (team != null)
-                repository.Add(mapper.Map<Team>(team));
-            else
+            if (model is null)
                 throw new TeamServicesException("Trying to create null team!");
+            else
+            {
+                var entity = mapper.Map<Team>(model);
+                repository.Add(entity);
+                model.Id = entity.Id;
+            }
         }
 
         public void UpdateTeame(TeamModel team)
@@ -67,6 +71,10 @@ namespace LOT.BLL.Services.Teams
             else
                 throw new TeamServicesException("Trying to update null team!");
         }
+
+        public TeamModel AddTeamInRank(int rankID, int teamID) => mapper.Map<TeamModel>(repository.AddTeamInRank(rankID, teamID));
+
+        public TeamModel AddMemberToTheTeam(int teamID, int memberID) => mapper.Map<TeamModel>(repository.AddMemberToTheTeam(teamID, memberID));
 
         public void RemoveTeam(int id)
         {
@@ -105,11 +113,11 @@ namespace LOT.BLL.Services.Teams
             var positions = Enum.GetValues(typeof(PositionsNames));
             foreach (PositionsNames position in positions)
             {
-                team.Members.Add(memberService
-                    .GenerateNewMember(position));
+                var member = memberService.GenerateNewMember(position);
+                team = AddMemberToTheTeam(team.Id,member.Id);
             }
             //
-            UpdateTeame(team);
+            //UpdateTeame(team);
             //
             return team;
         }

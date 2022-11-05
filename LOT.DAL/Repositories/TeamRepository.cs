@@ -1,5 +1,6 @@
 ﻿using LOT.DAL.Entities;
 using LOT.DAL.Exceptions;
+using Microsoft.EntityFrameworkCore;
 
 namespace LOT.DAL.Repositories
 {
@@ -29,12 +30,46 @@ namespace LOT.DAL.Repositories
         /// <param name="team">The entity Team, wich must be updated.</param>
         public void UpdateTeam(Team team)
         {
-            var check = GetTeam(team.Id);
-            if(GetTeam(team.Id) != null)
-                _db.Update(team);
+            if (GetTeam(team.Id) is null)
+                throw new TeamDataException("Didn`t find team for updating!");
             else
-                Add(team);
-            _db.SaveChanges();
+            {
+                _db.Update(team);
+                _db.SaveChanges();
+            }
+        }
+
+        public Team AddTeamInRank(int rankID, int teamID)
+        {
+            var rank = _db.TeamRanks.FirstOrDefault(r => r.Id == rankID);
+            var team = _db.Teams.FirstOrDefault(t => t.Id == teamID);
+            if (rank is null)
+                throw new TeamDataException("Didn`t find rank in data!");
+            else if (team is null)
+                throw new TeamDataException("Didn`t find team in data!");
+            else
+            {
+                //rank.Teams.Add(team);
+                team.TeamRank = rank;
+                _db.SaveChanges();
+                return team;
+            }
+        }
+
+        public Team AddMemberToTheTeam(int teamID, int memberID)
+        {
+            var team = GetTeam(teamID);
+            var member = _db.Members.FirstOrDefault(m => m.Id == memberID);
+            if (team is null)
+                throw new TeamDataException("Didn`t find team in data!");
+            else if (member is null)
+                throw new TeamDataException("Didn`t find member in data!");
+            else
+            {
+                team.Members.Add(member);
+                _db.SaveChanges();
+                return team;
+            }
         }
 
         /// <summary>

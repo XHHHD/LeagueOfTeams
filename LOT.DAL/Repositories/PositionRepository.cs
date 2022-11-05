@@ -72,6 +72,8 @@ namespace LOT.DAL.Repositories
         {
             if (position is null)
                 throw new PositionDataException("Position entity is NULL!");
+            if (GetPositionById(position.Id) is null)
+                throw new PositionDataException("Didn`t find position for updating!");
             else
                 _db.Positions.Update(position);
         }

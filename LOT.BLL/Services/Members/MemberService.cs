@@ -2,6 +2,7 @@
 using LOT.BLL.Enums;
 using LOT.BLL.Exceptions;
 using LOT.BLL.Models.Members;
+using LOT.BLL.Models.Positions;
 using LOT.DAL.Entities;
 using LOT.DAL.Repositories;
 
@@ -75,12 +76,23 @@ namespace LOT.BLL.Services.Members
         {
             if (model is null)
                 throw new MemberServicesException("Updating model is NULL!");
+            else if(GetMember(model.Id) is null)
+                throw new MemberServicesException("Didn`t find model in database!");
             else
             {
                 var entity = mapper.Map<Member>(model);
                 repository.UpdateMember(entity);
                 model.Id = entity.Id;
             }
+        }
+
+        //Try this!
+        public MemberModel AddPositionInTheMember(int memberId, PositionModel position)
+        {
+            if (position is null)
+                throw new MemberServicesException("Position can`t be added, coz position is NULL!");
+            else
+                return mapper.Map<MemberModel>(repository.AddPositionToTheMember(memberId, mapper.Map<Position>(position)));
         }
 
         /// <summary>
@@ -205,9 +217,11 @@ namespace LOT.BLL.Services.Members
         public MemberModel GenerateNewMember(PositionsNames expectedPosition)
         {
             var member = GenerateEmptyMember();
-            positionService
-                .CreatePositionInMember(member, expectedPosition);
-            UpdateMember(member);
+            var position = positionService.CreateEmptyPosition((int)member.Level);
+            position.Name = expectedPosition;
+            AddPositionInTheMember(member.Id, position );
+            //positionService.CreatePositionInMember(member, expectedPosition);
+            //UpdateMember(member);
             return member;
         }
 
@@ -215,9 +229,11 @@ namespace LOT.BLL.Services.Members
         {
             var member = GenerateEmptyMember();
             var randomPositionName = positionService.GetNewRandomPositionName();
-            positionService
-                .CreatePositionInMember(member, randomPositionName);
-            UpdateMember(member);
+            var position = positionService.CreateEmptyPosition((int)member.Level);
+            position.Name = randomPositionName;
+            AddPositionInTheMember(member.Id, position);
+            //positionService.CreatePositionInMember(member, randomPositionName);
+            //UpdateMember(member);
             return member;
         }
 

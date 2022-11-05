@@ -53,6 +53,27 @@ namespace LOT.DAL.Repositories
             }
         }
 
+        public void SaveMember(Member savingMember)
+        {
+            var entityFromDB = GetMemberById(savingMember.Id);
+            if (entityFromDB is null)
+                throw new MemberDataException("Didn`t find member entity in database!");
+            else
+            {
+                entityFromDB = savingMember;
+                _db.SaveChanges();
+                savingMember.Id = entityFromDB.Id;
+            }
+        }
+
+        /// <summary>
+        /// Searcing in database entity`s of member and position.
+        /// Add position entity on member list of position`s. Return refreshed member model.
+        /// </summary>
+        /// <param name="memberId">Member entity ID.</param>
+        /// <param name="position">Position entity ID.</param>
+        /// <returns>Actualized member model.</returns>
+        /// <exception cref="MemberDataException"></exception>
         public Member AddPositionToTheMember(int memberId, Position position)
         {
             if(position is null)
@@ -81,9 +102,19 @@ namespace LOT.DAL.Repositories
         /// <returns>List members names.</returns>
         public List<string> GetAllNames() => _db.Members.Select(m => m.Name).ToList();
 
+        /// <summary>
+        /// Get member`s entity`s of currently team by team ID.
+        /// </summary>
+        /// <param name="teamId"></param>
+        /// <returns>List of member`s of NULL.</returns>
         public List<Member> GetMembersByTeamId(int teamId) =>
             _db.Teams.FirstOrDefault(t => t.Id == teamId).Members;
 
+        /// <summary>
+        /// Get member`s entity`s of currently team by team name.
+        /// </summary>
+        /// <param name="teamName"></param>
+        /// <returns>List of member`s of NULL.</returns>
         public List<Member> GetMembersByTeamName(string teamName) =>
             _db.Teams.FirstOrDefault(t => t.Name == teamName).Members;
 

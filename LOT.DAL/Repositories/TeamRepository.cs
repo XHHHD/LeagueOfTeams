@@ -39,6 +39,15 @@ namespace LOT.DAL.Repositories
             }
         }
 
+        /// <summary>
+        /// Searcing in database entity`s of team rank and team bythey ID.
+        /// Adding team entity in list of teams of the team rank entity.
+        /// Save change`s and return refreshed team model.
+        /// </summary>
+        /// <param name="rankID">ID of team rank.</param>
+        /// <param name="teamID">ID of team.</param>
+        /// <returns>Actual team model.</returns>
+        /// <exception cref="TeamDataException"></exception>
         public Team AddTeamInRank(int rankID, int teamID)
         {
             var rank = _db.TeamRanks.FirstOrDefault(r => r.Id == rankID);

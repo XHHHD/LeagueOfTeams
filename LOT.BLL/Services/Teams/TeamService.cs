@@ -52,6 +52,11 @@ namespace LOT.BLL.Services.Teams
             mapper = MappingHelper.GetMapper();
         }
 
+        /// <summary>
+        /// Convert new team model in team entity, add it in database and refresh team model by actualizing ID.
+        /// </summary>
+        /// <param name="model">New team model.</param>
+        /// <exception cref="TeamServicesException"></exception>
         public void AddTeam(TeamModel model)
         {
             if (model is null)
@@ -72,26 +77,36 @@ namespace LOT.BLL.Services.Teams
                 throw new TeamServicesException("Trying to update null team!");
         }
 
+        /// <summary>
+        /// Searcing in database entity`s of team rank and team bythey ID.
+        /// Adding team entity in list of teams of the team rank entity.
+        /// Save change`s and return refreshed team model.
+        /// </summary>
+        /// <param name="rankID">ID of team rank.</param>
+        /// <param name="teamID">ID of team.</param>
+        /// <returns>Actual team model.</returns>
         public TeamModel AddTeamInRank(int rankID, int teamID) => mapper.Map<TeamModel>(repository.AddTeamInRank(rankID, teamID));
 
+        /// <summary>
+        /// Connect team with member. Searcing in database team and member entity`s,
+        /// add member entity in team list of member`s and save changes.
+        /// </summary>
+        /// <param name="teamID">Team model ID.</param>
+        /// <param name="memberID">Member model ID.</param>
+        /// <returns>Refreshed team model.</returns>
         public TeamModel AddMemberToTheTeam(int teamID, int memberID) => mapper.Map<TeamModel>(repository.AddMemberToTheTeam(teamID, memberID));
 
-        public void RemoveTeam(int id)
-        {
-            var teamToRemove = repository.GetTeam(id);
-            if (teamToRemove == null)
-                throw new TeamServicesException("Removing team was failed! Can`t find current team in data.");
-            else
-                repository.RemoveTeam(teamToRemove.Id);
-        }
+        /// <summary>
+        /// Remove team from database by ID.
+        /// </summary>
+        /// <param name="id">Team ID.</param>
+        public void RemoveTeam(int id) => repository.RemoveTeam(id);
 
-        public void RemoveTeamById(int id)
-        {
-            if (repository.GetTeam(id) == null)
-                throw new TeamServicesException("Removing team was failed! Can`t find current team in data.");
-            else
-                repository.RemoveAsync(id);
-        }
+        /// <summary>
+        /// Async remove team from database by ID.
+        /// </summary>
+        /// <param name="id">Team ID.</param>
+        public async void RemoveTeamAsync(int id) => await Task.Run(() => repository.RemoveAsync(id));
 
         public TeamModel GetTeamFromDB(int id) =>
             mapper.Map<TeamModel>(repository.GetTeam(id));
@@ -109,16 +124,12 @@ namespace LOT.BLL.Services.Teams
         public TeamModel GetFullTeamModel()
         {
             var team = GetTeamModelWhithoutMembers();
-            //
             var positions = Enum.GetValues(typeof(PositionsNames));
             foreach (PositionsNames position in positions)
             {
                 var member = memberService.GenerateNewMember(position);
                 team = AddMemberToTheTeam(team.Id,member.Id);
             }
-            //
-            //UpdateTeame(team);
-            //
             return team;
         }
 
@@ -158,7 +169,11 @@ namespace LOT.BLL.Services.Teams
             return team;
         }
 
-        //Generate new team for user by his DTO instruction.
+        /// <summary>
+        /// Generate new team for user by his DTO instruction.
+        /// </summary>
+        /// <param name="newTeamDTO"></param>
+        /// <returns></returns>
         public TeamModel GetTeamModelWhithoutMembers(TeamRegistrationDTO newTeamDTO)
         {
             var team = GetFullTeamModel();
@@ -212,6 +227,7 @@ namespace LOT.BLL.Services.Teams
             if (levelDifference > 0)
                 LevelUp(team, levelDifference);
         }
+
         /// <summary>
         /// Up currently team stats after here level is growed up.
         /// </summary>

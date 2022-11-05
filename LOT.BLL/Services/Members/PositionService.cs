@@ -67,27 +67,7 @@ namespace LOT.BLL.Services.Members
         /// </summary>
         /// <param name="id">Position ID.</param>
         /// <exception cref="PositionServicesException"></exception>
-        public void RemovePosition(int id)
-        {
-            var position = repository.GetPositionById(id);
-            if (position is null)
-                throw new PositionServicesException("Didnt find in database position for removing!");
-            else
-                repository.RemovePosition(position);
-        }
-
-        /// <summary>
-        /// Remove position from databse.
-        /// </summary>
-        /// <param name="model">Position model.</param>
-        /// <exception cref="PositionServicesException"></exception>
-        public void RemovePosition(PositionModel model)
-        {
-            if (model is null)
-                throw new PositionServicesException("Model is NULL!");
-            else
-                RemovePosition(model.Id);
-        }
+        public void RemovePosition(int id) => repository.RemovePosition(id);
 
         /// <summary>
         /// Update currently position in databse.
@@ -149,9 +129,7 @@ namespace LOT.BLL.Services.Members
         {
             PositionModel position = CreateEmptyPosition((int)member.Level);
             position.Name = positionName;
-            //position.Member = member;
             //AddPosition(position);
-            //member.Positions.Add(position);
             return position;
         }
 

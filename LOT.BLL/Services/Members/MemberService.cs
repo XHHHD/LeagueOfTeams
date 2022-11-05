@@ -52,6 +52,11 @@ namespace LOT.BLL.Services.Members
             mapper = MappingHelper.GetMapper();
         }
 
+        /// <summary>
+        /// Create member entity in database, and actualizing member model ID.
+        /// </summary>
+        /// <param name="model">Member model.</param>
+        /// <exception cref="MemberServicesException"></exception>
         public void AddMember(MemberModel model)
         {
             if (model is null)
@@ -64,20 +69,12 @@ namespace LOT.BLL.Services.Members
             }
         }
 
-        public void RemoveMember(int id)
-        {
-            if (repository.GetMemberById(id) is null)
-                throw new MemberServicesException("Didn`t find member for removing!");
-            else
-                repository.RemoveMember(id);
-        }
+        public void RemoveMember(int id) => repository.RemoveMember(id);
 
         public void UpdateMember(MemberModel model)
         {
             if (model is null)
                 throw new MemberServicesException("Updating model is NULL!");
-            else if(GetMember(model.Id) is null)
-                throw new MemberServicesException("Didn`t find model in database!");
             else
             {
                 var entity = mapper.Map<Member>(model);
@@ -86,7 +83,26 @@ namespace LOT.BLL.Services.Members
             }
         }
 
-        //Try this!
+        public void SaveMember(MemberModel model)
+        {
+            if (model is null)
+                throw new MemberServicesException("Member model is NULL!");
+            else
+            {
+                var entity = mapper.Map<Member>(model);
+                repository.SaveMember(entity);
+                model.Id = entity.Id;
+            }
+        }
+
+        /// <summary>
+        /// Searcing in database entity`s of member and position.
+        /// Add position entity on member list of position`s. Return refreshed member model.
+        /// </summary>
+        /// <param name="memberId">Member model ID.</param>
+        /// <param name="position">Position model ID.</param>
+        /// <returns>Actualized member model.</returns>
+        /// <exception cref="MemberServicesException"></exception>
         public MemberModel AddPositionInTheMember(int memberId, PositionModel position)
         {
             if (position is null)
@@ -209,7 +225,7 @@ namespace LOT.BLL.Services.Members
             else
                 member.Expiriance = 0;
             //
-            UpdateMember(member);
+            SaveMember(member);
             //
             return member;
         }

@@ -33,7 +33,10 @@ namespace LOT.BLL.Services.Teams
 
         public string GetNewShortName(string teamName)
         {
-            return teamName.Remove(4).ToUpper();
+            if(teamName.Length > 5)
+                return teamName.Remove(4).ToUpper();
+            else
+                return teamName.ToUpper();
         }
     }
 }

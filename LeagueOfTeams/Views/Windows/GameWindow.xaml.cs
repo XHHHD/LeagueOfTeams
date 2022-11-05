@@ -7,7 +7,6 @@ using LeagueOfTeamsUI.Views.Pages.Menu.Logos;
 using LeagueOfTeamsUI.Views.Pages.Menu.MemberServices;
 using LeagueOfTeamsUI.Views.Windows;
 using LOT.BLL.Services;
-using System.Runtime.CompilerServices;
 
 namespace LeagueOfTeamsUI.Views
 {
@@ -31,9 +30,8 @@ namespace LeagueOfTeamsUI.Views
             loading.Show();
 
             gameService = new GameService();
-
-            ///Enable this, when method "GenerateGameEnvironment" will be passed tests.
-            //gameService.GenerateGameEnvironment();
+            
+            gameService.GenerateGameEnvironment();
             user = gameService.GetTestUserModeel();
 
             InitializeComponent();

@@ -76,13 +76,26 @@ namespace LeagueOfTeamsUI.Views
             return false;
         }
 
+        /// <summary>
+        /// Registration and authorization new user. 
+        /// </summary>
+        /// <returns></returns>
         private bool Registration()
         {
-            User = _userService.RegisterNewUser(Login, Password);
-            if (User is null)
-                return false;
-            else
-                return true;
+            if (AreAuthorizationFormIsComplited() is true)
+            {
+                User = _userService.RegisterNewUser(Login, Password);
+                if (User is null)
+                {
+                    MessageBox.Show("Login is already used!");
+                }
+                else
+                {
+                    MessageBox.Show("Registration successful!");
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

@@ -13,6 +13,10 @@
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -23,9 +27,6 @@
                 <TextBlock x:Name="TeamInformation" FontFamily="Arial Black" FontSize="24"
                            Text="Team Stats Information"/>
             </StackPanel>
-            <Border Grid.Column="1" HorizontalAlignment="Left" Background="White">
-                <Image x:Name="TeamLogo" Source="/Img/Default/icons8-ос-free-bsd-100-white.png"/>
-            </Border>
         </Grid>
         <ScrollViewer Grid.Row="1"  HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled">
             <StackPanel x:Name="Members" Orientation="Horizontal" HorizontalAlignment="Left">
@@ -36,7 +37,9 @@
                 <Frame x:Name="Member5" NavigationUIVisibility="Hidden" MinWidth="160"/>
             </StackPanel>
         </ScrollViewer>
-        <Button x:Name="BackButton" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+        <Image x:Name="TeamLogo" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Margin="5"
+               Width="225" Height="225" Source="/Resources/Default/icons8-ос-free-bsd-100-white.png"/>
+        <Button x:Name="BackButton" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom"
                 Margin="5" Width="250" Height="250" Click="BackButton_Click" FontFamily="Arial Black"
                 FontSize="60" Content="BACK"/>
     </Grid>

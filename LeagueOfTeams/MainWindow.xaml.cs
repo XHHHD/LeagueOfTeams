@@ -1,25 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.PortableExecutable;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using LeagueOfTeamsUI.Views;
 using LeagueOfTeamsUI.Pages;
 
-namespace LeagueOfTeamsBusinessLogic
+namespace LOT.BLL
 {
     public partial class MainWindow : Window
     {
+        AuthorizationWindow autorisationWindow;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -47,28 +36,33 @@ namespace LeagueOfTeamsBusinessLogic
 
         private void AuthorizationButton_Click(object sender, RoutedEventArgs e)
         {
-            AuthorizationWindow autorisationWindow = new AuthorizationWindow();
-
-            if (autorisationWindow.ShowDialog() == true)
+            autorisationWindow = new();
+            if (autorisationWindow.ShowDialog() is true)
             {
-                if (autorisationWindow.Password == "123")
+                if (autorisationWindow.User != null)
                 {
-                    LoginFrame.Content = new LoginPage();
-                    MessageBox.Show("Authorization successful!");
+                    LoginFrame.Content = new LoginLogo(autorisationWindow.User);
                 }
-                else MessageBox.Show("Wrong login or password!");
             }
             else
             {
                 MessageBox.Show("You must be logged in!");
             }
+            autorisationWindow = null;
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            GameWindow game = new GameWindow();
-            game.Show();
-            WindowMain.Close();
+            if (autorisationWindow.User is null)
+            {
+                MessageBox.Show("You must be logged in!");
+            }
+            else
+            {
+                GameWindow game = new GameWindow(WindowState, sender, e);
+                game.Show();
+                WindowMain.Close();
+            }
         }
     }
 }

@@ -14,9 +14,8 @@
                 <RowDefinition/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Border Grid.Row="0" Height="70" Width="70" Background="Black">
-                <Image x:Name="TeamLogo" Margin="3" Source="/Img/Default/icons8-ос-free-bsd-100-white.png" />
-            </Border>
+            <Image x:Name="TeamLogo" Grid.Row="0" Height="70" Width="70" Margin="3"
+                   Source="/Resources/Default/icons8-ос-free-bsd-100-white.png" />
             <TextBlock x:Name="TeamName" Text="Team Name" Grid.Row="1" FontSize="30" FontFamily="Arial Black"
                        HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>

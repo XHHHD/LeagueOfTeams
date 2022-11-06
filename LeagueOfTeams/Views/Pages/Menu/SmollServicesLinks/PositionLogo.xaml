@@ -53,13 +53,13 @@
                 <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left"
                             VerticalAlignment="Center" TextAlignment="Center" FontFamily="Arial Black"
                             FontSize="28" Text="Power:"/>
-                <TextBlock x:Name="PositionPower" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Right"
+                <TextBlock x:Name="Power" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Right"
                             VerticalAlignment="Center" TextAlignment="Center" FontFamily="Arial Black"
                             FontSize="28" Text="0"/>
                 <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Left"
                             VerticalAlignment="Center" TextAlignment="Center" FontFamily="Arial Black"
                             FontSize="28" Text="Happines:"/>
-                <TextBlock x:Name="PositionHappines" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right"
+                <TextBlock x:Name="Happines" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right"
                             VerticalAlignment="Center" TextAlignment="Center" FontFamily="Arial Black"
                             FontSize="28" Text="0"/>
                 <TextBlock Grid.Column="0" Grid.Row="6" HorizontalAlignment="Left"

@@ -10,9 +10,8 @@
 
     <Button Height="230" Width="378" Click="TeamButton_Click" Background="{x:Null}" BorderBrush="{x:Null}">
         <StackPanel Orientation="Vertical">
-            <Border Background="Black" Height="140" Width="140">
-                <Image x:Name="TeamRank" Margin="3"/>
-            </Border>
+            <Image x:Name="TeamImg" Height="140" Width="140" Margin="3"
+                   Source="/Resources/Default/icons8-ос-free-bsd-100-white.png"/>
             <TextBlock x:Name="TeamName" FontFamily="Castellar" FontSize="48" Text="Team Name"/>
         </StackPanel>
     </Button>

@@ -1,24 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LOT.BLL.Models;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace LeagueOfTeamsUI.Views
 {
     public partial class LogginUserStatsWindow : Window
     {
-        public LogginUserStatsWindow()
+        UserModel user;
+        public LogginUserStatsWindow(UserModel user)
         {
             InitializeComponent();
+            this.user = user;
+            UserName.Content = user.Name;
         }
 
         private void UserStatsWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

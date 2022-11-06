@@ -23,9 +23,8 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Width="200" Height="200" Background="Black">
-                    <Image x:Name="MemberLogo" Width="200" Height="200" Margin="3"/>
-                </Border>
+                <Image x:Name="MemberLogo" Grid.Row="0" HorizontalAlignment="Left" Width="200" Height="200"
+                       Margin="3" Source="/Resources/Default/icons8-ос-free-bsd-100-black.png"/>
                 <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Vertical">
                     <TextBlock x:Name="MemberName" HorizontalAlignment="Right" FontFamily="Arial Black"
                                FontSize="48" Text="Member Name"/>
@@ -54,11 +53,11 @@
                             <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
                                TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Energy:"/>
                             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                                <TextBlock x:Name="EnergyValue" VerticalAlignment="Center"
+                                <TextBlock x:Name="Energy" VerticalAlignment="Center"
                                        TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="0"/>
                                 <TextBlock VerticalAlignment="Center" TextAlignment="Center" FontFamily="Arial Black"
                                                FontSize="28" Text="/"/>
-                                <TextBlock x:Name="MaxEnergyValue" VerticalAlignment="Center"
+                                <TextBlock x:Name="MaxEnergy" VerticalAlignment="Center"
                                        TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="100"/>
                             </StackPanel>
                         </Grid>
@@ -70,8 +69,8 @@
                         </Grid>
                         <Grid>
                             <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
-                               TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Skill power:"/>
-                            <TextBlock x:Name="SkillPower" HorizontalAlignment="Right" VerticalAlignment="Center"
+                               TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Power:"/>
+                            <TextBlock x:Name="Power" HorizontalAlignment="Right" VerticalAlignment="Center"
                                TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="0"/>
                         </Grid>
                         <Grid>
@@ -82,11 +81,18 @@
                         </Grid>
                         <Grid>
                             <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
+                               TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Mental resistance:"/>
+                            <TextBlock x:Name="MentalResistance" HorizontalAlignment="Right" VerticalAlignment="Center"
+                               TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="0"/>
+                        </Grid>
+                        <Grid>
+                            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
                                TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="Teamplay:"/>
                             <TextBlock x:Name="Teamplay" HorizontalAlignment="Right" VerticalAlignment="Center"
                                TextAlignment="Center" FontFamily="Arial Black" FontSize="28" Text="0"/>
                         </Grid>
                         <Frame x:Name="Position1" NavigationUIVisibility="Hidden"/>
+                        <Frame x:Name="Position2" NavigationUIVisibility="Hidden"/>
                     </StackPanel>
                 </ScrollViewer>
             </GroupBox>

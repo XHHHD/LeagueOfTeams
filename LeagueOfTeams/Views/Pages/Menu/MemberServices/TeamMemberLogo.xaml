@@ -8,15 +8,13 @@
       d:DesignHeight="490" d:DesignWidth="160"
       Title="TeamMemberLogo">
 
-    <Button x:Name="MemberButton" Click="MemberButton_Click">
+    <Button x:Name="MemberButton" Click="MemberButton_Click" Background="{x:Null}">
         <StackPanel VerticalAlignment="Top" Height="490">
             <StackPanel.Background>
                 <SolidColorBrush Color="Black" Opacity="0.1"/>
             </StackPanel.Background>
             <TextBlock x:Name="MemberName" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="20" Text="Member Name"/>
-            <Border Background="Black">
-                <Image x:Name="MemberLeague" MinHeight="100" Margin="3"/>
-            </Border>
+            <Image x:Name="MemberLeague" MinHeight="100" Margin="3" Source="/Resources/Default/icons8-ос-free-bsd-100-black.png"/>
             <TextBlock x:Name="MemberStats1" FontFamily="Arial Black" FontSize="16" Text="Member stats1">
                 <TextBlock.Background>
                     <SolidColorBrush Color="Black" Opacity="0.2"/>

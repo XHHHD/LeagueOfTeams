@@ -1,4 +1,4 @@
-﻿using LeagueOfTeamsBusinessLogic;
+﻿using LOT.BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,12 +19,14 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.Logos
     public partial class UserStatsLogo : Page
     {
         GameWindow gameWindow;
-        public UserStatsMenu userStatsMenu = new();
+        public UserStatsMenu userStatsMenu;
         public UserStatsLogo(GameWindow gameWindow)
         {
             InitializeComponent();
-            gameWindow.UserStatsButton.Content = this;
             this.gameWindow = gameWindow;
+            userStatsMenu = new(gameWindow);
+            UserName.Text = gameWindow.user.Name;
+            gameWindow.UserStatsButton.Content = this;
         }
 
         public void ToggleButton_Click(object sender, RoutedEventArgs e)

@@ -1,24 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using LOT.BLL.Models;
 using LeagueOfTeamsUI.Views.Pages.Menu;
 using LeagueOfTeamsUI.Views.Pages.Menu.Logos;
 using LeagueOfTeamsUI.Views.Pages.Menu.MemberServices;
+using LeagueOfTeamsUI.Views.Windows;
+using LOT.BLL.Services;
 
 namespace LeagueOfTeamsUI.Views
 {
     public partial class GameWindow : Window
     {
+        public UserModel user;
+        public GameService gameService;
         public UserStatsLogo userStatsLogo;
         public TrainingsLogo trainingsLogo;
         public TeamStatsLogo teamStatsLogo;
@@ -29,11 +24,18 @@ namespace LeagueOfTeamsUI.Views
         public NewMemberMenu newMemberMenu;
 
         public Page previousMenu;
-        public GameWindow()
+        public GameWindow(WindowState windowState, object sender, RoutedEventArgs e)
         {
+            LoadingWindow loading = new();
+            loading.Show();
+
+            gameService = new GameService();
+            
+            gameService.GenerateGameEnvironment();
+            user = gameService.GetTestUserModeel();
+
             InitializeComponent();
             userStatsLogo = new UserStatsLogo(this);
-            previousMenu = userStatsLogo.userStatsMenu;
             teamStatsLogo = new TeamStatsLogo(this);
             trainingsLogo = new TrainingsLogo(this);
             leagueLogo = new LeagueLogo(this);
@@ -41,7 +43,15 @@ namespace LeagueOfTeamsUI.Views
             topMembersLogo = new TopMembersLogo(this);
             teamMenu = new TeamMenu(this);
             newMemberMenu = new NewMemberMenu(this);
+            previousMenu = userStatsLogo.userStatsMenu;
             GameMainFramePageEnumerable(userStatsLogo.userStatsMenu);
+            if (windowState == WindowState.Maximized)
+            {
+                CheckedFullScreenButton_Click(sender, e);
+                FullScreenButton.IsChecked = true;
+            }
+
+            loading.Close();
         }
         private void GameMainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {

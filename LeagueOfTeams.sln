@@ -5,11 +5,11 @@ VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeagueOfTeamsUI", "LeagueOfTeams\LeagueOfTeamsUI.csproj", "{6186DBCD-57EF-4FCD-9411-8B5897C9A96C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeagueOfTeamsDataAccess", "LeagueOfTeamsDataAccess\LeagueOfTeamsDataAccess.csproj", "{7944DFC1-039C-43A6-92F0-165063A58D98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LOT.DAL", "LOT.DAL\LOT.DAL.csproj", "{7944DFC1-039C-43A6-92F0-165063A58D98}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeagueOfTeamsBusinessLogic", "LeagueOfTeamsBusinessLogic\LeagueOfTeamsBusinessLogic.csproj", "{5D6DE870-60F3-4725-B4CF-3A310329B45A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LOT.Tests", "LOT.Tests\LOT.Tests.csproj", "{6CFDFE7D-5F78-445F-B90D-D6ACBEDBB689}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{B1A8DFB2-1A1D-4680-B3E2-367A93D5F23B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LOT.BLL", "LOT.BLL\LOT.BLL.csproj", "{C1856021-8895-4672-AB82-F15A49E973BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +25,14 @@ Global
 		{7944DFC1-039C-43A6-92F0-165063A58D98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7944DFC1-039C-43A6-92F0-165063A58D98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7944DFC1-039C-43A6-92F0-165063A58D98}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5D6DE870-60F3-4725-B4CF-3A310329B45A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5D6DE870-60F3-4725-B4CF-3A310329B45A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5D6DE870-60F3-4725-B4CF-3A310329B45A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5D6DE870-60F3-4725-B4CF-3A310329B45A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B1A8DFB2-1A1D-4680-B3E2-367A93D5F23B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B1A8DFB2-1A1D-4680-B3E2-367A93D5F23B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B1A8DFB2-1A1D-4680-B3E2-367A93D5F23B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B1A8DFB2-1A1D-4680-B3E2-367A93D5F23B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CFDFE7D-5F78-445F-B90D-D6ACBEDBB689}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CFDFE7D-5F78-445F-B90D-D6ACBEDBB689}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CFDFE7D-5F78-445F-B90D-D6ACBEDBB689}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CFDFE7D-5F78-445F-B90D-D6ACBEDBB689}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1856021-8895-4672-AB82-F15A49E973BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1856021-8895-4672-AB82-F15A49E973BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1856021-8895-4672-AB82-F15A49E973BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1856021-8895-4672-AB82-F15A49E973BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

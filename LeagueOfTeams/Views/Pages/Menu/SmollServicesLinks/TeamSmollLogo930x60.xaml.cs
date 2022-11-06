@@ -1,18 +1,6 @@
-﻿using LeagueOfTeamsUI.Views.Pages.Menu.Logos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LOT.BLL.Models.Teams;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LeagueOfTeamsUI.Views.Pages.Menu.SmollServicesLinks
 {
@@ -25,11 +13,17 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.SmollServicesLinks
             InitializeComponent();
             this.gameWindow = gameWindow;
             this.previousMenu = previousMenu;
+            if(gameWindow.user.Team != null)
+                InitComponents(gameWindow.user.Team);
         }
 
         private void TeamButton_Click(object sender, RoutedEventArgs e)
         {
             gameWindow.GameMainFramePageEnumerable(gameWindow.teamMenu, previousMenu);
+        }
+        private void InitComponents(TeamModel team)
+        {
+            TeamName.Text = team.Name;
         }
     }
 }

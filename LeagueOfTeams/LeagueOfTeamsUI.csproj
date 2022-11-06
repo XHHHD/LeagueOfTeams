@@ -8,7 +8,29 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LeagueOfTeamsBusinessLogic\LeagueOfTeamsBusinessLogic.csproj" />
+    <None Remove="Resources\Default\icons8-ос-free-bsd-100-black.png" />
+    <None Remove="Resources\Default\icons8-ос-free-bsd-100-white.png" />
+    <None Remove="Resources\Default\icons8-ос-free-bsd-50-black.png" />
+    <None Remove="Resources\Default\icons8-ос-free-bsd-50-white.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LOT.BLL\LOT.BLL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Default\icons8-ос-free-bsd-100-black.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Default\icons8-ос-free-bsd-100-white.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Default\icons8-ос-free-bsd-50-black.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Default\icons8-ос-free-bsd-50-white.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

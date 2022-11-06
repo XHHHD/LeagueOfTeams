@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace LeagueOfTeamsBusinessLogic
+namespace LOT.BLL
 {
     /// <summary>
     /// Interaction logic for App.xaml

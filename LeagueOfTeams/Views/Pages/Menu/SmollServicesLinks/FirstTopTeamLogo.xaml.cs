@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LOT.BLL.Models.Teams;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,11 +25,18 @@ namespace LeagueOfTeamsUI.Views.Pages.Menu.SmollServicesLinks
             InitializeComponent();
             this.gameWindow = gameWindow;
             this.previousMenu = previousMenu;
+            if (gameWindow.user.Team != null)
+                InitComponents(gameWindow.user.Team);
         }
 
         private void TeamButton_Click(object sender, RoutedEventArgs e)
         {
             gameWindow.GameMainFramePageEnumerable(gameWindow.teamMenu, previousMenu);
+        }
+        private void InitComponents(TeamModel team)
+        {
+            TeamName.Text = team.Name;
+            //TeamImg.Source.SetValue(team.Image);
         }
     }
 }

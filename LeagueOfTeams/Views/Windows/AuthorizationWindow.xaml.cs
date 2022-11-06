@@ -1,24 +1,88 @@
-﻿using System.Windows;
+﻿using LOT.BLL.Models;
+using LOT.BLL.Services;
+using System.Windows;
 
 namespace LeagueOfTeamsUI.Views
 {
     public partial class AuthorizationWindow : Window
     {
         public bool IsItRegistration = false;
+
+        public UserModel User { get; set; }
+
+        private UserService _userService;
+
         public string Login => loggingBox.Text;
-        public string Password => passwordBox.Text;
+
+        public string Password => passwordBox.Password;
+
         public AuthorizationWindow()
         {
             InitializeComponent();
+            _userService = new();
         }
+
         private void Accept_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
+            if (Authorization() is true)
+            {
+                this.DialogResult = true;
+            }
         }
+
         private void Registration_Click(object sender, RoutedEventArgs e)
         {
-            IsItRegistration = true;
-            Accept_Click(sender, e);
+            if (Registration() is true)
+            {
+                IsItRegistration = true;
+                this.DialogResult = true;
+            }
+        }
+
+        /// <summary>
+        /// Check authorization form.
+        /// </summary>
+        /// <returns>TRUE if the form is complited. FALSE if the form is not completed.</returns>
+        private bool AreAuthorizationFormIsComplited()
+        {
+            if (Login is null || Login == "")
+                MessageBox.Show("Please, enter your loggin!");
+            else if (Password is null || Password == "")
+                MessageBox.Show("Please, enter your password!");
+            else
+                return true;
+            return false;
+        }
+
+        /// <summary>
+        /// User verification.
+        /// </summary>
+        /// <returns>TRUE, if verification successful. FALSE, if verification fail`s.</returns>
+        private bool Authorization()
+        {
+            if (AreAuthorizationFormIsComplited() is true)
+            {
+                _userService.Authorization(User, Login, Password);
+                if (User is null)
+                {
+                    MessageBox.Show("Wrong login or password.");
+                }
+                else
+                {
+                    MessageBox.Show("Authorization successful!");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool Registration()
+        {
+            User = _userService.RegisterNewUser(Login, Password);
+            if (User is null)
+                return false;
+            else
+                return true;
         }
     }
 }

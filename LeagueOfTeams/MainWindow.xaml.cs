@@ -1,18 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.PortableExecutable;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using LeagueOfTeamsUI.Views;
 using LeagueOfTeamsUI.Pages;
 
@@ -20,9 +7,11 @@ namespace LOT.BLL
 {
     public partial class MainWindow : Window
     {
+        AuthorizationWindow autorisationWindow;
         public MainWindow()
         {
             InitializeComponent();
+            autorisationWindow = new();
         }
         private void MainWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -47,16 +36,12 @@ namespace LOT.BLL
 
         private void AuthorizationButton_Click(object sender, RoutedEventArgs e)
         {
-            AuthorizationWindow autorisationWindow = new AuthorizationWindow();
-
             if (autorisationWindow.ShowDialog() == true)
             {
-                if (autorisationWindow.Password == "123")
+                if (autorisationWindow.User != null)
                 {
-                    LoginFrame.Content = new LoginLogo();
-                    MessageBox.Show("Authorization successful!");
+                    LoginFrame.Content = new LoginLogo(autorisationWindow.User);
                 }
-                else MessageBox.Show("Wrong login or password!");
             }
             else
             {

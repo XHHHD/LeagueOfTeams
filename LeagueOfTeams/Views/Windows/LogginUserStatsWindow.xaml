@@ -20,7 +20,7 @@
                 <ColumnDefinition Width="0.3*"/>
             </Grid.ColumnDefinitions>
             <StackPanel>
-                <TextBlock x:Name="UserName" Margin="10" FontFamily="Castellar" FontSize="48" FontWeight="Bold" Text="Adm" />
+                <Label x:Name="UserName" Margin="10" FontFamily="Castellar" FontSize="48" FontWeight="Bold" Content="Adm" />
                 <ListBox x:Name="UserStatsList" Margin="10" FontFamily="Castellar" FontSize="18" FontWeight="Bold" MinHeight="50"/>
             </StackPanel>
             <Image x:Name="UserRankImg" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top"

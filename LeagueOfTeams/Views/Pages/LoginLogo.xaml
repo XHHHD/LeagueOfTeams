@@ -23,7 +23,7 @@
             </Button.Background>
             <Image x:Name="UserLogo" Height="200" Width="200" Margin="5" Source="/Resources/Default/icons8-ос-free-bsd-100-white.png" />
         </Button>
-        <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Castellar" FontSize="50"
-                   FontWeight="Bold" Text="Admin"/>
+        <Label x:Name="UserName" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Castellar" FontSize="50"
+                   FontWeight="Bold" Content="Admin"/>
     </Grid>
 </Page>

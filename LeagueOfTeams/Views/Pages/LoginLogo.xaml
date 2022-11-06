@@ -1,4 +1,4 @@
-﻿<Page x:Class="LeagueOfTeamsUI.Pages.LoginPage"
+﻿<Page x:Class="LeagueOfTeamsUI.Pages.LoginLogo"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:LeagueOfTeamsUI.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="400" d:DesignWidth="300"
-      Title="LoginPage">
+      Title="LoginLogo">
 
     <Grid>
         <Grid.RowDefinitions>

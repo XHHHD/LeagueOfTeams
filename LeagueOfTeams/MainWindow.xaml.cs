@@ -53,7 +53,7 @@ namespace LOT.BLL
             {
                 if (autorisationWindow.Password == "123")
                 {
-                    LoginFrame.Content = new LoginPage();
+                    LoginFrame.Content = new LoginLogo();
                     MessageBox.Show("Authorization successful!");
                 }
                 else MessageBox.Show("Wrong login or password!");

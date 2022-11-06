@@ -4,9 +4,9 @@ using System.Windows.Controls;
 
 namespace LeagueOfTeamsUI.Pages
 {
-    public partial class LoginPage : Page
+    public partial class LoginLogo : Page
     {
-        public LoginPage()
+        public LoginLogo()
         {
             InitializeComponent();
         }
